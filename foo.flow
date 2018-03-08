@@ -1,0 +1,142 @@
+
+    {
+      "nodes": {
+        "0": {
+          "name": "A",
+          "bounds": "56 385 400 140",
+          "ins": {
+            "1": {
+              "name": "buffer 1",
+              "type": "boolean"
+            },
+            "2": {
+              "name": "buffer 2",
+              "type": "number",
+              "value": 112
+            },
+            "3": {
+              "name": "buffer 3",
+              "type": "number",
+              "value": 12
+            },
+            "4": {
+              "name": "buffer 4"
+            }
+          },
+          "outs": {
+            "1": {
+              "name": "buffer 1",
+              "type": "number",
+              "value": 12
+            },
+            "2": {
+              "name": "buffer 2",
+              "type": "boolean"
+            }
+          }
+        },
+        "2": {
+          "name": "B",
+          "bounds": "246 91 230 40",
+          "ins": {
+            "3": {}
+          },
+          "outs": {
+            "6": {}
+          }
+        },
+        "4": {
+          "name": "C",
+          "bounds": "632 129 32 40",
+          "ins": {
+            "5": {}
+          },
+          "outs": {}
+        },
+        "5": {
+          "name": "C",
+          "bounds": "346 184 32 40",
+          "ins": {
+            "5": {}
+          },
+          "outs": {}
+        },
+        "22": {
+          "name": "A",
+          "bounds": "127 561 128 128",
+          "ins": {},
+          "outs": {
+            "1": {
+              "name": "buffer 1"
+            },
+            "2": {
+              "name": "buffer 2"
+            }
+          }
+        },
+        "223": {
+          "name": "A",
+          "bounds": "91 728 128 128",
+          "ins": {},
+          "outs": {
+            "1": {
+              "name": "buffer 1"
+            },
+            "2": {
+              "name": "buffer 2"
+            }
+          }
+        },
+        "add": {
+          "name": "Add",
+          "bounds": "416 708 80 80",
+          "ins": {
+            "a": {
+              "name": "a"
+            },
+            "b": {
+              "name": "b"
+            }
+          },
+          "outs": {
+            "out": {
+              "name": "+"
+            }
+          }
+        }
+      },
+      "edges": {
+        "0": {
+          "from": "2:6",
+          "to": "4:5"
+        },
+        "1": {
+          "from": "0:1",
+          "to": "2:3"
+        },
+        "2": {
+          "from": "0:2",
+          "to": "5:5"
+        },
+        "3": {
+          "from": "22:1",
+          "to": "5:5"
+        },
+        "4": {
+          "from": "22:2",
+          "to": "4:5"
+        },
+        "5": {
+          "from": "22:1",
+          "to": "add:a"
+        },
+        "6": {
+          "from": "22:2",
+          "to": "add:b"
+        },
+        "7": {
+          "from": "add:out",
+          "to": "4:5"
+        }
+      }
+    }
