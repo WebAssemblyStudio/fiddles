@@ -1,0 +1,21 @@
+{
+  "nodes": {
+    "0": {
+      "name": "Signal Generator",
+      "bounds": "91 73 200 100",
+      "outs": {
+        "1": {
+          "name": "FRQ",
+          "type": "number",
+          "value": 12
+        },
+        "2": {
+          "name": "AMP",
+          "type": "number",
+          "value": 12
+        }
+      }
+    }
+  },
+  "edges": {}
+}
