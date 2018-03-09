@@ -1,0 +1,50 @@
+{
+  "nodes": {
+    "0": {
+      "name": "Signal Generator",
+      "bounds": "57 299 200 100",
+      "ins": {},
+      "outs": {
+        "1": {
+          "name": "FRQ",
+          "type": "number",
+          "value": 12
+        },
+        "2": {
+          "name": "AMP",
+          "type": "number",
+          "value": 12
+        }
+      }
+    },
+    "1": {
+      "name": "ADD",
+      "bounds": "358 356 200 100",
+      "ins": {
+        "1": {
+          "name": "A",
+          "type": "number",
+          "value": 12
+        },
+        "2": {
+          "name": "B",
+          "type": "number",
+          "value": 12
+        }
+      },
+      "outs": {
+        "3": {
+          "name": "B",
+          "type": "number",
+          "value": 12
+        }
+      }
+    }
+  },
+  "edges": {
+    "1": {
+      "from": "0:2",
+      "to": "1:1"
+    }
+  }
+}
