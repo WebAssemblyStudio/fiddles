@@ -1,0 +1,71 @@
+digraph call {
+  rankdir = LR;
+  subgraph cluster_key {
+    node [shape=box, fontname=courier, fontsize=10];
+    edge [fontname=courier, fontsize=10];
+    label = "Key";
+    "Import" [style="filled", fillcolor="turquoise"];
+    "Export" [style="filled", fillcolor="gray"];
+    "Indirect Target" [style="filled, rounded", fillcolor="white"];
+    "A" -> "B" [style="filled, rounded", label = "Direct Call"];
+  }
+
+  node [shape=box, fontname=courier, fontsize=10];
+  "$0" [style="filled", fillcolor="white"];
+  "$1" [style="filled", fillcolor="white"];
+  "$2" [style="filled", fillcolor="white"];
+  "$3" [style="filled", fillcolor="white"];
+  "$4" [style="filled", fillcolor="white"];
+  "$5" [style="filled", fillcolor="white"];
+  "$6" [style="filled", fillcolor="white"];
+  "$7" [style="filled", fillcolor="white"];
+  "$8" [style="filled", fillcolor="white"];
+  "$9" [style="filled", fillcolor="white"];
+  "$10" [style="filled", fillcolor="white"];
+  "$11" [style="filled", fillcolor="white"];
+  "$12" [style="filled", fillcolor="white"];
+  "$13" [style="filled", fillcolor="white"];
+  "$14" [style="filled", fillcolor="white"];
+  "$15" [style="filled", fillcolor="white"];
+  "$16" [style="filled", fillcolor="white"];
+  "$import$0" [style="filled", fillcolor="turquoise"];
+  "$import$1" [style="filled", fillcolor="turquoise"];
+  "$import$2" [style="filled", fillcolor="turquoise"];
+  "$import$3" [style="filled", fillcolor="turquoise"];
+  "$import$4" [style="filled", fillcolor="turquoise"];
+  "$import$5" [style="filled", fillcolor="turquoise"];
+  "$0" [style="filled", fillcolor="gray"];
+  "$1" [style="filled", fillcolor="gray"];
+  "$2" [style="filled", fillcolor="gray"];
+  "$1" -> "$9"; // call
+  "$2" -> "$import$0"; // callImport
+  "$4" -> "$16"; // call
+  "$5" -> "$import$1"; // callImport
+  "$5" -> "$3"; // call
+  "$5" -> "$import$2"; // callImport
+  "$7" -> "$4"; // call
+  "$7" -> "$6"; // call
+  "$7" -> "$14"; // call
+  "$7" -> "$5"; // call
+  "$8" -> "$6"; // call
+  "$9" -> "$4"; // call
+  "$9" -> "$15"; // call
+  "$9" -> "$7"; // call
+  "$9" -> "$8"; // call
+  "$9" -> "$5"; // call
+  "$10" -> "$import$3"; // callImport
+  "$10" -> "$3"; // call
+  "$11" -> "$import$2"; // callImport
+  "$11" -> "$3"; // call
+  "$12" -> "$import$2"; // callImport
+  "$12" -> "$11"; // call
+  "$13" -> "$import$4"; // callImport
+  "$13" -> "$3"; // call
+  "$16" -> "$import$1"; // callImport
+  "$16" -> "$3"; // call
+  "$16" -> "$import$5"; // callImport
+  "$11" [style="filled, rounded"];
+  "$10" [style="filled, rounded"];
+  "$12" [style="filled, rounded"];
+  "$13" [style="filled, rounded"];
+}
