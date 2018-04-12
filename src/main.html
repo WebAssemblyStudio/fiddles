@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Untitled</title>
+  <style>
+    body {
+      background-color: rgb(255, 255, 255);
+    }
+  </style>
+  <script src="./wap.js"></script>
+  <script>window.app = Wap.wap("../out/main.wasm");</script>
+</head>
+<body> 
+  <script>
+    // todo better error
+    if (!window.app) {
+      document.writeln("Script error. Check console for detail.");
+    } else {
+      delete window.app;
+    }
+  </script>
+  <noscript>
+    Javascript required
+  </noscript>
+</body>
+</html>
