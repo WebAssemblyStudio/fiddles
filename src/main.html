@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+        <style>
+            body {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background: white;
+            }
+            .controls button, .controls input, .controls div {
+              display: inline-block;
+            }
+            .controls button {
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='controls'>
+          <button id="tick">tick</button>
+          <button id="clear">clear</button>
+          <button id="play-pause"></button>
+          <button id="random">random</button>
+          <input id='speed' type='range' value='16'/>
+          <div>
+            <span id='tps'>0</span> tps
+          </div>
+          &middot;
+          <div>
+            <span id='fps'>0</span> fps
+          </div>
+        </div>
+        <canvas id="game-of-life-canvas"></canvas>
+        <script src="../out/main.js"></script>
+        <script src="./main.js"></script>
+    </body>
+</html>
