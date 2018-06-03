@@ -1,0 +1,11 @@
+[package]
+name = "arc_project"
+version = "0.1.0"
+authors = ["You! <you@example.com>"]
+
+[dependencies]
+# Dependencies are currently deactivated
+# well that's terrible
+
+[lib]
+crate-type = ["cdylib"]
