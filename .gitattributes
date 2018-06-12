@@ -1,0 +1,10 @@
+Ideal_Size/calculator.wat.wasm binary
+Enable_LTO/algebra_matrix2x2.wasm binary
+Enable_LTO/arithmatic.wasm binary
+Enable_LTO/empty.wasm binary
+Enable_LTO/algebra_matrix2x2.gc.wasm binary
+Enable_LTO/arithmatic.gc.wasm binary
+Enable_LTO/empty.gc.wasm binary
+Binaryen/algebra.wasm binary
+Binaryen/arithmatic.wasm binary
+Binaryen/empty.wasm binary
