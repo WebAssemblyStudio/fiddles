@@ -1,0 +1,93 @@
+digraph call {
+  rankdir = LR;
+  subgraph cluster_key {
+    node [shape=box, fontname=courier, fontsize=10];
+    edge [fontname=courier, fontsize=10];
+    label = "Key";
+    "Import" [style="filled", fillcolor="turquoise"];
+    "Export" [style="filled", fillcolor="gray"];
+    "Indirect Target" [style="filled, rounded", fillcolor="white"];
+    "A" -> "B" [style="filled, rounded", label = "Direct Call"];
+  }
+
+  node [shape=box, fontname=courier, fontsize=10];
+  "$_ZN49_$LT$alloc..raw_vec..RawVec$LT$T$C$$u20$A$GT$$GT$11allocate_in28_$u7b$$u7b$closure$u7d$$u7d$17h0b1e9c319cf9a38aE" [style="filled", fillcolor="white"];
+  "$_ZN5alloc7raw_vec17capacity_overflow17h034ca36241ac64a2E" [style="filled", fillcolor="white"];
+  "$_ZN49_$LT$alloc..raw_vec..RawVec$LT$T$C$$u20$A$GT$$GT$16reserve_internal17hda88ecc4dab37321E" [style="filled", fillcolor="white"];
+  "$__rust_realloc" [style="filled", fillcolor="white"];
+  "$_ZN8dlmalloc8dlmalloc8Dlmalloc6malloc17hce1b00d5aca5677cE" [style="filled", fillcolor="white"];
+  "$rust_oom" [style="filled", fillcolor="white"];
+  "$_ZN3std9panicking20rust_panic_with_hook17h9b1c029d1ceaded2E" [style="filled", fillcolor="white"];
+  "$rust_begin_unwind" [style="filled", fillcolor="white"];
+  "$_ZN3std9panicking15begin_panic_fmt17h29d4906ca23d78a0E" [style="filled", fillcolor="white"];
+  "$rust_eh_personality" [style="filled", fillcolor="white"];
+  "$_ZN8dlmalloc8dlmalloc8Dlmalloc13dispose_chunk17hb606175ffa022755E" [style="filled", fillcolor="white"];
+  "$_ZN8dlmalloc8dlmalloc8Dlmalloc4free17h4c32f8306a59a4b8E" [style="filled", fillcolor="white"];
+  "$_ZN8dlmalloc8dlmalloc8Dlmalloc8memalign17h35a38b3134a61c27E" [style="filled", fillcolor="white"];
+  "$_ZN4core9panicking5panic17haf7d7779169c0743E" [style="filled", fillcolor="white"];
+  "$_ZN4core9panicking9panic_fmt17h29e5105b4d53bc05E" [style="filled", fillcolor="white"];
+  "$add" [style="filled", fillcolor="white"];
+  "$_ZN8nalgebra6linalg11determinant84_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$N$C$$u20$D$C$$u20$D$C$$u20$S$GT$$GT$11determinant17h87358dffc20cc251E" [style="filled", fillcolor="white"];
+  "$substract" [style="filled", fillcolor="white"];
+  "$multiply" [style="filled", fillcolor="white"];
+  "$dot" [style="filled", fillcolor="white"];
+  "$tensor" [style="filled", fillcolor="white"];
+  "$memcpy" [style="filled", fillcolor="white"];
+  "$memmove" [style="filled", fillcolor="white"];
+  "$memset" [style="filled", fillcolor="white"];
+  "$memcmp" [style="filled", fillcolor="white"];
+  "$rust_eh_personality" [style="filled", fillcolor="gray"];
+  "$add" [style="filled", fillcolor="gray"];
+  "$substract" [style="filled", fillcolor="gray"];
+  "$multiply" [style="filled", fillcolor="gray"];
+  "$dot" [style="filled", fillcolor="gray"];
+  "$tensor" [style="filled", fillcolor="gray"];
+  "$_ZN49_$LT$alloc..raw_vec..RawVec$LT$T$C$$u20$A$GT$$GT$11allocate_in28_$u7b$$u7b$closure$u7d$$u7d$17h0b1e9c319cf9a38aE" -> "$_ZN5alloc7raw_vec17capacity_overflow17h034ca36241ac64a2E"; // call
+  "$_ZN5alloc7raw_vec17capacity_overflow17h034ca36241ac64a2E" -> "$_ZN4core9panicking5panic17haf7d7779169c0743E"; // call
+  "$_ZN49_$LT$alloc..raw_vec..RawVec$LT$T$C$$u20$A$GT$$GT$16reserve_internal17hda88ecc4dab37321E" -> "$__rust_realloc"; // call
+  "$_ZN49_$LT$alloc..raw_vec..RawVec$LT$T$C$$u20$A$GT$$GT$16reserve_internal17hda88ecc4dab37321E" -> "$_ZN8dlmalloc8dlmalloc8Dlmalloc6malloc17hce1b00d5aca5677cE"; // call
+  "$_ZN49_$LT$alloc..raw_vec..RawVec$LT$T$C$$u20$A$GT$$GT$16reserve_internal17hda88ecc4dab37321E" -> "$rust_oom"; // call
+  "$__rust_realloc" -> "$_ZN8dlmalloc8dlmalloc8Dlmalloc8memalign17h35a38b3134a61c27E"; // call
+  "$__rust_realloc" -> "$memcpy"; // call
+  "$__rust_realloc" -> "$_ZN8dlmalloc8dlmalloc8Dlmalloc4free17h4c32f8306a59a4b8E"; // call
+  "$__rust_realloc" -> "$_ZN8dlmalloc8dlmalloc8Dlmalloc13dispose_chunk17hb606175ffa022755E"; // call
+  "$__rust_realloc" -> "$_ZN8dlmalloc8dlmalloc8Dlmalloc6malloc17hce1b00d5aca5677cE"; // call
+  "$rust_begin_unwind" -> "$_ZN3std9panicking15begin_panic_fmt17h29d4906ca23d78a0E"; // call
+  "$_ZN3std9panicking15begin_panic_fmt17h29d4906ca23d78a0E" -> "$_ZN3std9panicking20rust_panic_with_hook17h9b1c029d1ceaded2E"; // call
+  "$_ZN8dlmalloc8dlmalloc8Dlmalloc8memalign17h35a38b3134a61c27E" -> "$_ZN8dlmalloc8dlmalloc8Dlmalloc6malloc17hce1b00d5aca5677cE"; // call
+  "$_ZN8dlmalloc8dlmalloc8Dlmalloc8memalign17h35a38b3134a61c27E" -> "$_ZN8dlmalloc8dlmalloc8Dlmalloc13dispose_chunk17hb606175ffa022755E"; // call
+  "$_ZN4core9panicking5panic17haf7d7779169c0743E" -> "$_ZN4core9panicking9panic_fmt17h29e5105b4d53bc05E"; // call
+  "$_ZN4core9panicking9panic_fmt17h29e5105b4d53bc05E" -> "$rust_begin_unwind"; // call
+  "$add" -> "$_ZN49_$LT$alloc..raw_vec..RawVec$LT$T$C$$u20$A$GT$$GT$16reserve_internal17hda88ecc4dab37321E"; // call
+  "$add" -> "$_ZN8dlmalloc8dlmalloc8Dlmalloc4free17h4c32f8306a59a4b8E"; // call
+  "$add" -> "$_ZN8nalgebra6linalg11determinant84_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$N$C$$u20$D$C$$u20$D$C$$u20$S$GT$$GT$11determinant17h87358dffc20cc251E"; // call
+  "$add" -> "$_ZN4core9panicking5panic17haf7d7779169c0743E"; // call
+  "$add" -> "$_ZN5alloc7raw_vec17capacity_overflow17h034ca36241ac64a2E"; // call
+  "$_ZN8nalgebra6linalg11determinant84_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$N$C$$u20$D$C$$u20$D$C$$u20$S$GT$$GT$11determinant17h87358dffc20cc251E" -> "$_ZN8dlmalloc8dlmalloc8Dlmalloc6malloc17hce1b00d5aca5677cE"; // call
+  "$_ZN8nalgebra6linalg11determinant84_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$N$C$$u20$D$C$$u20$D$C$$u20$S$GT$$GT$11determinant17h87358dffc20cc251E" -> "$rust_oom"; // call
+  "$_ZN8nalgebra6linalg11determinant84_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$N$C$$u20$D$C$$u20$D$C$$u20$S$GT$$GT$11determinant17h87358dffc20cc251E" -> "$_ZN49_$LT$alloc..raw_vec..RawVec$LT$T$C$$u20$A$GT$$GT$16reserve_internal17hda88ecc4dab37321E"; // call
+  "$_ZN8nalgebra6linalg11determinant84_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$N$C$$u20$D$C$$u20$D$C$$u20$S$GT$$GT$11determinant17h87358dffc20cc251E" -> "$memcpy"; // call
+  "$_ZN8nalgebra6linalg11determinant84_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$N$C$$u20$D$C$$u20$D$C$$u20$S$GT$$GT$11determinant17h87358dffc20cc251E" -> "$_ZN8dlmalloc8dlmalloc8Dlmalloc4free17h4c32f8306a59a4b8E"; // call
+  "$_ZN8nalgebra6linalg11determinant84_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$N$C$$u20$D$C$$u20$D$C$$u20$S$GT$$GT$11determinant17h87358dffc20cc251E" -> "$_ZN4core9panicking5panic17haf7d7779169c0743E"; // call
+  "$_ZN8nalgebra6linalg11determinant84_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$N$C$$u20$D$C$$u20$D$C$$u20$S$GT$$GT$11determinant17h87358dffc20cc251E" -> "$_ZN49_$LT$alloc..raw_vec..RawVec$LT$T$C$$u20$A$GT$$GT$11allocate_in28_$u7b$$u7b$closure$u7d$$u7d$17h0b1e9c319cf9a38aE"; // call
+  "$_ZN8nalgebra6linalg11determinant84_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$N$C$$u20$D$C$$u20$D$C$$u20$S$GT$$GT$11determinant17h87358dffc20cc251E" -> "$_ZN5alloc7raw_vec17capacity_overflow17h034ca36241ac64a2E"; // call
+  "$substract" -> "$_ZN49_$LT$alloc..raw_vec..RawVec$LT$T$C$$u20$A$GT$$GT$16reserve_internal17hda88ecc4dab37321E"; // call
+  "$substract" -> "$_ZN8dlmalloc8dlmalloc8Dlmalloc4free17h4c32f8306a59a4b8E"; // call
+  "$substract" -> "$_ZN8nalgebra6linalg11determinant84_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$N$C$$u20$D$C$$u20$D$C$$u20$S$GT$$GT$11determinant17h87358dffc20cc251E"; // call
+  "$substract" -> "$_ZN4core9panicking5panic17haf7d7779169c0743E"; // call
+  "$substract" -> "$_ZN5alloc7raw_vec17capacity_overflow17h034ca36241ac64a2E"; // call
+  "$multiply" -> "$_ZN49_$LT$alloc..raw_vec..RawVec$LT$T$C$$u20$A$GT$$GT$16reserve_internal17hda88ecc4dab37321E"; // call
+  "$multiply" -> "$_ZN8dlmalloc8dlmalloc8Dlmalloc4free17h4c32f8306a59a4b8E"; // call
+  "$multiply" -> "$_ZN8nalgebra6linalg11determinant84_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$N$C$$u20$D$C$$u20$D$C$$u20$S$GT$$GT$11determinant17h87358dffc20cc251E"; // call
+  "$multiply" -> "$_ZN4core9panicking5panic17haf7d7779169c0743E"; // call
+  "$multiply" -> "$_ZN5alloc7raw_vec17capacity_overflow17h034ca36241ac64a2E"; // call
+  "$dot" -> "$_ZN49_$LT$alloc..raw_vec..RawVec$LT$T$C$$u20$A$GT$$GT$16reserve_internal17hda88ecc4dab37321E"; // call
+  "$dot" -> "$_ZN8dlmalloc8dlmalloc8Dlmalloc4free17h4c32f8306a59a4b8E"; // call
+  "$dot" -> "$_ZN4core9panicking5panic17haf7d7779169c0743E"; // call
+  "$dot" -> "$_ZN5alloc7raw_vec17capacity_overflow17h034ca36241ac64a2E"; // call
+  "$tensor" -> "$_ZN49_$LT$alloc..raw_vec..RawVec$LT$T$C$$u20$A$GT$$GT$16reserve_internal17hda88ecc4dab37321E"; // call
+  "$tensor" -> "$_ZN8nalgebra6linalg11determinant84_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$N$C$$u20$D$C$$u20$D$C$$u20$S$GT$$GT$11determinant17h87358dffc20cc251E"; // call
+  "$tensor" -> "$_ZN8dlmalloc8dlmalloc8Dlmalloc4free17h4c32f8306a59a4b8E"; // call
+  "$tensor" -> "$_ZN4core9panicking5panic17haf7d7779169c0743E"; // call
+  "$tensor" -> "$_ZN5alloc7raw_vec17capacity_overflow17h034ca36241ac64a2E"; // call
+}

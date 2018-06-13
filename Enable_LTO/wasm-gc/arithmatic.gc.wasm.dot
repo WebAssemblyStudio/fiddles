@@ -1,0 +1,37 @@
+digraph call {
+  rankdir = LR;
+  subgraph cluster_key {
+    node [shape=box, fontname=courier, fontsize=10];
+    edge [fontname=courier, fontsize=10];
+    label = "Key";
+    "Import" [style="filled", fillcolor="turquoise"];
+    "Export" [style="filled", fillcolor="gray"];
+    "Indirect Target" [style="filled, rounded", fillcolor="white"];
+    "A" -> "B" [style="filled, rounded", label = "Direct Call"];
+  }
+
+  node [shape=box, fontname=courier, fontsize=10];
+  "$add" [style="filled", fillcolor="white"];
+  "$substract" [style="filled", fillcolor="white"];
+  "$multiply" [style="filled", fillcolor="white"];
+  "$divide" [style="filled", fillcolor="white"];
+  "$core::panicking::panic::haf7d7779169c0743" [style="filled", fillcolor="white"];
+  "$power" [style="filled", fillcolor="white"];
+  "$remainder" [style="filled", fillcolor="white"];
+  "$std::panicking::rust_panic_with_hook::h9b1c029d1ceaded2" [style="filled", fillcolor="white"];
+  "$rust_begin_unwind" [style="filled", fillcolor="white"];
+  "$std::panicking::begin_panic_fmt::h29d4906ca23d78a0" [style="filled", fillcolor="white"];
+  "$core::panicking::panic_fmt::h29e5105b4d53bc05" [style="filled", fillcolor="white"];
+  "$add" [style="filled", fillcolor="gray"];
+  "$substract" [style="filled", fillcolor="gray"];
+  "$multiply" [style="filled", fillcolor="gray"];
+  "$divide" [style="filled", fillcolor="gray"];
+  "$power" [style="filled", fillcolor="gray"];
+  "$remainder" [style="filled", fillcolor="gray"];
+  "$divide" -> "$core::panicking::panic::haf7d7779169c0743"; // call
+  "$core::panicking::panic::haf7d7779169c0743" -> "$core::panicking::panic_fmt::h29e5105b4d53bc05"; // call
+  "$remainder" -> "$core::panicking::panic::haf7d7779169c0743"; // call
+  "$rust_begin_unwind" -> "$std::panicking::begin_panic_fmt::h29d4906ca23d78a0"; // call
+  "$std::panicking::begin_panic_fmt::h29d4906ca23d78a0" -> "$std::panicking::rust_panic_with_hook::h9b1c029d1ceaded2"; // call
+  "$core::panicking::panic_fmt::h29e5105b4d53bc05" -> "$rust_begin_unwind"; // call
+}

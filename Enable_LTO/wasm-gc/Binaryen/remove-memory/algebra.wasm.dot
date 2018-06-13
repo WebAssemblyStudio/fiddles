@@ -1,0 +1,80 @@
+digraph call {
+  rankdir = LR;
+  subgraph cluster_key {
+    node [shape=box, fontname=courier, fontsize=10];
+    edge [fontname=courier, fontsize=10];
+    label = "Key";
+    "Import" [style="filled", fillcolor="turquoise"];
+    "Export" [style="filled", fillcolor="gray"];
+    "Indirect Target" [style="filled, rounded", fillcolor="white"];
+    "A" -> "B" [style="filled, rounded", label = "Direct Call"];
+  }
+
+  node [shape=box, fontname=courier, fontsize=10];
+  "$0" [style="filled", fillcolor="white"];
+  "$1" [style="filled", fillcolor="white"];
+  "$2" [style="filled", fillcolor="white"];
+  "$3" [style="filled", fillcolor="white"];
+  "$4" [style="filled", fillcolor="white"];
+  "$5" [style="filled", fillcolor="white"];
+  "$6" [style="filled", fillcolor="white"];
+  "$7" [style="filled", fillcolor="white"];
+  "$8" [style="filled", fillcolor="white"];
+  "$9" [style="filled", fillcolor="white"];
+  "$10" [style="filled", fillcolor="white"];
+  "$11" [style="filled", fillcolor="white"];
+  "$12" [style="filled", fillcolor="white"];
+  "$13" [style="filled", fillcolor="white"];
+  "$14" [style="filled", fillcolor="white"];
+  "$15" [style="filled", fillcolor="white"];
+  "$16" [style="filled", fillcolor="white"];
+  "$17" [style="filled", fillcolor="white"];
+  "$11" [style="filled", fillcolor="gray"];
+  "$13" [style="filled", fillcolor="gray"];
+  "$14" [style="filled", fillcolor="gray"];
+  "$15" [style="filled", fillcolor="gray"];
+  "$16" [style="filled", fillcolor="gray"];
+  "$0" -> "$9"; // call
+  "$1" -> "$2"; // call
+  "$1" -> "$3"; // call
+  "$2" -> "$8"; // call
+  "$2" -> "$17"; // call
+  "$2" -> "$7"; // call
+  "$2" -> "$6"; // call
+  "$2" -> "$3"; // call
+  "$5" -> "$4"; // call
+  "$8" -> "$3"; // call
+  "$8" -> "$6"; // call
+  "$9" -> "$10"; // call
+  "$10" -> "$5"; // call
+  "$11" -> "$1"; // call
+  "$11" -> "$7"; // call
+  "$11" -> "$12"; // call
+  "$11" -> "$9"; // call
+  "$11" -> "$0"; // call
+  "$12" -> "$3"; // call
+  "$12" -> "$1"; // call
+  "$12" -> "$17"; // call
+  "$12" -> "$7"; // call
+  "$12" -> "$9"; // call
+  "$12" -> "$0"; // call
+  "$13" -> "$1"; // call
+  "$13" -> "$7"; // call
+  "$13" -> "$12"; // call
+  "$13" -> "$9"; // call
+  "$13" -> "$0"; // call
+  "$14" -> "$1"; // call
+  "$14" -> "$7"; // call
+  "$14" -> "$12"; // call
+  "$14" -> "$9"; // call
+  "$14" -> "$0"; // call
+  "$15" -> "$1"; // call
+  "$15" -> "$7"; // call
+  "$15" -> "$9"; // call
+  "$15" -> "$0"; // call
+  "$16" -> "$1"; // call
+  "$16" -> "$12"; // call
+  "$16" -> "$7"; // call
+  "$16" -> "$9"; // call
+  "$16" -> "$0"; // call
+}

@@ -1,0 +1,16 @@
+Enable_LTO/algebra_matrix2x2.wasm binary
+Enable_LTO/arithmatic.wasm binary
+Enable_LTO/empty.wasm binary
+Enable_LTO/wasm-gc/algebra_matrix2x2.gc.wasm binary
+Enable_LTO/wasm-gc/arithmatic.gc.wasm binary
+Enable_LTO/wasm-gc/empty.gc.wasm binary
+Enable_LTO/wasm-gc/Binaryen/algebra.wasm binary
+Enable_LTO/wasm-gc/Binaryen/arithmatic.wasm binary
+Enable_LTO/wasm-gc/Binaryen/empty.wasm binary
+Enable_LTO/wasm-gc/Binaryen/remove-memory/algebra.wasm binary
+Enable_LTO/wasm-gc/Binaryen/remove-memory/arithmatic.wasm binary
+Enable_LTO/wasm-gc/Binaryen/remove-memory/empty.wasm binary
+Enable_LTO/wasm-gc/Binaryen/remove-memory/post-emscripten/empty.wasm binary
+Enable_LTO/wasm-gc/Binaryen/remove-memory/post-emscripten/arithmatic.wasm binary
+Enable_LTO/wasm-gc/Binaryen/remove-memory/post-emscripten/algebra.wasm binary
+Ideal_Size/calculator.wat.wasm binary

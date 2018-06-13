@@ -1,0 +1,88 @@
+digraph call {
+  rankdir = LR;
+  subgraph cluster_key {
+    node [shape=box, fontname=courier, fontsize=10];
+    edge [fontname=courier, fontsize=10];
+    label = "Key";
+    "Import" [style="filled", fillcolor="turquoise"];
+    "Export" [style="filled", fillcolor="gray"];
+    "Indirect Target" [style="filled, rounded", fillcolor="white"];
+    "A" -> "B" [style="filled, rounded", label = "Direct Call"];
+  }
+
+  node [shape=box, fontname=courier, fontsize=10];
+  "$<alloc::raw_vec::RawVec<T, A>>::allocate_in::{{closure}}::h0b1e9c319cf9a38a" [style="filled", fillcolor="white"];
+  "$alloc::raw_vec::capacity_overflow::h034ca36241ac64a2" [style="filled", fillcolor="white"];
+  "$<alloc::raw_vec::RawVec<T, A>>::reserve_internal::hda88ecc4dab37321" [style="filled", fillcolor="white"];
+  "$__rust_realloc" [style="filled", fillcolor="white"];
+  "$dlmalloc::dlmalloc::Dlmalloc::malloc::hce1b00d5aca5677c" [style="filled", fillcolor="white"];
+  "$rust_oom" [style="filled", fillcolor="white"];
+  "$std::panicking::rust_panic_with_hook::h9b1c029d1ceaded2" [style="filled", fillcolor="white"];
+  "$rust_begin_unwind" [style="filled", fillcolor="white"];
+  "$std::panicking::begin_panic_fmt::h29d4906ca23d78a0" [style="filled", fillcolor="white"];
+  "$dlmalloc::dlmalloc::Dlmalloc::dispose_chunk::hb606175ffa022755" [style="filled", fillcolor="white"];
+  "$dlmalloc::dlmalloc::Dlmalloc::free::h4c32f8306a59a4b8" [style="filled", fillcolor="white"];
+  "$dlmalloc::dlmalloc::Dlmalloc::memalign::h35a38b3134a61c27" [style="filled", fillcolor="white"];
+  "$core::panicking::panic::haf7d7779169c0743" [style="filled", fillcolor="white"];
+  "$core::panicking::panic_fmt::h29e5105b4d53bc05" [style="filled", fillcolor="white"];
+  "$add" [style="filled", fillcolor="white"];
+  "$nalgebra::linalg::determinant::<impl nalgebra::base::matrix::Matrix<N, D, D, S>>::determinant::h87358dffc20cc251" [style="filled", fillcolor="white"];
+  "$substract" [style="filled", fillcolor="white"];
+  "$multiply" [style="filled", fillcolor="white"];
+  "$dot" [style="filled", fillcolor="white"];
+  "$tensor" [style="filled", fillcolor="white"];
+  "$memcpy" [style="filled", fillcolor="white"];
+  "$add" [style="filled", fillcolor="gray"];
+  "$substract" [style="filled", fillcolor="gray"];
+  "$multiply" [style="filled", fillcolor="gray"];
+  "$dot" [style="filled", fillcolor="gray"];
+  "$tensor" [style="filled", fillcolor="gray"];
+  "$<alloc::raw_vec::RawVec<T, A>>::allocate_in::{{closure}}::h0b1e9c319cf9a38a" -> "$alloc::raw_vec::capacity_overflow::h034ca36241ac64a2"; // call
+  "$alloc::raw_vec::capacity_overflow::h034ca36241ac64a2" -> "$core::panicking::panic::haf7d7779169c0743"; // call
+  "$<alloc::raw_vec::RawVec<T, A>>::reserve_internal::hda88ecc4dab37321" -> "$__rust_realloc"; // call
+  "$<alloc::raw_vec::RawVec<T, A>>::reserve_internal::hda88ecc4dab37321" -> "$dlmalloc::dlmalloc::Dlmalloc::malloc::hce1b00d5aca5677c"; // call
+  "$<alloc::raw_vec::RawVec<T, A>>::reserve_internal::hda88ecc4dab37321" -> "$rust_oom"; // call
+  "$__rust_realloc" -> "$dlmalloc::dlmalloc::Dlmalloc::memalign::h35a38b3134a61c27"; // call
+  "$__rust_realloc" -> "$memcpy"; // call
+  "$__rust_realloc" -> "$dlmalloc::dlmalloc::Dlmalloc::free::h4c32f8306a59a4b8"; // call
+  "$__rust_realloc" -> "$dlmalloc::dlmalloc::Dlmalloc::dispose_chunk::hb606175ffa022755"; // call
+  "$__rust_realloc" -> "$dlmalloc::dlmalloc::Dlmalloc::malloc::hce1b00d5aca5677c"; // call
+  "$rust_begin_unwind" -> "$std::panicking::begin_panic_fmt::h29d4906ca23d78a0"; // call
+  "$std::panicking::begin_panic_fmt::h29d4906ca23d78a0" -> "$std::panicking::rust_panic_with_hook::h9b1c029d1ceaded2"; // call
+  "$dlmalloc::dlmalloc::Dlmalloc::memalign::h35a38b3134a61c27" -> "$dlmalloc::dlmalloc::Dlmalloc::malloc::hce1b00d5aca5677c"; // call
+  "$dlmalloc::dlmalloc::Dlmalloc::memalign::h35a38b3134a61c27" -> "$dlmalloc::dlmalloc::Dlmalloc::dispose_chunk::hb606175ffa022755"; // call
+  "$core::panicking::panic::haf7d7779169c0743" -> "$core::panicking::panic_fmt::h29e5105b4d53bc05"; // call
+  "$core::panicking::panic_fmt::h29e5105b4d53bc05" -> "$rust_begin_unwind"; // call
+  "$add" -> "$<alloc::raw_vec::RawVec<T, A>>::reserve_internal::hda88ecc4dab37321"; // call
+  "$add" -> "$dlmalloc::dlmalloc::Dlmalloc::free::h4c32f8306a59a4b8"; // call
+  "$add" -> "$nalgebra::linalg::determinant::<impl nalgebra::base::matrix::Matrix<N, D, D, S>>::determinant::h87358dffc20cc251"; // call
+  "$add" -> "$core::panicking::panic::haf7d7779169c0743"; // call
+  "$add" -> "$alloc::raw_vec::capacity_overflow::h034ca36241ac64a2"; // call
+  "$nalgebra::linalg::determinant::<impl nalgebra::base::matrix::Matrix<N, D, D, S>>::determinant::h87358dffc20cc251" -> "$dlmalloc::dlmalloc::Dlmalloc::malloc::hce1b00d5aca5677c"; // call
+  "$nalgebra::linalg::determinant::<impl nalgebra::base::matrix::Matrix<N, D, D, S>>::determinant::h87358dffc20cc251" -> "$rust_oom"; // call
+  "$nalgebra::linalg::determinant::<impl nalgebra::base::matrix::Matrix<N, D, D, S>>::determinant::h87358dffc20cc251" -> "$<alloc::raw_vec::RawVec<T, A>>::reserve_internal::hda88ecc4dab37321"; // call
+  "$nalgebra::linalg::determinant::<impl nalgebra::base::matrix::Matrix<N, D, D, S>>::determinant::h87358dffc20cc251" -> "$memcpy"; // call
+  "$nalgebra::linalg::determinant::<impl nalgebra::base::matrix::Matrix<N, D, D, S>>::determinant::h87358dffc20cc251" -> "$dlmalloc::dlmalloc::Dlmalloc::free::h4c32f8306a59a4b8"; // call
+  "$nalgebra::linalg::determinant::<impl nalgebra::base::matrix::Matrix<N, D, D, S>>::determinant::h87358dffc20cc251" -> "$core::panicking::panic::haf7d7779169c0743"; // call
+  "$nalgebra::linalg::determinant::<impl nalgebra::base::matrix::Matrix<N, D, D, S>>::determinant::h87358dffc20cc251" -> "$<alloc::raw_vec::RawVec<T, A>>::allocate_in::{{closure}}::h0b1e9c319cf9a38a"; // call
+  "$nalgebra::linalg::determinant::<impl nalgebra::base::matrix::Matrix<N, D, D, S>>::determinant::h87358dffc20cc251" -> "$alloc::raw_vec::capacity_overflow::h034ca36241ac64a2"; // call
+  "$substract" -> "$<alloc::raw_vec::RawVec<T, A>>::reserve_internal::hda88ecc4dab37321"; // call
+  "$substract" -> "$dlmalloc::dlmalloc::Dlmalloc::free::h4c32f8306a59a4b8"; // call
+  "$substract" -> "$nalgebra::linalg::determinant::<impl nalgebra::base::matrix::Matrix<N, D, D, S>>::determinant::h87358dffc20cc251"; // call
+  "$substract" -> "$core::panicking::panic::haf7d7779169c0743"; // call
+  "$substract" -> "$alloc::raw_vec::capacity_overflow::h034ca36241ac64a2"; // call
+  "$multiply" -> "$<alloc::raw_vec::RawVec<T, A>>::reserve_internal::hda88ecc4dab37321"; // call
+  "$multiply" -> "$dlmalloc::dlmalloc::Dlmalloc::free::h4c32f8306a59a4b8"; // call
+  "$multiply" -> "$nalgebra::linalg::determinant::<impl nalgebra::base::matrix::Matrix<N, D, D, S>>::determinant::h87358dffc20cc251"; // call
+  "$multiply" -> "$core::panicking::panic::haf7d7779169c0743"; // call
+  "$multiply" -> "$alloc::raw_vec::capacity_overflow::h034ca36241ac64a2"; // call
+  "$dot" -> "$<alloc::raw_vec::RawVec<T, A>>::reserve_internal::hda88ecc4dab37321"; // call
+  "$dot" -> "$dlmalloc::dlmalloc::Dlmalloc::free::h4c32f8306a59a4b8"; // call
+  "$dot" -> "$core::panicking::panic::haf7d7779169c0743"; // call
+  "$dot" -> "$alloc::raw_vec::capacity_overflow::h034ca36241ac64a2"; // call
+  "$tensor" -> "$<alloc::raw_vec::RawVec<T, A>>::reserve_internal::hda88ecc4dab37321"; // call
+  "$tensor" -> "$nalgebra::linalg::determinant::<impl nalgebra::base::matrix::Matrix<N, D, D, S>>::determinant::h87358dffc20cc251"; // call
+  "$tensor" -> "$dlmalloc::dlmalloc::Dlmalloc::free::h4c32f8306a59a4b8"; // call
+  "$tensor" -> "$core::panicking::panic::haf7d7779169c0743"; // call
+  "$tensor" -> "$alloc::raw_vec::capacity_overflow::h034ca36241ac64a2"; // call
+}
