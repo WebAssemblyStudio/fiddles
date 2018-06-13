@@ -1,0 +1,39 @@
+digraph call {
+  rankdir = LR;
+  subgraph cluster_key {
+    node [shape=box, fontname=courier, fontsize=10];
+    edge [fontname=courier, fontsize=10];
+    label = "Key";
+    "Import" [style="filled", fillcolor="turquoise"];
+    "Export" [style="filled", fillcolor="gray"];
+    "Indirect Target" [style="filled, rounded", fillcolor="white"];
+    "A" -> "B" [style="filled, rounded", label = "Direct Call"];
+  }
+
+  node [shape=box, fontname=courier, fontsize=10];
+  "$add" [style="filled", fillcolor="white"];
+  "$substract" [style="filled", fillcolor="white"];
+  "$multiply" [style="filled", fillcolor="white"];
+  "$divide" [style="filled", fillcolor="white"];
+  "$_ZN4core9panicking5panic17haf7d7779169c0743E" [style="filled", fillcolor="white"];
+  "$power" [style="filled", fillcolor="white"];
+  "$remainder" [style="filled", fillcolor="white"];
+  "$_ZN3std9panicking20rust_panic_with_hook17h9b1c029d1ceaded2E" [style="filled", fillcolor="white"];
+  "$rust_begin_unwind" [style="filled", fillcolor="white"];
+  "$_ZN3std9panicking15begin_panic_fmt17h29d4906ca23d78a0E" [style="filled", fillcolor="white"];
+  "$rust_eh_personality" [style="filled", fillcolor="white"];
+  "$_ZN4core9panicking9panic_fmt17h29e5105b4d53bc05E" [style="filled", fillcolor="white"];
+  "$add" [style="filled", fillcolor="gray"];
+  "$substract" [style="filled", fillcolor="gray"];
+  "$multiply" [style="filled", fillcolor="gray"];
+  "$divide" [style="filled", fillcolor="gray"];
+  "$power" [style="filled", fillcolor="gray"];
+  "$remainder" [style="filled", fillcolor="gray"];
+  "$rust_eh_personality" [style="filled", fillcolor="gray"];
+  "$divide" -> "$_ZN4core9panicking5panic17haf7d7779169c0743E"; // call
+  "$_ZN4core9panicking5panic17haf7d7779169c0743E" -> "$_ZN4core9panicking9panic_fmt17h29e5105b4d53bc05E"; // call
+  "$remainder" -> "$_ZN4core9panicking5panic17haf7d7779169c0743E"; // call
+  "$rust_begin_unwind" -> "$_ZN3std9panicking15begin_panic_fmt17h29d4906ca23d78a0E"; // call
+  "$_ZN3std9panicking15begin_panic_fmt17h29d4906ca23d78a0E" -> "$_ZN3std9panicking20rust_panic_with_hook17h9b1c029d1ceaded2E"; // call
+  "$_ZN4core9panicking9panic_fmt17h29e5105b4d53bc05E" -> "$rust_begin_unwind"; // call
+}
