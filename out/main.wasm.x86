@@ -1,0 +1,47 @@
+wasm-function[1]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  mov eax, 0x51eb851f                   ; 0x000004 b8 1f 85 eb 51
+  imul edi                              ; 0x000009 f7 ef
+  sar edx, 5                            ; 0x00000b c1 fa 05
+  mov eax, edi                          ; 0x00000e 8b c7
+  sar eax, 0x1f                         ; 0x000010 c1 f8 1f
+  sub edx, eax                          ; 0x000013 2b d0
+  imul eax, edx, -0x64                  ; 0x000015 6b c2 9c
+  add eax, edi                          ; 0x000018 03 c7
+  nop                                   ; 0x00001a 66 90
+  add rsp, 8                            ; 0x00001c 48 83 c4 08
+  ret                                   ; 0x000020 c3
+
+wasm-function[2]:
+ 0x000000:                              ; 0x000000 from: [0x000008]
+  sub rsp, 0x18                         ; 0x000000 48 83 ec 18
+  cmp qword ptr [r14 + 0x28], rsp       ; 0x000004 49 39 66 28
+  jae 0x5b                              ; 0x000008 0f 83 4d 00 00 00
+ 0x00000e:                              
+  mov edi, 0x98                         ; 0x00000e bf 98 00 00 00
+  call 0xffffffffffffff70               ; 0x000013 e8 58 ff ff ff
+  mov edi, eax                          ; 0x000018 8b f8
+  mov qword ptr [rsp], r14              ; 0x00001a 4c 89 34 24
+  mov rax, qword ptr [r14 + 0x30]       ; 0x00001e 49 8b 46 30
+  mov r14, qword ptr [r14 + 0x38]       ; 0x000022 4d 8b 76 38
+  mov r15, qword ptr [r14 + 0x18]       ; 0x000026 4d 8b 7e 18
+  call rax                              ; 0x00002a ff d0
+  mov r14, qword ptr [rsp]              ; 0x00002c 4c 8b 34 24
+  mov r15, qword ptr [r14 + 0x18]       ; 0x000030 4d 8b 7e 18
+  nop                                   ; 0x000034 66 90
+  add rsp, 0x18                         ; 0x000036 48 83 c4 18
+  ret                                   ; 0x00003a c3
+
+wasm-function[0]:
+  sub rsp, 0x18                         ; 0x000000 48 83 ec 18
+  mov qword ptr [rsp], r14              ; 0x000004 4c 89 34 24
+  mov rax, qword ptr [r14 + 0x30]       ; 0x000008 49 8b 46 30
+  mov r14, qword ptr [r14 + 0x38]       ; 0x00000c 4d 8b 76 38
+  mov r15, qword ptr [r14 + 0x18]       ; 0x000010 4d 8b 7e 18
+  call rax                              ; 0x000014 ff d0
+  mov r14, qword ptr [rsp]              ; 0x000016 4c 8b 34 24
+  mov r15, qword ptr [r14 + 0x18]       ; 0x00001a 4d 8b 7e 18
+  nop                                   ; 0x00001e 66 90
+  add rsp, 0x18                         ; 0x000020 48 83 c4 18
+  ret                                   ; 0x000024 c3
+
