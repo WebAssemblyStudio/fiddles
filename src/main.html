@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: rgb(255, 255, 255);
+    }
+  </style>
+</head>
+<body>
+  <span id="container"></span>
+  <script>
+fetch('../out/main.wasm')
+.then(response => response.arrayBuffer())
+.then(bytes => WebAssembly.instantiate(bytes, {env: {}}))
+.then(({instance}) => {
+  document.getElementById("container").innerText = instance.exports.main(122)
+
+  // const canvas = document.getElementById("canvas");
+  // const ctx = canvas.getContext("2d");
+
+  
+
+  // setInterval(() => {
+  //   game.tick();
+  //   render();
+  // }, 100);
+
+
+}).catch(console.error)
+
+  </script>
+</body>
+</html>
