@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: rgb(255, 255, 255);
+    }
+  </style>
+</head>
+<body>
+  <canvas/>
+  <script>
+    /*
+const canvas = document.querySelector('canvas')
+const ctx    = canvas.getContext('2d')
+const [width, height] = [1280, 720]
+
+[canvas.width, canvas.height] = [width, height]
+
+// todo add mem
+// todo sounds, inputs, storage, network
+
+fetch('../out/main.wasm')
+.then(response => response.arrayBuffer())
+.then(bytes => WebAssembly.instantiate(bytes))
+.then({instance} => instance.exports)
+.then(ex => {
+  ex.start()
+
+  setInterval(() => ex.tick(Performance.now()), 10)
+
+  const render = () => {
+    const byteOffset = ex.render()
+
+    ctx.putImageData(new ImageData(new Uint8ClampedArray(waInstance.export.memory.buffer, byteOffset, width*height*4), width, height), 0, 0)
+    
+    window.requestAnimationFrame(() => render())
+  }
+
+  render()
+
+  // catch input
+})
+*/
+
+    
+let mem;
+function writeString (str, offset) {
+  const strBuf = new TextEncoder().encode(str);
+  const outBuf = new Uint8Array(mem.buffer, offset, strBuf.length);
+  for (let i = 0; i < strBuf.length; i++) {
+    outBuf[i] = strBuf[i];
+  }
+}
+
+fetch('../out/main.wasm')
+.then(response => response.arrayBuffer())
+.then(bytes => WebAssembly.instantiate(bytes, {env: {
+  consoleLog (offset, len) {
+    const strBuf = new Uint8Array(mem.buffer, offset, len);
+    console.log(new TextDecoder().decode(strBuf));
+  }
+}
+}))
+.then(x => {
+  const m = x.instance.exports
+
+  mem = m.memory;
+  writeString("Hello Web Assembly", m.getInStrOffset());
+  m.toLowerCase();
+}).catch(console.error)*/
+
+/*
+let mem;
+function writeString (str, offset) {
+  const strBuf = new TextEncoder().encode(str);
+  const outBuf = new Uint8Array(mem.buffer, offset, strBuf.length);
+  for (let i = 0; i < strBuf.length; i++) {
+    outBuf[i] = strBuf[i];
+  }
+}
+
+
+const memory = new WebAssembly.Memory({initial:10, maximum:100});
+
+fetch('../out/main.wasm')
+.then(response => response.arrayBuffer())
+.then(bytes => WebAssembly.instantiate(bytes, {env: {
+  putc_js(a) {
+    console.log(a)
+  },
+  consoleLog (offset, len) {
+    const strBuf = new Uint8Array(mem.buffer, offset, len);
+    console.log(new TextDecoder().decode(strBuf));
+  }
+}
+, js: { mem: memory }
+}))
+.then(x => {
+
+
+  // start
+
+  // setInterval
+
+  // raf
+
+
+  // const m = x.instance.exports;
+
+  console.log(JSON.stringify(x));
+  console.log(JSON.stringify(x.instance));
+  console.log(JSON.stringify(x.instance.exports));
+  console.log(JSON.stringify(x.instance.exports.main2(1)));
+
+  //     mem = m.memory;
+      // writeString("Hello Web Assembly", m.getInStrOffset());
+      // m.toLowerCase();
+
+//   const instance = x.instance;
+
+// mem = m.memory;
+//       writeString("Hello Web Assembly", m.getInStrOffset());
+//       m.toLowerCase();
+
+//   document.getElementById("container").innerText = instance.exports.main2(122)
+
+  // const canvas = document.getElementById("canvas");
+  // const ctx = canvas.getContext("2d");
+
+  
+
+  // setInterval(() => {
+  //   game.tick();
+  //   render();
+  // }, 100);
+
+
+      // const memory = m.memory;
+      // const strBuf = new Uint8Array(memory.buffer, m.getStrOffset(), 11);
+      // const str = new TextDecoder().decode(strBuf);
+      // console.log(str);
+
+    // var i32 = new Uint32Array(memory.buffer);
+    // for (var i = 0; i < 10; i++) {
+    //   i32[i] = i;
+    // }
+    // var sum = obj.instance.exports.accumulate(0, 10);
+    // console.log(sum);
+
+}).catch(console.error)
+*/
+  </script>
+</body>
+</html>
