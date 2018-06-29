@@ -1,0 +1,43 @@
+wasm-function[0]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  mov edx, edi                          ; 0x000004 8b d7
+  mov ebx, esi                          ; 0x000006 8b de
+  mov ecx, ebx                          ; 0x000008 8b cb
+  mov eax, edx                          ; 0x00000a 8b c2
+  shl eax, cl                           ; 0x00000c d3 e0
+  nop                                   ; 0x00000e 66 90
+  add rsp, 8                            ; 0x000010 48 83 c4 08
+  ret                                   ; 0x000014 c3
+
+wasm-function[1]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  addsd xmm0, xmm1                      ; 0x000004 f2 0f 58 c1
+  addsd xmm0, xmm2                      ; 0x000008 f2 0f 58 c2
+  nop                                   ; 0x00000c 66 90
+  add rsp, 8                            ; 0x00000e 48 83 c4 08
+  ret                                   ; 0x000012 c3
+
+wasm-function[2]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  movapd xmm4, xmm3                     ; 0x000004 66 0f 28 e3
+  movapd xmm3, xmm4                     ; 0x000008 66 0f 28 dc
+  subsd xmm3, xmm1                      ; 0x00000c f2 0f 5c d9
+  movapd xmm4, xmm3                     ; 0x000010 66 0f 28 e3
+  subsd xmm2, xmm0                      ; 0x000014 f2 0f 5c d0
+  movapd xmm0, xmm4                     ; 0x000018 66 0f 28 c4
+  divsd xmm0, xmm2                      ; 0x00001c f2 0f 5e c2
+  nop                                   ; 0x000020 66 90
+  add rsp, 8                            ; 0x000022 48 83 c4 08
+  ret                                   ; 0x000026 c3
+
+wasm-function[3]:
+ 0x000000:                              ; 0x000000 from: [0x000008]
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  ucomisd xmm0, xmm1                    ; 0x000004 66 0f 2e c1
+  ja 0x12                               ; 0x000008 0f 87 04 00 00 00
+ 0x00000e:                              
+  movapd xmm0, xmm1                     ; 0x00000e 66 0f 28 c1
+  nop                                   ; 0x000012 66 90
+  add rsp, 8                            ; 0x000014 48 83 c4 08
+  ret                                   ; 0x000018 c3
+
