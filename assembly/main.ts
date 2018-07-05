@@ -1,0 +1,141 @@
+
+
+export function test1(c: u32): u32 {
+  switch (c) {
+    case 0x017f: return 0x0053;
+    case 0x0180: return 0x0243;
+    case 0x0183: return 0x0182;
+    case 0x0185: return 0x0184;
+    case 0x0188: return 0x0187;
+    case 0x018c: return 0x018b;
+    case 0x0192: return 0x0191;
+    case 0x0195: return 0x01f6;
+    case 0x0199: return 0x0198;
+    case 0x019a: return 0x023d;
+    case 0x019e: return 0x0220;
+    case 0x01a1:
+    case 0x01a3:
+    case 0x01a5:
+    case 0x01a8:
+    case 0x01ad:
+    case 0x01b0:
+    case 0x01b4:
+    case 0x01b6:
+    case 0x01b9:
+    case 0x01bd:
+    case 0x01c5:
+    case 0x01c8:
+    case 0x01cb:
+    case 0x01f2:
+    case 0x01f5: return c - 1;
+    case 0x01bf: return 0x01f7;
+    case 0x01c6:
+    case 0x01c9:
+    case 0x01cc: return c - 2;
+    case 0x01dd: return 0x018e;
+    case 0x01f3: return 0x01f1;
+    case 0x023f: return 0x2c7e;
+    case 0x0240: return 0x2c7f;
+    case 0x0250: return 0x2c6f;
+    case 0x0251: return 0x2c6d;
+    case 0x0252: return 0x2c70;
+    case 0x0253: return 0x0181;
+    case 0x0254: return 0x0186;
+    case 0x0256: return 0x0189;
+    case 0x0257: return 0x018a;
+    case 0x0259: return 0x018f;
+    case 0x025b: return 0x0190;
+    case 0x0260: return 0x0193;
+    case 0x0263: return 0x0194;
+    case 0x0268: return 0x0197;
+    case 0x0269: return 0x0196;
+    case 0x026b: return 0x2c62;
+    case 0x026f: return 0x019c;
+    case 0x0271: return 0x2c6e;
+    case 0x0272: return 0x019d;
+    case 0x0275: return 0x019f;
+    case 0x027d: return 0x2c64;
+    case 0x0280: return 0x01a6;
+    case 0x0283: return 0x01a9;
+    case 0x0288: return 0x01ae;
+    case 0x0289: return 0x0244;
+    case 0x028a: return 0x01b1;
+    case 0x028b: return 0x01b2;
+    case 0x028c: return 0x0245;
+    case 0x0292: return 0x01b7;
+    default: break;
+  }
+  return 0;
+}
+
+export function test2(c: u32): u32 {
+  var k: u32;
+
+  switch (c) {
+    case 0x017f: { k = 0x0053; break; }
+    case 0x0180: { k = 0x0243; break; }
+    case 0x0183: { k = 0x0182; break; }
+    case 0x0185: { k = 0x0184; break; }
+    case 0x0188: { k = 0x0187; break; }
+    case 0x018c: { k = 0x018b; break; }
+    case 0x0192: { k = 0x0191; break; }
+    case 0x0195: { k = 0x01f6; break; }
+    case 0x0199: { k = 0x0198; break; }
+    case 0x019a: { k = 0x023d; break; }
+    case 0x019e: { k = 0x0220; break; }
+    case 0x01a1:
+    case 0x01a3:
+    case 0x01a5:
+    case 0x01a8:
+    case 0x01ad:
+    case 0x01b0:
+    case 0x01b4:
+    case 0x01b6:
+    case 0x01b9:
+    case 0x01bd:
+    case 0x01c5:
+    case 0x01c8:
+    case 0x01cb:
+    case 0x01f2:
+    case 0x01f5: { k = c - 1; break; }
+    case 0x01bf: { k = 0x01f7; break; }
+    case 0x01c6:
+    case 0x01c9:
+    case 0x01cc: { k = c - 2; break; }
+    case 0x01dd: { k = 0x018e; break; }
+    case 0x01f3: { k = 0x01f1; break; }
+    case 0x023f: { k = 0x2c7e; break; }
+    case 0x0240: { k = 0x2c7f; break; }
+    case 0x0250: { k = 0x2c6f; break; }
+    case 0x0251: { k = 0x2c6d; break; }
+    case 0x0252: { k = 0x2c70; break; }
+    case 0x0253: { k = 0x0181; break; }
+    case 0x0254: { k = 0x0186; break; }
+    case 0x0256: { k = 0x0189; break; }
+    case 0x0257: { k = 0x018a; break; }
+    case 0x0259: { k = 0x018f; break; }
+    case 0x025b: { k = 0x0190; break; }
+    case 0x0260: { k = 0x0193; break; }
+    case 0x0263: { k = 0x0194; break; }
+    case 0x0268: { k = 0x0197; break; }
+    case 0x0269: { k = 0x0196; break; }
+    case 0x026b: { k = 0x2c62; break; }
+    case 0x026f: { k = 0x019c; break; }
+    case 0x0271: { k = 0x2c6e; break; }
+    case 0x0272: { k = 0x019d; break; }
+    case 0x0275: { k = 0x019f; break; }
+    case 0x027d: { k = 0x2c64; break; }
+    case 0x0280: { k = 0x01a6; break; }
+    case 0x0283: { k = 0x01a9; break; }
+    case 0x0288: { k = 0x01ae; break; }
+    case 0x0289: { k = 0x0244; break; }
+    case 0x028a: { k = 0x01b1; break; }
+    case 0x028b: { k = 0x01b2; break; }
+    case 0x028c: { k = 0x0245; break; }
+    case 0x0292: { k = 0x01b7; break; }
+    default: { k = 0; break; }
+  }
+
+  if (k != 0) return k;
+  return 0;
+}

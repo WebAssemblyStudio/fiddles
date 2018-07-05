@@ -1,0 +1,836 @@
+wasm-function[0]:
+ 0x000000:                              ; 0x000000 from: [0x00000b, 0x000019, 0x00002b, 0x0000bb, 0x0000c3, 0x000133, 0x00013b, 0x000147, 0x00017c, 0x000189, 0x000196, 0x0001a4, 0x0001b2, 0x0001c0, 0x0001cd, 0x0001da, 0x0001e7, 0x0001f4, 0x000201, 0x00020e, 0x00021b, 0x000228, 0x000235, 0x000242, 0x00024f, 0x00025c, 0x000269, 0x000277, 0x000284, 0x000291, 0x00029e, 0x0002ab, 0x0002b8, 0x0002c5, 0x0002d3, 0x0002e0, 0x0002ed, 0x0002fa, 0x000308, 0x000315, 0x00031b, 0x000325, 0x00032f, 0x000339, 0x000343, 0x00034d, 0x000357, 0x000361, 0x00036b, 0x000375, 0x00037f, 0x000389, 0x000391, 0x00039b, 0x0003a5, 0x0003af, 0x0003b9, 0x0003c3, 0x0003cd, 0x0003d7, 0x0003e1, 0x0003eb, 0x0003f5, 0x0003ff, 0x000409, 0x000413, 0x00041d, 0x000427, 0x000431, 0x00043b, 0x000445, 0x00044f, 0x000459, 0x000463, 0x00046d, 0x000477, 0x000481, 0x00048b, 0x000495, 0x00049f, 0x0004a9, 0x0004b3, 0x0004bd, 0x0004c7, 0x0004d1, 0x0004db]
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  mov eax, edi                          ; 0x000004 8b c7
+  cmp eax, 0x17f                        ; 0x000006 3d 7f 01 00 00
+  je 0x320                              ; 0x00000b 0f 84 0f 03 00 00
+ 0x000011:                              
+  mov ecx, edi                          ; 0x000011 8b cf
+  cmp ecx, 0x180                        ; 0x000013 81 f9 80 01 00 00
+  je 0x32a                              ; 0x000019 0f 84 0b 03 00 00
+ 0x00001f:                              
+  mov eax, edi                          ; 0x00001f 8b c7
+  sub eax, 0x183                        ; 0x000021 2d 83 01 00 00
+  mov ecx, eax                          ; 0x000026 8b c8
+  cmp ecx, 0x1c                         ; 0x000028 83 f9 1c
+  jae 0x3e                              ; 0x00002b 0f 83 0d 00 00 00
+ 0x000031:                              
+  movabs rdx, 0                         ; 0x000031 48 ba 00 00 00 00 00 00 00 00
+  jmp qword ptr [rdx + rcx*8]           ; 0x00003b ff 24 ca
+ 0x00003e:                              
+  mov eax, edi                          ; 0x00003e 8b c7
+  cmp eax, 0x1a1                        ; 0x000040 3d a1 01 00 00
+  sete cl                               ; 0x000045 0f 94 c1
+  movzx ecx, cl                         ; 0x000048 0f b6 c9
+  mov eax, edi                          ; 0x00004b 8b c7
+  cmp eax, 0x1a3                        ; 0x00004d 3d a3 01 00 00
+  sete dl                               ; 0x000052 0f 94 c2
+  movzx edx, dl                         ; 0x000055 0f b6 d2
+  or ecx, edx                           ; 0x000058 0b ca
+  mov ebx, edi                          ; 0x00005a 8b df
+  cmp ebx, 0x1a5                        ; 0x00005c 81 fb a5 01 00 00
+  sete dl                               ; 0x000062 0f 94 c2
+  movzx edx, dl                         ; 0x000065 0f b6 d2
+  mov eax, edi                          ; 0x000068 8b c7
+  cmp eax, 0x1a8                        ; 0x00006a 3d a8 01 00 00
+  sete bl                               ; 0x00006f 0f 94 c3
+  movzx ebx, bl                         ; 0x000072 0f b6 db
+  or edx, ebx                           ; 0x000075 0b d3
+  or ecx, edx                           ; 0x000077 0b ca
+  mov eax, edi                          ; 0x000079 8b c7
+  cmp eax, 0x1ad                        ; 0x00007b 3d ad 01 00 00
+  sete dl                               ; 0x000080 0f 94 c2
+  movzx edx, dl                         ; 0x000083 0f b6 d2
+  mov eax, edi                          ; 0x000086 8b c7
+  cmp eax, 0x1b0                        ; 0x000088 3d b0 01 00 00
+  sete bl                               ; 0x00008d 0f 94 c3
+  movzx ebx, bl                         ; 0x000090 0f b6 db
+  or edx, ebx                           ; 0x000093 0b d3
+  mov ebp, edi                          ; 0x000095 8b ef
+  cmp ebp, 0x1b4                        ; 0x000097 81 fd b4 01 00 00
+  sete bl                               ; 0x00009d 0f 94 c3
+  movzx ebx, bl                         ; 0x0000a0 0f b6 db
+  mov esi, edi                          ; 0x0000a3 8b f7
+  cmp esi, 0x1b6                        ; 0x0000a5 81 fe b6 01 00 00
+  sete bpl                              ; 0x0000ab 40 0f 94 c5
+  movzx ebp, bpl                        ; 0x0000af 40 0f b6 ed
+  or ebx, ebp                           ; 0x0000b3 0b dd
+  or edx, ebx                           ; 0x0000b5 0b d3
+  or ecx, edx                           ; 0x0000b7 0b ca
+  test ecx, ecx                         ; 0x0000b9 85 c9
+  je 0xc8                               ; 0x0000bb 0f 84 07 00 00 00
+ 0x0000c1:                              
+  mov eax, edi                          ; 0x0000c1 8b c7
+  jmp 0x38e                             ; 0x0000c3 e9 c6 02 00 00
+ 0x0000c8:                              
+  mov eax, edi                          ; 0x0000c8 8b c7
+  cmp eax, 0x1b9                        ; 0x0000ca 3d b9 01 00 00
+  sete cl                               ; 0x0000cf 0f 94 c1
+  movzx ecx, cl                         ; 0x0000d2 0f b6 c9
+  mov ebx, edi                          ; 0x0000d5 8b df
+  cmp ebx, 0x1bd                        ; 0x0000d7 81 fb bd 01 00 00
+  sete dl                               ; 0x0000dd 0f 94 c2
+  movzx edx, dl                         ; 0x0000e0 0f b6 d2
+  or ecx, edx                           ; 0x0000e3 0b ca
+  mov eax, edi                          ; 0x0000e5 8b c7
+  cmp eax, 0x1c5                        ; 0x0000e7 3d c5 01 00 00
+  sete dl                               ; 0x0000ec 0f 94 c2
+  movzx edx, dl                         ; 0x0000ef 0f b6 d2
+  mov eax, edi                          ; 0x0000f2 8b c7
+  cmp eax, 0x1c8                        ; 0x0000f4 3d c8 01 00 00
+  sete bl                               ; 0x0000f9 0f 94 c3
+  movzx ebx, bl                         ; 0x0000fc 0f b6 db
+  or edx, ebx                           ; 0x0000ff 0b d3
+  or ecx, edx                           ; 0x000101 0b ca
+  mov eax, edi                          ; 0x000103 8b c7
+  cmp eax, 0x1cb                        ; 0x000105 3d cb 01 00 00
+  sete dl                               ; 0x00010a 0f 94 c2
+  movzx edx, dl                         ; 0x00010d 0f b6 d2
+  mov eax, edi                          ; 0x000110 8b c7
+  cmp eax, 0x1f2                        ; 0x000112 3d f2 01 00 00
+  sete bl                               ; 0x000117 0f 94 c3
+  movzx ebx, bl                         ; 0x00011a 0f b6 db
+  or edx, ebx                           ; 0x00011d 0b d3
+  mov ebp, edi                          ; 0x00011f 8b ef
+  cmp ebp, 0x1f5                        ; 0x000121 81 fd f5 01 00 00
+  sete bl                               ; 0x000127 0f 94 c3
+  movzx ebx, bl                         ; 0x00012a 0f b6 db
+  or edx, ebx                           ; 0x00012d 0b d3
+  or ecx, edx                           ; 0x00012f 0b ca
+  test ecx, ecx                         ; 0x000131 85 c9
+  je 0x140                              ; 0x000133 0f 84 07 00 00 00
+ 0x000139:                              
+  mov eax, edi                          ; 0x000139 8b c7
+  jmp 0x38e                             ; 0x00013b e9 4e 02 00 00
+ 0x000140:                              
+  mov eax, edi                          ; 0x000140 8b c7
+  cmp eax, 0x1bf                        ; 0x000142 3d bf 01 00 00
+  je 0x396                              ; 0x000147 0f 84 49 02 00 00
+ 0x00014d:                              
+  mov eax, edi                          ; 0x00014d 8b c7
+  cmp eax, 0x1c6                        ; 0x00014f 3d c6 01 00 00
+  sete cl                               ; 0x000154 0f 94 c1
+  movzx ecx, cl                         ; 0x000157 0f b6 c9
+  mov ebx, edi                          ; 0x00015a 8b df
+  cmp ebx, 0x1c9                        ; 0x00015c 81 fb c9 01 00 00
+  sete dl                               ; 0x000162 0f 94 c2
+  movzx edx, dl                         ; 0x000165 0f b6 d2
+  or ecx, edx                           ; 0x000168 0b ca
+  mov ebx, edi                          ; 0x00016a 8b df
+  cmp ebx, 0x1cc                        ; 0x00016c 81 fb cc 01 00 00
+  sete dl                               ; 0x000172 0f 94 c2
+  movzx edx, dl                         ; 0x000175 0f b6 d2
+  or ecx, edx                           ; 0x000178 0b ca
+  test ecx, ecx                         ; 0x00017a 85 c9
+  jne 0x3a0                             ; 0x00017c 0f 85 1e 02 00 00
+ 0x000182:                              
+  mov eax, edi                          ; 0x000182 8b c7
+  cmp eax, 0x1dd                        ; 0x000184 3d dd 01 00 00
+  je 0x3aa                              ; 0x000189 0f 84 1b 02 00 00
+ 0x00018f:                              
+  mov eax, edi                          ; 0x00018f 8b c7
+  cmp eax, 0x1f3                        ; 0x000191 3d f3 01 00 00
+  je 0x3b4                              ; 0x000196 0f 84 18 02 00 00
+ 0x00019c:                              
+  mov ecx, edi                          ; 0x00019c 8b cf
+  cmp ecx, 0x23f                        ; 0x00019e 81 f9 3f 02 00 00
+  je 0x3be                              ; 0x0001a4 0f 84 14 02 00 00
+ 0x0001aa:                              
+  mov ecx, edi                          ; 0x0001aa 8b cf
+  cmp ecx, 0x240                        ; 0x0001ac 81 f9 40 02 00 00
+  je 0x3c8                              ; 0x0001b2 0f 84 10 02 00 00
+ 0x0001b8:                              
+  mov ecx, edi                          ; 0x0001b8 8b cf
+  cmp ecx, 0x250                        ; 0x0001ba 81 f9 50 02 00 00
+  je 0x3d2                              ; 0x0001c0 0f 84 0c 02 00 00
+ 0x0001c6:                              
+  mov eax, edi                          ; 0x0001c6 8b c7
+  cmp eax, 0x251                        ; 0x0001c8 3d 51 02 00 00
+  je 0x3dc                              ; 0x0001cd 0f 84 09 02 00 00
+ 0x0001d3:                              
+  mov eax, edi                          ; 0x0001d3 8b c7
+  cmp eax, 0x252                        ; 0x0001d5 3d 52 02 00 00
+  je 0x3e6                              ; 0x0001da 0f 84 06 02 00 00
+ 0x0001e0:                              
+  mov eax, edi                          ; 0x0001e0 8b c7
+  cmp eax, 0x253                        ; 0x0001e2 3d 53 02 00 00
+  je 0x3f0                              ; 0x0001e7 0f 84 03 02 00 00
+ 0x0001ed:                              
+  mov eax, edi                          ; 0x0001ed 8b c7
+  cmp eax, 0x254                        ; 0x0001ef 3d 54 02 00 00
+  je 0x3fa                              ; 0x0001f4 0f 84 00 02 00 00
+ 0x0001fa:                              
+  mov eax, edi                          ; 0x0001fa 8b c7
+  cmp eax, 0x256                        ; 0x0001fc 3d 56 02 00 00
+  je 0x404                              ; 0x000201 0f 84 fd 01 00 00
+ 0x000207:                              
+  mov eax, edi                          ; 0x000207 8b c7
+  cmp eax, 0x257                        ; 0x000209 3d 57 02 00 00
+  je 0x40e                              ; 0x00020e 0f 84 fa 01 00 00
+ 0x000214:                              
+  mov eax, edi                          ; 0x000214 8b c7
+  cmp eax, 0x259                        ; 0x000216 3d 59 02 00 00
+  je 0x418                              ; 0x00021b 0f 84 f7 01 00 00
+ 0x000221:                              
+  mov eax, edi                          ; 0x000221 8b c7
+  cmp eax, 0x25b                        ; 0x000223 3d 5b 02 00 00
+  je 0x422                              ; 0x000228 0f 84 f4 01 00 00
+ 0x00022e:                              
+  mov eax, edi                          ; 0x00022e 8b c7
+  cmp eax, 0x260                        ; 0x000230 3d 60 02 00 00
+  je 0x42c                              ; 0x000235 0f 84 f1 01 00 00
+ 0x00023b:                              
+  mov eax, edi                          ; 0x00023b 8b c7
+  cmp eax, 0x263                        ; 0x00023d 3d 63 02 00 00
+  je 0x436                              ; 0x000242 0f 84 ee 01 00 00
+ 0x000248:                              
+  mov eax, edi                          ; 0x000248 8b c7
+  cmp eax, 0x268                        ; 0x00024a 3d 68 02 00 00
+  je 0x440                              ; 0x00024f 0f 84 eb 01 00 00
+ 0x000255:                              
+  mov eax, edi                          ; 0x000255 8b c7
+  cmp eax, 0x269                        ; 0x000257 3d 69 02 00 00
+  je 0x44a                              ; 0x00025c 0f 84 e8 01 00 00
+ 0x000262:                              
+  mov eax, edi                          ; 0x000262 8b c7
+  cmp eax, 0x26b                        ; 0x000264 3d 6b 02 00 00
+  je 0x454                              ; 0x000269 0f 84 e5 01 00 00
+ 0x00026f:                              
+  mov ecx, edi                          ; 0x00026f 8b cf
+  cmp ecx, 0x26f                        ; 0x000271 81 f9 6f 02 00 00
+  je 0x45e                              ; 0x000277 0f 84 e1 01 00 00
+ 0x00027d:                              
+  mov eax, edi                          ; 0x00027d 8b c7
+  cmp eax, 0x271                        ; 0x00027f 3d 71 02 00 00
+  je 0x468                              ; 0x000284 0f 84 de 01 00 00
+ 0x00028a:                              
+  mov eax, edi                          ; 0x00028a 8b c7
+  cmp eax, 0x272                        ; 0x00028c 3d 72 02 00 00
+  je 0x472                              ; 0x000291 0f 84 db 01 00 00
+ 0x000297:                              
+  mov eax, edi                          ; 0x000297 8b c7
+  cmp eax, 0x275                        ; 0x000299 3d 75 02 00 00
+  je 0x47c                              ; 0x00029e 0f 84 d8 01 00 00
+ 0x0002a4:                              
+  mov eax, edi                          ; 0x0002a4 8b c7
+  cmp eax, 0x27d                        ; 0x0002a6 3d 7d 02 00 00
+  je 0x486                              ; 0x0002ab 0f 84 d5 01 00 00
+ 0x0002b1:                              
+  mov eax, edi                          ; 0x0002b1 8b c7
+  cmp eax, 0x280                        ; 0x0002b3 3d 80 02 00 00
+  je 0x490                              ; 0x0002b8 0f 84 d2 01 00 00
+ 0x0002be:                              
+  mov eax, edi                          ; 0x0002be 8b c7
+  cmp eax, 0x283                        ; 0x0002c0 3d 83 02 00 00
+  je 0x49a                              ; 0x0002c5 0f 84 cf 01 00 00
+ 0x0002cb:                              
+  mov ecx, edi                          ; 0x0002cb 8b cf
+  cmp ecx, 0x288                        ; 0x0002cd 81 f9 88 02 00 00
+  je 0x4a4                              ; 0x0002d3 0f 84 cb 01 00 00
+ 0x0002d9:                              
+  mov eax, edi                          ; 0x0002d9 8b c7
+  cmp eax, 0x289                        ; 0x0002db 3d 89 02 00 00
+  je 0x4ae                              ; 0x0002e0 0f 84 c8 01 00 00
+ 0x0002e6:                              
+  mov eax, edi                          ; 0x0002e6 8b c7
+  cmp eax, 0x28a                        ; 0x0002e8 3d 8a 02 00 00
+  je 0x4b8                              ; 0x0002ed 0f 84 c5 01 00 00
+ 0x0002f3:                              
+  mov eax, edi                          ; 0x0002f3 8b c7
+  cmp eax, 0x28b                        ; 0x0002f5 3d 8b 02 00 00
+  je 0x4c2                              ; 0x0002fa 0f 84 c2 01 00 00
+ 0x000300:                              
+  mov ecx, edi                          ; 0x000300 8b cf
+  cmp ecx, 0x28c                        ; 0x000302 81 f9 8c 02 00 00
+  je 0x4cc                              ; 0x000308 0f 84 be 01 00 00
+ 0x00030e:                              
+  mov eax, edi                          ; 0x00030e 8b c7
+  cmp eax, 0x292                        ; 0x000310 3d 92 02 00 00
+  jne 0x4e0                             ; 0x000315 0f 85 c5 01 00 00
+ 0x00031b:                              
+  jmp 0x4d6                             ; 0x00031b e9 b6 01 00 00
+ 0x000320:                              
+  mov eax, 0x53                         ; 0x000320 b8 53 00 00 00
+  jmp 0x4e2                             ; 0x000325 e9 b8 01 00 00
+ 0x00032a:                              
+  mov eax, 0x243                        ; 0x00032a b8 43 02 00 00
+  jmp 0x4e2                             ; 0x00032f e9 ae 01 00 00
+ 0x000334:                              
+  mov eax, 0x182                        ; 0x000334 b8 82 01 00 00
+  jmp 0x4e2                             ; 0x000339 e9 a4 01 00 00
+ 0x00033e:                              
+  mov eax, 0x184                        ; 0x00033e b8 84 01 00 00
+  jmp 0x4e2                             ; 0x000343 e9 9a 01 00 00
+ 0x000348:                              
+  mov eax, 0x187                        ; 0x000348 b8 87 01 00 00
+  jmp 0x4e2                             ; 0x00034d e9 90 01 00 00
+ 0x000352:                              
+  mov eax, 0x18b                        ; 0x000352 b8 8b 01 00 00
+  jmp 0x4e2                             ; 0x000357 e9 86 01 00 00
+ 0x00035c:                              
+  mov eax, 0x191                        ; 0x00035c b8 91 01 00 00
+  jmp 0x4e2                             ; 0x000361 e9 7c 01 00 00
+ 0x000366:                              
+  mov eax, 0x1f6                        ; 0x000366 b8 f6 01 00 00
+  jmp 0x4e2                             ; 0x00036b e9 72 01 00 00
+ 0x000370:                              
+  mov eax, 0x198                        ; 0x000370 b8 98 01 00 00
+  jmp 0x4e2                             ; 0x000375 e9 68 01 00 00
+ 0x00037a:                              
+  mov eax, 0x23d                        ; 0x00037a b8 3d 02 00 00
+  jmp 0x4e2                             ; 0x00037f e9 5e 01 00 00
+ 0x000384:                              
+  mov eax, 0x220                        ; 0x000384 b8 20 02 00 00
+  jmp 0x4e2                             ; 0x000389 e9 54 01 00 00
+ 0x00038e:                              
+  sub eax, 1                            ; 0x00038e 83 e8 01
+  jmp 0x4e2                             ; 0x000391 e9 4c 01 00 00
+ 0x000396:                              
+  mov eax, 0x1f7                        ; 0x000396 b8 f7 01 00 00
+  jmp 0x4e2                             ; 0x00039b e9 42 01 00 00
+ 0x0003a0:                              
+  mov eax, edi                          ; 0x0003a0 8b c7
+  sub eax, 2                            ; 0x0003a2 83 e8 02
+  jmp 0x4e2                             ; 0x0003a5 e9 38 01 00 00
+ 0x0003aa:                              
+  mov eax, 0x18e                        ; 0x0003aa b8 8e 01 00 00
+  jmp 0x4e2                             ; 0x0003af e9 2e 01 00 00
+ 0x0003b4:                              
+  mov eax, 0x1f1                        ; 0x0003b4 b8 f1 01 00 00
+  jmp 0x4e2                             ; 0x0003b9 e9 24 01 00 00
+ 0x0003be:                              
+  mov eax, 0x2c7e                       ; 0x0003be b8 7e 2c 00 00
+  jmp 0x4e2                             ; 0x0003c3 e9 1a 01 00 00
+ 0x0003c8:                              
+  mov eax, 0x2c7f                       ; 0x0003c8 b8 7f 2c 00 00
+  jmp 0x4e2                             ; 0x0003cd e9 10 01 00 00
+ 0x0003d2:                              
+  mov eax, 0x2c6f                       ; 0x0003d2 b8 6f 2c 00 00
+  jmp 0x4e2                             ; 0x0003d7 e9 06 01 00 00
+ 0x0003dc:                              
+  mov eax, 0x2c6d                       ; 0x0003dc b8 6d 2c 00 00
+  jmp 0x4e2                             ; 0x0003e1 e9 fc 00 00 00
+ 0x0003e6:                              
+  mov eax, 0x2c70                       ; 0x0003e6 b8 70 2c 00 00
+  jmp 0x4e2                             ; 0x0003eb e9 f2 00 00 00
+ 0x0003f0:                              
+  mov eax, 0x181                        ; 0x0003f0 b8 81 01 00 00
+  jmp 0x4e2                             ; 0x0003f5 e9 e8 00 00 00
+ 0x0003fa:                              
+  mov eax, 0x186                        ; 0x0003fa b8 86 01 00 00
+  jmp 0x4e2                             ; 0x0003ff e9 de 00 00 00
+ 0x000404:                              
+  mov eax, 0x189                        ; 0x000404 b8 89 01 00 00
+  jmp 0x4e2                             ; 0x000409 e9 d4 00 00 00
+ 0x00040e:                              
+  mov eax, 0x18a                        ; 0x00040e b8 8a 01 00 00
+  jmp 0x4e2                             ; 0x000413 e9 ca 00 00 00
+ 0x000418:                              
+  mov eax, 0x18f                        ; 0x000418 b8 8f 01 00 00
+  jmp 0x4e2                             ; 0x00041d e9 c0 00 00 00
+ 0x000422:                              
+  mov eax, 0x190                        ; 0x000422 b8 90 01 00 00
+  jmp 0x4e2                             ; 0x000427 e9 b6 00 00 00
+ 0x00042c:                              
+  mov eax, 0x193                        ; 0x00042c b8 93 01 00 00
+  jmp 0x4e2                             ; 0x000431 e9 ac 00 00 00
+ 0x000436:                              
+  mov eax, 0x194                        ; 0x000436 b8 94 01 00 00
+  jmp 0x4e2                             ; 0x00043b e9 a2 00 00 00
+ 0x000440:                              
+  mov eax, 0x197                        ; 0x000440 b8 97 01 00 00
+  jmp 0x4e2                             ; 0x000445 e9 98 00 00 00
+ 0x00044a:                              
+  mov eax, 0x196                        ; 0x00044a b8 96 01 00 00
+  jmp 0x4e2                             ; 0x00044f e9 8e 00 00 00
+ 0x000454:                              
+  mov eax, 0x2c62                       ; 0x000454 b8 62 2c 00 00
+  jmp 0x4e2                             ; 0x000459 e9 84 00 00 00
+ 0x00045e:                              
+  mov eax, 0x19c                        ; 0x00045e b8 9c 01 00 00
+  jmp 0x4e2                             ; 0x000463 e9 7a 00 00 00
+ 0x000468:                              
+  mov eax, 0x2c6e                       ; 0x000468 b8 6e 2c 00 00
+  jmp 0x4e2                             ; 0x00046d e9 70 00 00 00
+ 0x000472:                              
+  mov eax, 0x19d                        ; 0x000472 b8 9d 01 00 00
+  jmp 0x4e2                             ; 0x000477 e9 66 00 00 00
+ 0x00047c:                              
+  mov eax, 0x19f                        ; 0x00047c b8 9f 01 00 00
+  jmp 0x4e2                             ; 0x000481 e9 5c 00 00 00
+ 0x000486:                              
+  mov eax, 0x2c64                       ; 0x000486 b8 64 2c 00 00
+  jmp 0x4e2                             ; 0x00048b e9 52 00 00 00
+ 0x000490:                              
+  mov eax, 0x1a6                        ; 0x000490 b8 a6 01 00 00
+  jmp 0x4e2                             ; 0x000495 e9 48 00 00 00
+ 0x00049a:                              
+  mov eax, 0x1a9                        ; 0x00049a b8 a9 01 00 00
+  jmp 0x4e2                             ; 0x00049f e9 3e 00 00 00
+ 0x0004a4:                              
+  mov eax, 0x1ae                        ; 0x0004a4 b8 ae 01 00 00
+  jmp 0x4e2                             ; 0x0004a9 e9 34 00 00 00
+ 0x0004ae:                              
+  mov eax, 0x244                        ; 0x0004ae b8 44 02 00 00
+  jmp 0x4e2                             ; 0x0004b3 e9 2a 00 00 00
+ 0x0004b8:                              
+  mov eax, 0x1b1                        ; 0x0004b8 b8 b1 01 00 00
+  jmp 0x4e2                             ; 0x0004bd e9 20 00 00 00
+ 0x0004c2:                              
+  mov eax, 0x1b2                        ; 0x0004c2 b8 b2 01 00 00
+  jmp 0x4e2                             ; 0x0004c7 e9 16 00 00 00
+ 0x0004cc:                              
+  mov eax, 0x245                        ; 0x0004cc b8 45 02 00 00
+  jmp 0x4e2                             ; 0x0004d1 e9 0c 00 00 00
+ 0x0004d6:                              
+  mov eax, 0x1b7                        ; 0x0004d6 b8 b7 01 00 00
+  jmp 0x4e2                             ; 0x0004db e9 02 00 00 00
+ 0x0004e0:                              
+  xor eax, eax                          ; 0x0004e0 33 c0
+  nop                                   ; 0x0004e2 66 90
+  add rsp, 8                            ; 0x0004e4 48 83 c4 08
+  ret                                   ; 0x0004e8 c3
+
+wasm-function[1]:
+ 0x000000:                              ; 0x000000 from: [0x00000c, 0x00001f, 0x0000b4, 0x0000bc, 0x000131, 0x000139, 0x000146, 0x00017c, 0x00018a, 0x000198, 0x0001a6, 0x0001b4, 0x0001c2, 0x0001d0, 0x0001de, 0x0001ec, 0x0001fa, 0x000208, 0x000216, 0x000224, 0x000232, 0x000240, 0x00024e, 0x00025c, 0x00026a, 0x000278, 0x000286, 0x000294, 0x0002a2, 0x0002b0, 0x0002be, 0x0002cc, 0x0002da, 0x0002e8, 0x0002f6, 0x000304, 0x000312, 0x000320, 0x00032e, 0x000334, 0x000340, 0x00034c, 0x000358, 0x000364, 0x000370, 0x00037c, 0x000388, 0x000394, 0x0003a0, 0x0003ac, 0x0003b8, 0x0003c2, 0x0003ce, 0x0003da, 0x0003e6, 0x0003f2, 0x0003fe, 0x00040a, 0x000416, 0x000422, 0x00042e, 0x00043a, 0x000446, 0x000452, 0x00045e, 0x00046a, 0x000476, 0x000482, 0x00048e, 0x00049a, 0x0004a6, 0x0004b2, 0x0004be, 0x0004ca, 0x0004d6, 0x0004e2, 0x0004ee, 0x0004fa, 0x000506, 0x000512, 0x00051e, 0x00052a, 0x000536, 0x000542, 0x00054e, 0x00055b, 0x000563]
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  mov ecx, edi                          ; 0x000004 8b cf
+  cmp ecx, 0x17f                        ; 0x000006 81 f9 7f 01 00 00
+  je 0x339                              ; 0x00000c 0f 84 27 03 00 00
+ 0x000012:                              
+  mov ebx, edi                          ; 0x000012 8b df
+  sub ebx, 0x180                        ; 0x000014 81 eb 80 01 00 00
+  mov ecx, ebx                          ; 0x00001a 8b cb
+  cmp ecx, 0x1f                         ; 0x00001c 83 f9 1f
+  jae 0x32                              ; 0x00001f 0f 83 0d 00 00 00
+ 0x000025:                              
+  movabs rdx, 0                         ; 0x000025 48 ba 00 00 00 00 00 00 00 00
+  jmp qword ptr [rdx + rcx*8]           ; 0x00002f ff 24 ca
+ 0x000032:                              
+  mov edx, edi                          ; 0x000032 8b d7
+  cmp edx, 0x1a1                        ; 0x000034 81 fa a1 01 00 00
+  sete cl                               ; 0x00003a 0f 94 c1
+  movzx ecx, cl                         ; 0x00003d 0f b6 c9
+  mov ebx, edi                          ; 0x000040 8b df
+  cmp ebx, 0x1a3                        ; 0x000042 81 fb a3 01 00 00
+  sete dl                               ; 0x000048 0f 94 c2
+  movzx edx, dl                         ; 0x00004b 0f b6 d2
+  or ecx, edx                           ; 0x00004e 0b ca
+  mov ebx, edi                          ; 0x000050 8b df
+  cmp ebx, 0x1a5                        ; 0x000052 81 fb a5 01 00 00
+  sete dl                               ; 0x000058 0f 94 c2
+  movzx edx, dl                         ; 0x00005b 0f b6 d2
+  mov ebp, edi                          ; 0x00005e 8b ef
+  cmp ebp, 0x1a8                        ; 0x000060 81 fd a8 01 00 00
+  sete bl                               ; 0x000066 0f 94 c3
+  movzx ebx, bl                         ; 0x000069 0f b6 db
+  or edx, ebx                           ; 0x00006c 0b d3
+  or ecx, edx                           ; 0x00006e 0b ca
+  mov ebx, edi                          ; 0x000070 8b df
+  cmp ebx, 0x1ad                        ; 0x000072 81 fb ad 01 00 00
+  sete dl                               ; 0x000078 0f 94 c2
+  movzx edx, dl                         ; 0x00007b 0f b6 d2
+  mov ebp, edi                          ; 0x00007e 8b ef
+  cmp ebp, 0x1b0                        ; 0x000080 81 fd b0 01 00 00
+  sete bl                               ; 0x000086 0f 94 c3
+  movzx ebx, bl                         ; 0x000089 0f b6 db
+  or edx, ebx                           ; 0x00008c 0b d3
+  mov ebp, edi                          ; 0x00008e 8b ef
+  cmp ebp, 0x1b4                        ; 0x000090 81 fd b4 01 00 00
+  sete bl                               ; 0x000096 0f 94 c3
+  movzx ebx, bl                         ; 0x000099 0f b6 db
+  mov esi, edi                          ; 0x00009c 8b f7
+  cmp esi, 0x1b6                        ; 0x00009e 81 fe b6 01 00 00
+  sete bpl                              ; 0x0000a4 40 0f 94 c5
+  movzx ebp, bpl                        ; 0x0000a8 40 0f b6 ed
+  or ebx, ebp                           ; 0x0000ac 0b dd
+  or edx, ebx                           ; 0x0000ae 0b d3
+  or ecx, edx                           ; 0x0000b0 0b ca
+  test ecx, ecx                         ; 0x0000b2 85 c9
+  je 0xc1                               ; 0x0000b4 0f 84 07 00 00 00
+ 0x0000ba:                              
+  mov eax, edi                          ; 0x0000ba 8b c7
+  jmp 0x3bd                             ; 0x0000bc e9 fc 02 00 00
+ 0x0000c1:                              
+  mov edx, edi                          ; 0x0000c1 8b d7
+  cmp edx, 0x1b9                        ; 0x0000c3 81 fa b9 01 00 00
+  sete cl                               ; 0x0000c9 0f 94 c1
+  movzx ecx, cl                         ; 0x0000cc 0f b6 c9
+  mov ebx, edi                          ; 0x0000cf 8b df
+  cmp ebx, 0x1bd                        ; 0x0000d1 81 fb bd 01 00 00
+  sete dl                               ; 0x0000d7 0f 94 c2
+  movzx edx, dl                         ; 0x0000da 0f b6 d2
+  or ecx, edx                           ; 0x0000dd 0b ca
+  mov ebx, edi                          ; 0x0000df 8b df
+  cmp ebx, 0x1c5                        ; 0x0000e1 81 fb c5 01 00 00
+  sete dl                               ; 0x0000e7 0f 94 c2
+  movzx edx, dl                         ; 0x0000ea 0f b6 d2
+  mov ebp, edi                          ; 0x0000ed 8b ef
+  cmp ebp, 0x1c8                        ; 0x0000ef 81 fd c8 01 00 00
+  sete bl                               ; 0x0000f5 0f 94 c3
+  movzx ebx, bl                         ; 0x0000f8 0f b6 db
+  or edx, ebx                           ; 0x0000fb 0b d3
+  or ecx, edx                           ; 0x0000fd 0b ca
+  mov ebx, edi                          ; 0x0000ff 8b df
+  cmp ebx, 0x1cb                        ; 0x000101 81 fb cb 01 00 00
+  sete dl                               ; 0x000107 0f 94 c2
+  movzx edx, dl                         ; 0x00010a 0f b6 d2
+  mov ebp, edi                          ; 0x00010d 8b ef
+  cmp ebp, 0x1f2                        ; 0x00010f 81 fd f2 01 00 00
+  sete bl                               ; 0x000115 0f 94 c3
+  movzx ebx, bl                         ; 0x000118 0f b6 db
+  or edx, ebx                           ; 0x00011b 0b d3
+  mov ebp, edi                          ; 0x00011d 8b ef
+  cmp ebp, 0x1f5                        ; 0x00011f 81 fd f5 01 00 00
+  sete bl                               ; 0x000125 0f 94 c3
+  movzx ebx, bl                         ; 0x000128 0f b6 db
+  or edx, ebx                           ; 0x00012b 0b d3
+  or ecx, edx                           ; 0x00012d 0b ca
+  test ecx, ecx                         ; 0x00012f 85 c9
+  je 0x13e                              ; 0x000131 0f 84 07 00 00 00
+ 0x000137:                              
+  mov eax, edi                          ; 0x000137 8b c7
+  jmp 0x3bd                             ; 0x000139 e9 7f 02 00 00
+ 0x00013e:                              
+  mov ecx, edi                          ; 0x00013e 8b cf
+  cmp ecx, 0x1bf                        ; 0x000140 81 f9 bf 01 00 00
+  je 0x3c7                              ; 0x000146 0f 84 7b 02 00 00
+ 0x00014c:                              
+  mov edx, edi                          ; 0x00014c 8b d7
+  cmp edx, 0x1c6                        ; 0x00014e 81 fa c6 01 00 00
+  sete cl                               ; 0x000154 0f 94 c1
+  movzx ecx, cl                         ; 0x000157 0f b6 c9
+  mov ebx, edi                          ; 0x00015a 8b df
+  cmp ebx, 0x1c9                        ; 0x00015c 81 fb c9 01 00 00
+  sete dl                               ; 0x000162 0f 94 c2
+  movzx edx, dl                         ; 0x000165 0f b6 d2
+  or ecx, edx                           ; 0x000168 0b ca
+  mov ebx, edi                          ; 0x00016a 8b df
+  cmp ebx, 0x1cc                        ; 0x00016c 81 fb cc 01 00 00
+  sete dl                               ; 0x000172 0f 94 c2
+  movzx edx, dl                         ; 0x000175 0f b6 d2
+  or ecx, edx                           ; 0x000178 0b ca
+  test ecx, ecx                         ; 0x00017a 85 c9
+  jne 0x3d3                             ; 0x00017c 0f 85 51 02 00 00
+ 0x000182:                              
+  mov ecx, edi                          ; 0x000182 8b cf
+  cmp ecx, 0x1dd                        ; 0x000184 81 f9 dd 01 00 00
+  je 0x3df                              ; 0x00018a 0f 84 4f 02 00 00
+ 0x000190:                              
+  mov ecx, edi                          ; 0x000190 8b cf
+  cmp ecx, 0x1f3                        ; 0x000192 81 f9 f3 01 00 00
+  je 0x3eb                              ; 0x000198 0f 84 4d 02 00 00
+ 0x00019e:                              
+  mov ecx, edi                          ; 0x00019e 8b cf
+  cmp ecx, 0x23f                        ; 0x0001a0 81 f9 3f 02 00 00
+  je 0x3f7                              ; 0x0001a6 0f 84 4b 02 00 00
+ 0x0001ac:                              
+  mov ecx, edi                          ; 0x0001ac 8b cf
+  cmp ecx, 0x240                        ; 0x0001ae 81 f9 40 02 00 00
+  je 0x403                              ; 0x0001b4 0f 84 49 02 00 00
+ 0x0001ba:                              
+  mov ecx, edi                          ; 0x0001ba 8b cf
+  cmp ecx, 0x250                        ; 0x0001bc 81 f9 50 02 00 00
+  je 0x40f                              ; 0x0001c2 0f 84 47 02 00 00
+ 0x0001c8:                              
+  mov ecx, edi                          ; 0x0001c8 8b cf
+  cmp ecx, 0x251                        ; 0x0001ca 81 f9 51 02 00 00
+  je 0x41b                              ; 0x0001d0 0f 84 45 02 00 00
+ 0x0001d6:                              
+  mov ecx, edi                          ; 0x0001d6 8b cf
+  cmp ecx, 0x252                        ; 0x0001d8 81 f9 52 02 00 00
+  je 0x427                              ; 0x0001de 0f 84 43 02 00 00
+ 0x0001e4:                              
+  mov ecx, edi                          ; 0x0001e4 8b cf
+  cmp ecx, 0x253                        ; 0x0001e6 81 f9 53 02 00 00
+  je 0x433                              ; 0x0001ec 0f 84 41 02 00 00
+ 0x0001f2:                              
+  mov ecx, edi                          ; 0x0001f2 8b cf
+  cmp ecx, 0x254                        ; 0x0001f4 81 f9 54 02 00 00
+  je 0x43f                              ; 0x0001fa 0f 84 3f 02 00 00
+ 0x000200:                              
+  mov ecx, edi                          ; 0x000200 8b cf
+  cmp ecx, 0x256                        ; 0x000202 81 f9 56 02 00 00
+  je 0x44b                              ; 0x000208 0f 84 3d 02 00 00
+ 0x00020e:                              
+  mov ecx, edi                          ; 0x00020e 8b cf
+  cmp ecx, 0x257                        ; 0x000210 81 f9 57 02 00 00
+  je 0x457                              ; 0x000216 0f 84 3b 02 00 00
+ 0x00021c:                              
+  mov ecx, edi                          ; 0x00021c 8b cf
+  cmp ecx, 0x259                        ; 0x00021e 81 f9 59 02 00 00
+  je 0x463                              ; 0x000224 0f 84 39 02 00 00
+ 0x00022a:                              
+  mov ecx, edi                          ; 0x00022a 8b cf
+  cmp ecx, 0x25b                        ; 0x00022c 81 f9 5b 02 00 00
+  je 0x46f                              ; 0x000232 0f 84 37 02 00 00
+ 0x000238:                              
+  mov ecx, edi                          ; 0x000238 8b cf
+  cmp ecx, 0x260                        ; 0x00023a 81 f9 60 02 00 00
+  je 0x47b                              ; 0x000240 0f 84 35 02 00 00
+ 0x000246:                              
+  mov ecx, edi                          ; 0x000246 8b cf
+  cmp ecx, 0x263                        ; 0x000248 81 f9 63 02 00 00
+  je 0x487                              ; 0x00024e 0f 84 33 02 00 00
+ 0x000254:                              
+  mov ecx, edi                          ; 0x000254 8b cf
+  cmp ecx, 0x268                        ; 0x000256 81 f9 68 02 00 00
+  je 0x493                              ; 0x00025c 0f 84 31 02 00 00
+ 0x000262:                              
+  mov ecx, edi                          ; 0x000262 8b cf
+  cmp ecx, 0x269                        ; 0x000264 81 f9 69 02 00 00
+  je 0x49f                              ; 0x00026a 0f 84 2f 02 00 00
+ 0x000270:                              
+  mov ecx, edi                          ; 0x000270 8b cf
+  cmp ecx, 0x26b                        ; 0x000272 81 f9 6b 02 00 00
+  je 0x4ab                              ; 0x000278 0f 84 2d 02 00 00
+ 0x00027e:                              
+  mov ecx, edi                          ; 0x00027e 8b cf
+  cmp ecx, 0x26f                        ; 0x000280 81 f9 6f 02 00 00
+  je 0x4b7                              ; 0x000286 0f 84 2b 02 00 00
+ 0x00028c:                              
+  mov ecx, edi                          ; 0x00028c 8b cf
+  cmp ecx, 0x271                        ; 0x00028e 81 f9 71 02 00 00
+  je 0x4c3                              ; 0x000294 0f 84 29 02 00 00
+ 0x00029a:                              
+  mov ecx, edi                          ; 0x00029a 8b cf
+  cmp ecx, 0x272                        ; 0x00029c 81 f9 72 02 00 00
+  je 0x4cf                              ; 0x0002a2 0f 84 27 02 00 00
+ 0x0002a8:                              
+  mov ecx, edi                          ; 0x0002a8 8b cf
+  cmp ecx, 0x275                        ; 0x0002aa 81 f9 75 02 00 00
+  je 0x4db                              ; 0x0002b0 0f 84 25 02 00 00
+ 0x0002b6:                              
+  mov ecx, edi                          ; 0x0002b6 8b cf
+  cmp ecx, 0x27d                        ; 0x0002b8 81 f9 7d 02 00 00
+  je 0x4e7                              ; 0x0002be 0f 84 23 02 00 00
+ 0x0002c4:                              
+  mov ecx, edi                          ; 0x0002c4 8b cf
+  cmp ecx, 0x280                        ; 0x0002c6 81 f9 80 02 00 00
+  je 0x4f3                              ; 0x0002cc 0f 84 21 02 00 00
+ 0x0002d2:                              
+  mov ecx, edi                          ; 0x0002d2 8b cf
+  cmp ecx, 0x283                        ; 0x0002d4 81 f9 83 02 00 00
+  je 0x4ff                              ; 0x0002da 0f 84 1f 02 00 00
+ 0x0002e0:                              
+  mov ecx, edi                          ; 0x0002e0 8b cf
+  cmp ecx, 0x288                        ; 0x0002e2 81 f9 88 02 00 00
+  je 0x50b                              ; 0x0002e8 0f 84 1d 02 00 00
+ 0x0002ee:                              
+  mov ecx, edi                          ; 0x0002ee 8b cf
+  cmp ecx, 0x289                        ; 0x0002f0 81 f9 89 02 00 00
+  je 0x517                              ; 0x0002f6 0f 84 1b 02 00 00
+ 0x0002fc:                              
+  mov ecx, edi                          ; 0x0002fc 8b cf
+  cmp ecx, 0x28a                        ; 0x0002fe 81 f9 8a 02 00 00
+  je 0x523                              ; 0x000304 0f 84 19 02 00 00
+ 0x00030a:                              
+  mov ecx, edi                          ; 0x00030a 8b cf
+  cmp ecx, 0x28b                        ; 0x00030c 81 f9 8b 02 00 00
+  je 0x52f                              ; 0x000312 0f 84 17 02 00 00
+ 0x000318:                              
+  mov ecx, edi                          ; 0x000318 8b cf
+  cmp ecx, 0x28c                        ; 0x00031a 81 f9 8c 02 00 00
+  je 0x53b                              ; 0x000320 0f 84 15 02 00 00
+ 0x000326:                              
+  mov ecx, edi                          ; 0x000326 8b cf
+  cmp ecx, 0x292                        ; 0x000328 81 f9 92 02 00 00
+  jne 0x553                             ; 0x00032e 0f 85 1f 02 00 00
+ 0x000334:                              
+  jmp 0x547                             ; 0x000334 e9 0e 02 00 00
+ 0x000339:                              
+  mov eax, 0x53                         ; 0x000339 b8 53 00 00 00
+  mov edi, eax                          ; 0x00033e 8b f8
+  jmp 0x557                             ; 0x000340 e9 12 02 00 00
+ 0x000345:                              
+  mov eax, 0x243                        ; 0x000345 b8 43 02 00 00
+  mov edi, eax                          ; 0x00034a 8b f8
+  jmp 0x557                             ; 0x00034c e9 06 02 00 00
+ 0x000351:                              
+  mov eax, 0x182                        ; 0x000351 b8 82 01 00 00
+  mov edi, eax                          ; 0x000356 8b f8
+  jmp 0x557                             ; 0x000358 e9 fa 01 00 00
+ 0x00035d:                              
+  mov eax, 0x184                        ; 0x00035d b8 84 01 00 00
+  mov edi, eax                          ; 0x000362 8b f8
+  jmp 0x557                             ; 0x000364 e9 ee 01 00 00
+ 0x000369:                              
+  mov eax, 0x187                        ; 0x000369 b8 87 01 00 00
+  mov edi, eax                          ; 0x00036e 8b f8
+  jmp 0x557                             ; 0x000370 e9 e2 01 00 00
+ 0x000375:                              
+  mov eax, 0x18b                        ; 0x000375 b8 8b 01 00 00
+  mov edi, eax                          ; 0x00037a 8b f8
+  jmp 0x557                             ; 0x00037c e9 d6 01 00 00
+ 0x000381:                              
+  mov eax, 0x191                        ; 0x000381 b8 91 01 00 00
+  mov edi, eax                          ; 0x000386 8b f8
+  jmp 0x557                             ; 0x000388 e9 ca 01 00 00
+ 0x00038d:                              
+  mov eax, 0x1f6                        ; 0x00038d b8 f6 01 00 00
+  mov edi, eax                          ; 0x000392 8b f8
+  jmp 0x557                             ; 0x000394 e9 be 01 00 00
+ 0x000399:                              
+  mov eax, 0x198                        ; 0x000399 b8 98 01 00 00
+  mov edi, eax                          ; 0x00039e 8b f8
+  jmp 0x557                             ; 0x0003a0 e9 b2 01 00 00
+ 0x0003a5:                              
+  mov eax, 0x23d                        ; 0x0003a5 b8 3d 02 00 00
+  mov edi, eax                          ; 0x0003aa 8b f8
+  jmp 0x557                             ; 0x0003ac e9 a6 01 00 00
+ 0x0003b1:                              
+  mov eax, 0x220                        ; 0x0003b1 b8 20 02 00 00
+  mov edi, eax                          ; 0x0003b6 8b f8
+  jmp 0x557                             ; 0x0003b8 e9 9a 01 00 00
+ 0x0003bd:                              
+  sub eax, 1                            ; 0x0003bd 83 e8 01
+  mov edi, eax                          ; 0x0003c0 8b f8
+  jmp 0x557                             ; 0x0003c2 e9 90 01 00 00
+ 0x0003c7:                              
+  mov eax, 0x1f7                        ; 0x0003c7 b8 f7 01 00 00
+  mov edi, eax                          ; 0x0003cc 8b f8
+  jmp 0x557                             ; 0x0003ce e9 84 01 00 00
+ 0x0003d3:                              
+  mov eax, edi                          ; 0x0003d3 8b c7
+  sub eax, 2                            ; 0x0003d5 83 e8 02
+  mov edi, eax                          ; 0x0003d8 8b f8
+  jmp 0x557                             ; 0x0003da e9 78 01 00 00
+ 0x0003df:                              
+  mov eax, 0x18e                        ; 0x0003df b8 8e 01 00 00
+  mov edi, eax                          ; 0x0003e4 8b f8
+  jmp 0x557                             ; 0x0003e6 e9 6c 01 00 00
+ 0x0003eb:                              
+  mov eax, 0x1f1                        ; 0x0003eb b8 f1 01 00 00
+  mov edi, eax                          ; 0x0003f0 8b f8
+  jmp 0x557                             ; 0x0003f2 e9 60 01 00 00
+ 0x0003f7:                              
+  mov eax, 0x2c7e                       ; 0x0003f7 b8 7e 2c 00 00
+  mov edi, eax                          ; 0x0003fc 8b f8
+  jmp 0x557                             ; 0x0003fe e9 54 01 00 00
+ 0x000403:                              
+  mov eax, 0x2c7f                       ; 0x000403 b8 7f 2c 00 00
+  mov edi, eax                          ; 0x000408 8b f8
+  jmp 0x557                             ; 0x00040a e9 48 01 00 00
+ 0x00040f:                              
+  mov eax, 0x2c6f                       ; 0x00040f b8 6f 2c 00 00
+  mov edi, eax                          ; 0x000414 8b f8
+  jmp 0x557                             ; 0x000416 e9 3c 01 00 00
+ 0x00041b:                              
+  mov eax, 0x2c6d                       ; 0x00041b b8 6d 2c 00 00
+  mov edi, eax                          ; 0x000420 8b f8
+  jmp 0x557                             ; 0x000422 e9 30 01 00 00
+ 0x000427:                              
+  mov eax, 0x2c70                       ; 0x000427 b8 70 2c 00 00
+  mov edi, eax                          ; 0x00042c 8b f8
+  jmp 0x557                             ; 0x00042e e9 24 01 00 00
+ 0x000433:                              
+  mov eax, 0x181                        ; 0x000433 b8 81 01 00 00
+  mov edi, eax                          ; 0x000438 8b f8
+  jmp 0x557                             ; 0x00043a e9 18 01 00 00
+ 0x00043f:                              
+  mov eax, 0x186                        ; 0x00043f b8 86 01 00 00
+  mov edi, eax                          ; 0x000444 8b f8
+  jmp 0x557                             ; 0x000446 e9 0c 01 00 00
+ 0x00044b:                              
+  mov eax, 0x189                        ; 0x00044b b8 89 01 00 00
+  mov edi, eax                          ; 0x000450 8b f8
+  jmp 0x557                             ; 0x000452 e9 00 01 00 00
+ 0x000457:                              
+  mov eax, 0x18a                        ; 0x000457 b8 8a 01 00 00
+  mov edi, eax                          ; 0x00045c 8b f8
+  jmp 0x557                             ; 0x00045e e9 f4 00 00 00
+ 0x000463:                              
+  mov eax, 0x18f                        ; 0x000463 b8 8f 01 00 00
+  mov edi, eax                          ; 0x000468 8b f8
+  jmp 0x557                             ; 0x00046a e9 e8 00 00 00
+ 0x00046f:                              
+  mov eax, 0x190                        ; 0x00046f b8 90 01 00 00
+  mov edi, eax                          ; 0x000474 8b f8
+  jmp 0x557                             ; 0x000476 e9 dc 00 00 00
+ 0x00047b:                              
+  mov eax, 0x193                        ; 0x00047b b8 93 01 00 00
+  mov edi, eax                          ; 0x000480 8b f8
+  jmp 0x557                             ; 0x000482 e9 d0 00 00 00
+ 0x000487:                              
+  mov eax, 0x194                        ; 0x000487 b8 94 01 00 00
+  mov edi, eax                          ; 0x00048c 8b f8
+  jmp 0x557                             ; 0x00048e e9 c4 00 00 00
+ 0x000493:                              
+  mov eax, 0x197                        ; 0x000493 b8 97 01 00 00
+  mov edi, eax                          ; 0x000498 8b f8
+  jmp 0x557                             ; 0x00049a e9 b8 00 00 00
+ 0x00049f:                              
+  mov eax, 0x196                        ; 0x00049f b8 96 01 00 00
+  mov edi, eax                          ; 0x0004a4 8b f8
+  jmp 0x557                             ; 0x0004a6 e9 ac 00 00 00
+ 0x0004ab:                              
+  mov eax, 0x2c62                       ; 0x0004ab b8 62 2c 00 00
+  mov edi, eax                          ; 0x0004b0 8b f8
+  jmp 0x557                             ; 0x0004b2 e9 a0 00 00 00
+ 0x0004b7:                              
+  mov eax, 0x19c                        ; 0x0004b7 b8 9c 01 00 00
+  mov edi, eax                          ; 0x0004bc 8b f8
+  jmp 0x557                             ; 0x0004be e9 94 00 00 00
+ 0x0004c3:                              
+  mov eax, 0x2c6e                       ; 0x0004c3 b8 6e 2c 00 00
+  mov edi, eax                          ; 0x0004c8 8b f8
+  jmp 0x557                             ; 0x0004ca e9 88 00 00 00
+ 0x0004cf:                              
+  mov eax, 0x19d                        ; 0x0004cf b8 9d 01 00 00
+  mov edi, eax                          ; 0x0004d4 8b f8
+  jmp 0x557                             ; 0x0004d6 e9 7c 00 00 00
+ 0x0004db:                              
+  mov eax, 0x19f                        ; 0x0004db b8 9f 01 00 00
+  mov edi, eax                          ; 0x0004e0 8b f8
+  jmp 0x557                             ; 0x0004e2 e9 70 00 00 00
+ 0x0004e7:                              
+  mov eax, 0x2c64                       ; 0x0004e7 b8 64 2c 00 00
+  mov edi, eax                          ; 0x0004ec 8b f8
+  jmp 0x557                             ; 0x0004ee e9 64 00 00 00
+ 0x0004f3:                              
+  mov eax, 0x1a6                        ; 0x0004f3 b8 a6 01 00 00
+  mov edi, eax                          ; 0x0004f8 8b f8
+  jmp 0x557                             ; 0x0004fa e9 58 00 00 00
+ 0x0004ff:                              
+  mov eax, 0x1a9                        ; 0x0004ff b8 a9 01 00 00
+  mov edi, eax                          ; 0x000504 8b f8
+  jmp 0x557                             ; 0x000506 e9 4c 00 00 00
+ 0x00050b:                              
+  mov eax, 0x1ae                        ; 0x00050b b8 ae 01 00 00
+  mov edi, eax                          ; 0x000510 8b f8
+  jmp 0x557                             ; 0x000512 e9 40 00 00 00
+ 0x000517:                              
+  mov eax, 0x244                        ; 0x000517 b8 44 02 00 00
+  mov edi, eax                          ; 0x00051c 8b f8
+  jmp 0x557                             ; 0x00051e e9 34 00 00 00
+ 0x000523:                              
+  mov eax, 0x1b1                        ; 0x000523 b8 b1 01 00 00
+  mov edi, eax                          ; 0x000528 8b f8
+  jmp 0x557                             ; 0x00052a e9 28 00 00 00
+ 0x00052f:                              
+  mov eax, 0x1b2                        ; 0x00052f b8 b2 01 00 00
+  mov edi, eax                          ; 0x000534 8b f8
+  jmp 0x557                             ; 0x000536 e9 1c 00 00 00
+ 0x00053b:                              
+  mov eax, 0x245                        ; 0x00053b b8 45 02 00 00
+  mov edi, eax                          ; 0x000540 8b f8
+  jmp 0x557                             ; 0x000542 e9 10 00 00 00
+ 0x000547:                              
+  mov eax, 0x1b7                        ; 0x000547 b8 b7 01 00 00
+  mov edi, eax                          ; 0x00054c 8b f8
+  jmp 0x557                             ; 0x00054e e9 04 00 00 00
+ 0x000553:                              
+  xor eax, eax                          ; 0x000553 33 c0
+  mov edi, eax                          ; 0x000555 8b f8
+  mov ecx, edi                          ; 0x000557 8b cf
+  test ecx, ecx                         ; 0x000559 85 c9
+  je 0x568                              ; 0x00055b 0f 84 07 00 00 00
+ 0x000561:                              
+  mov eax, edi                          ; 0x000561 8b c7
+  jmp 0x56a                             ; 0x000563 e9 02 00 00 00
+ 0x000568:                              
+  xor eax, eax                          ; 0x000568 33 c0
+  nop                                   ; 0x00056a 66 90
+  add rsp, 8                            ; 0x00056c 48 83 c4 08
+  ret                                   ; 0x000570 c3
+
