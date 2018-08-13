@@ -1,0 +1,22 @@
+digraph call {
+  rankdir = LR;
+  subgraph cluster_key {
+    node [shape=box, fontname=courier, fontsize=10];
+    edge [fontname=courier, fontsize=10];
+    label = "Key";
+    "Import" [style="filled", fillcolor="turquoise"];
+    "Export" [style="filled", fillcolor="gray"];
+    "Indirect Target" [style="filled, rounded", fillcolor="white"];
+    "A" -> "B" [style="filled, rounded", label = "Direct Call"];
+  }
+
+  node [shape=box, fontname=courier, fontsize=10];
+  "$main/add" [style="filled", fillcolor="white"];
+  "$start" [style="filled", fillcolor="white"];
+  "$main/sayHello" [style="filled", fillcolor="turquoise"];
+  "$main/console.logi" [style="filled", fillcolor="turquoise"];
+  "$main/add" [style="filled", fillcolor="gray"];
+  "$start" -> "$main/sayHello"; // callImport
+  "$start" -> "$main/add"; // call
+  "$start" -> "$main/console.logi"; // callImport
+}
