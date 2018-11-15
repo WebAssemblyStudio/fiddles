@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="background: #fff">
+  <span id="container"></span>
+  <script src="./ipfs.js"></script>
+  <script src='./orbit-db.js'></script>
+  <script>
+    const ipfs = new IPFS({
+  EXPERIMENTAL: {
+      pubsub: true,
+    },
+    config: {
+      Addresses: {
+        Swarm: [
+          '/dns4/spacestation.hopto.org/tcp/9090/wss/p2p-websocket-star',
+        ],
+      },
+    },
+})
+
+
+// once the node is ready
+ipfs.once('ready', async () => {
+   var ipfsId = await ipfs.id();
+  var orbitdb = new OrbitDB(ipfs)
+  window.globaldb = await window.orbitdb.log(ipfsId.publicKey);
+  await globaldb.load();
+  console.log(window.globaldb)
+  
+})
+    </script>
+  <script src="./main.js"></script>
+</body>
+</html>
