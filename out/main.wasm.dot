@@ -1,0 +1,68 @@
+digraph call {
+  rankdir = LR;
+  subgraph cluster_key {
+    node [shape=box, fontname=courier, fontsize=10];
+    edge [fontname=courier, fontsize=10];
+    label = "Key";
+    "Import" [style="filled", fillcolor="turquoise"];
+    "Export" [style="filled", fillcolor="gray"];
+    "Indirect Target" [style="filled, rounded", fillcolor="white"];
+    "A" -> "B" [style="filled, rounded", label = "Direct Call"];
+  }
+
+  node [shape=box, fontname=courier, fontsize=10];
+  "$__wasm_call_ctors" [style="filled", fillcolor="white"];
+  "$main" [style="filled", fillcolor="white"];
+  "$writev_c" [style="filled", fillcolor="white"];
+  "$__lockfile" [style="filled", fillcolor="white"];
+  "$__unlockfile" [style="filled", fillcolor="white"];
+  "$__towrite" [style="filled", fillcolor="white"];
+  "$fwrite" [style="filled", fillcolor="white"];
+  "$fputs" [style="filled", fillcolor="white"];
+  "$__overflow" [style="filled", fillcolor="white"];
+  "$puts" [style="filled", fillcolor="white"];
+  "$__errno_location" [style="filled", fillcolor="white"];
+  "$__syscall_ret" [style="filled", fillcolor="white"];
+  "$dummy" [style="filled", fillcolor="white"];
+  "$__stdio_close" [style="filled", fillcolor="white"];
+  "$__stdio_write" [style="filled", fillcolor="white"];
+  "$__stdout_write" [style="filled", fillcolor="white"];
+  "$__stdio_seek" [style="filled", fillcolor="white"];
+  "$memcpy" [style="filled", fillcolor="white"];
+  "$strlen" [style="filled", fillcolor="white"];
+  "$putc_js" [style="filled", fillcolor="turquoise"];
+  "$__syscall3" [style="filled", fillcolor="turquoise"];
+  "$__syscall1" [style="filled", fillcolor="turquoise"];
+  "$__syscall5" [style="filled", fillcolor="turquoise"];
+  "$main" [style="filled", fillcolor="gray"];
+  "$writev_c" [style="filled", fillcolor="gray"];
+  "$main" -> "$puts"; // call
+  "$writev_c" -> "$putc_js"; // callImport
+  "$__lockfile" -> "$__syscall3"; // callImport
+  "$__unlockfile" -> "$__syscall3"; // callImport
+  "$fwrite" -> "$__lockfile"; // call
+  "$fwrite" -> "$__towrite"; // call
+  "$fwrite" -> "$memcpy"; // call
+  "$fwrite" -> "$__unlockfile"; // call
+  "$fputs" -> "$strlen"; // call
+  "$fputs" -> "$fwrite"; // call
+  "$__overflow" -> "$__towrite"; // call
+  "$puts" -> "$__lockfile"; // call
+  "$puts" -> "$fputs"; // call
+  "$puts" -> "$__overflow"; // call
+  "$puts" -> "$__unlockfile"; // call
+  "$__syscall_ret" -> "$__errno_location"; // call
+  "$__stdio_close" -> "$dummy"; // call
+  "$__stdio_close" -> "$__syscall1"; // callImport
+  "$__stdio_close" -> "$__syscall_ret"; // call
+  "$__stdio_write" -> "$__syscall3"; // callImport
+  "$__stdio_write" -> "$__syscall_ret"; // call
+  "$__stdout_write" -> "$__syscall3"; // callImport
+  "$__stdout_write" -> "$__stdio_write"; // call
+  "$__stdio_seek" -> "$__syscall5"; // callImport
+  "$__stdio_seek" -> "$__syscall_ret"; // call
+  "$__stdio_write" [style="filled, rounded"];
+  "$__stdio_close" [style="filled, rounded"];
+  "$__stdout_write" [style="filled, rounded"];
+  "$__stdio_seek" [style="filled, rounded"];
+}
