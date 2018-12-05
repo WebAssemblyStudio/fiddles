@@ -1,0 +1,61 @@
+wasm-function[0]:
+ 0x000000:                              ; 0x000000 from: [0x000015, 0x000022, 0x000028, 0x000034, 0x000041, 0x000047, 0x000052, 0x00005f, 0x000065, 0x000069, 0x000070, 0x000077, 0x000085]
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  mov ecx, edi                          ; 0x000004 8b cf
+  mov edx, esi                          ; 0x000006 8b d6
+  add edx, -3                           ; 0x000008 83 c2 fd
+!  mov ebx, ecx                          ; 0x00000b 8b d9
+  movzx ebp, byte ptr [r15 + rbx + 2]   ; 0x00000d 41 0f b6 6c 1f 02
+  test ebp, ebp                         ; 0x000013 85 ed
+  je 0x2a                               ; 0x000015 0f 84 0f 00 00 00
+ 0x00001b:                              
+  add ebx, 3                            ; 0x00001b 83 c3 03
+!  mov ecx, ebx                          ; 0x00001e 8b cb
+  cmp ebx, edx                          ; 0x000020 3b da
+  jg 0x67                               ; 0x000022 0f 8f 3f 00 00 00
+ 0x000028:                              
+  jmp 0xb                               ; 0x000028 eb e1
+ 0x00002a:                              
+!  mov ebx, ecx                          ; 0x00002a 8b d9
+  movzx ebp, byte ptr [r15 + rbx + 1]   ; 0x00002c 41 0f b6 6c 1f 01
+  test ebp, ebp                         ; 0x000032 85 ed
+  je 0x49                               ; 0x000034 0f 84 0f 00 00 00
+ 0x00003a:                              
+  add ebx, 2                            ; 0x00003a 83 c3 02
+!  mov ecx, ebx                          ; 0x00003d 8b cb
+  cmp ebx, edx                          ; 0x00003f 3b da
+  jg 0x6e                               ; 0x000041 0f 8f 27 00 00 00
+ 0x000047:                              
+  jmp 0xb                               ; 0x000047 eb c2
+ 0x000049:                              
+!  mov ebx, ecx                          ; 0x000049 8b d9
+  movzx ebp, byte ptr [r15 + rbx]       ; 0x00004b 41 0f b6 2c 1f
+  test ebp, ebp                         ; 0x000050 85 ed
+  je 0x7c                               ; 0x000052 0f 84 24 00 00 00
+ 0x000058:                              
+  add ebx, 1                            ; 0x000058 83 c3 01
+!  mov ecx, ebx                          ; 0x00005b 8b cb
+  cmp ebx, edx                          ; 0x00005d 3b da
+  jg 0x75                               ; 0x00005f 0f 8f 10 00 00 00
+ 0x000065:                              
+  jmp 0xb                               ; 0x000065 eb a4
+ 0x000067:                              
+  mov eax, esi                          ; 0x000067 8b c6
+  jmp 0x8a                              ; 0x000069 e9 1c 00 00 00
+ 0x00006e:                              
+@  mov eax, esi                          ; 0x00006e 8b c6
+@  jmp 0x8a                              ; 0x000070 e9 15 00 00 00
+ 0x000075:                              
+@  mov eax, esi                          ; 0x000075 8b c6
+@  jmp 0x8a                              ; 0x000077 e9 0e 00 00 00
+ 0x00007c:                              
+  mov eax, ecx                          ; 0x00007c 8b c1
+  sub eax, ecx                          ; 0x00007e 2b c1
+  mov dword ptr [r15], eax              ; 0x000080 41 89 07
+  mov eax, ecx                          ; 0x000083 8b c1
+@  jmp 0x8a                              ; 0x000085 e9 00 00 00 00
+ 0x00008a:                              
+  nop                                   ; 0x00008a 66 90
+  add rsp, 8                            ; 0x00008c 48 83 c4 08
+  ret                                   ; 0x000090 c3
+
