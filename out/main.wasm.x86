@@ -1,0 +1,92 @@
+wasm-function[0]:
+ 0x000000:                              ; 0x000000 from: [0x000016, 0x000032, 0x00003c, 0x000052, 0x000072]
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  xorpd xmm0, xmm0                      ; 0x000004 66 0f 57 c0
+  xor eax, eax                          ; 0x000008 33 c0
+  movsd xmm1, qword ptr [rip + 0xa8e]   ; 0x00000a f2 0f 10 0d 8e 0a 00 00
+  ucomisd xmm1, xmm0                    ; 0x000012 66 0f 2e c8
+  jbe 0x74                              ; 0x000016 0f 86 58 00 00 00
+ 0x00001c:                              
+  movapd xmm1, xmm0                     ; 0x00001c 66 0f 28 c8
+  subsd xmm1, xmm0                      ; 0x000020 f2 0f 5c c8
+  xorpd xmm2, xmm2                      ; 0x000024 66 0f 57 d2
+  ucomisd xmm1, xmm2                    ; 0x000028 66 0f 2e ca
+  sete cl                               ; 0x00002c 0f 94 c1
+  movzx ecx, cl                         ; 0x00002f 0f b6 c9
+  jnp 0x3a                              ; 0x000032 0f 8b 02 00 00 00
+ 0x000038:                              
+  xor ecx, ecx                          ; 0x000038 33 c9
+  test ecx, ecx                         ; 0x00003a 85 c9
+  je 0x5a                               ; 0x00003c 0f 84 18 00 00 00
+ 0x000042:                              
+  roundsd xmm1, xmm0, 3                 ; 0x000042 66 0f 3a 0b c8 03
+  ucomisd xmm1, xmm0                    ; 0x000048 66 0f 2e c8
+  sete cl                               ; 0x00004c 0f 94 c1
+  movzx ecx, cl                         ; 0x00004f 0f b6 c9
+  jnp 0x5a                              ; 0x000052 0f 8b 02 00 00 00
+ 0x000058:                              
+  xor ecx, ecx                          ; 0x000058 33 c9
+  test ecx, ecx                         ; 0x00005a 85 c9
+  setne al                              ; 0x00005c 0f 95 c0
+  movzx eax, al                         ; 0x00005f 0f b6 c0
+  movsd xmm1, qword ptr [rip + 0xa3e]   ; 0x000062 f2 0f 10 0d 3e 0a 00 00
+  addsd xmm1, xmm0                      ; 0x00006a f2 0f 58 c8
+  movapd xmm0, xmm1                     ; 0x00006e 66 0f 28 c1
+  jmp 0xa                               ; 0x000072 eb 96
+ 0x000074:                              
+  nop                                   ; 0x000074 66 90
+  add rsp, 8                            ; 0x000076 48 83 c4 08
+  ret                                   ; 0x00007a c3
+
+wasm-function[1]:
+ 0x000000:                              ; 0x000000 from: [0x000016, 0x000097]
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  xorpd xmm0, xmm0                      ; 0x000004 66 0f 57 c0
+  xor eax, eax                          ; 0x000008 33 c0
+  movsd xmm1, qword ptr [rip + 0x9ae]   ; 0x00000a f2 0f 10 0d ae 09 00 00
+  ucomisd xmm1, xmm0                    ; 0x000012 66 0f 2e c8
+  jbe 0x9c                              ; 0x000016 0f 86 80 00 00 00
+ 0x00001c:                              
+  movq rcx, xmm0                        ; 0x00001c 66 48 0f 7e c1
+  mov rax, rcx                          ; 0x000021 48 8b c1
+  shr rcx, 0x34                         ; 0x000024 48 c1 e9 34
+  and rcx, 0x7ff                        ; 0x000028 48 81 e1 ff 07 00 00
+  mov esi, ecx                          ; 0x00002f 8b f1
+  sub esi, 0x3ff                        ; 0x000031 81 ee ff 03 00 00
+  mov ecx, 0x34                         ; 0x000037 b9 34 00 00 00
+  sub ecx, esi                          ; 0x00003c 2b ce
+  movsxd rcx, ecx                       ; 0x00003e 48 63 c9
+  mov edx, 1                            ; 0x000041 ba 01 00 00 00
+  shl rdx, cl                           ; 0x000046 48 d3 e2
+  sub rdx, 1                            ; 0x000049 48 83 ea 01
+  cmp esi, 0x34                         ; 0x00004d 83 fe 34
+  setg bpl                              ; 0x000050 40 0f 9f c5
+  movzx ebp, bpl                        ; 0x000054 40 0f b6 ed
+  mov ebx, 0                            ; 0x000058 bb 00 00 00 00
+  test ebp, ebp                         ; 0x00005d 85 ed
+  cmove rbx, rdx                        ; 0x00005f 48 0f 44 da
+  test esi, esi                         ; 0x000063 85 f6
+  setl dl                               ; 0x000065 0f 9c c2
+  movzx edx, dl                         ; 0x000068 0f b6 d2
+  movabs rcx, 0x7fffffffffffffff        ; 0x00006b 48 b9 ff ff ff ff ff ff ff 7f
+  test edx, edx                         ; 0x000075 85 d2
+  cmove rcx, rbx                        ; 0x000077 48 0f 44 cb
+  and rcx, rax                          ; 0x00007b 48 23 c8
+  test rcx, rcx                         ; 0x00007e 48 85 c9
+  sete al                               ; 0x000081 0f 94 c0
+  movzx eax, al                         ; 0x000084 0f b6 c0
+  movsd xmm1, qword ptr [rip + 0x939]   ; 0x000087 f2 0f 10 0d 39 09 00 00
+  addsd xmm1, xmm0                      ; 0x00008f f2 0f 58 c8
+  movapd xmm0, xmm1                     ; 0x000093 66 0f 28 c1
+  jmp 0xa                               ; 0x000097 e9 6e ff ff ff
+ 0x00009c:                              
+  nop                                   ; 0x00009c 66 90
+  add rsp, 8                            ; 0x00009e 48 83 c4 08
+  ret                                   ; 0x0000a2 c3
+
+wasm-function[2]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  nop                                   ; 0x000004 66 90
+  add rsp, 8                            ; 0x000006 48 83 c4 08
+  ret                                   ; 0x00000a c3
+
