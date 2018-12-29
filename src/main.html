@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+var importObject = {
+  env: {
+    geti64_fromjs: () => BigInt(64)
+  } 
+};
+
+WebAssembly.instantiateStreaming(fetch('../out/main.wasm'), importObject)
+.then(obj => alert(obj.instance.exports.main());
+</script>
+</body>
+</html>
