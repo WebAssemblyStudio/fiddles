@@ -1,0 +1,64 @@
+wasm-function[0]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  mov ebx, edi                          ; 0x000004 8b df
+  mov ecx, ebx                          ; 0x000006 8b cb
+  test ecx, ecx                         ; 0x000008 85 c9
+  setg al                               ; 0x00000a 0f 9f c0
+  movzx eax, al                         ; 0x00000d 0f b6 c0
+  xor ecx, ecx                          ; 0x000010 33 c9
+  mov edx, ebx                          ; 0x000012 8b d3
+  test eax, eax                         ; 0x000014 85 c0
+  cmove edx, ecx                        ; 0x000016 0f 44 d1
+  mov ecx, edx                          ; 0x000019 8b ca
+  mov ebx, edx                          ; 0x00001b 8b da
+  cmp ecx, 0xff                         ; 0x00001d 81 f9 ff 00 00 00
+  setl al                               ; 0x000023 0f 9c c0
+  movzx eax, al                         ; 0x000026 0f b6 c0
+  mov ecx, 0xff                         ; 0x000029 b9 ff 00 00 00
+  mov edx, ebx                          ; 0x00002e 8b d3
+  test eax, eax                         ; 0x000030 85 c0
+  cmove edx, ecx                        ; 0x000032 0f 44 d1
+  mov eax, edx                          ; 0x000035 8b c2
+  nop                                   ; 0x000037 66 90
+  add rsp, 8                            ; 0x000039 48 83 c4 08
+  ret                                   ; 0x00003d c3
+
+wasm-function[1]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  mov edx, edi                          ; 0x000004 8b d7
+  mov ecx, edx                          ; 0x000006 8b ca
+  mov eax, edx                          ; 0x000008 8b c2
+  sar ecx, 0x1f                         ; 0x00000a c1 f9 1f
+  xor ecx, 0xffffffff                   ; 0x00000d 83 f1 ff
+  and ecx, eax                          ; 0x000010 23 c8
+  mov edx, ecx                          ; 0x000012 8b d1
+  mov ecx, 0xff                         ; 0x000014 b9 ff 00 00 00
+  sub ecx, eax                          ; 0x000019 2b c8
+  sar ecx, 0x1f                         ; 0x00001b c1 f9 1f
+  mov eax, edx                          ; 0x00001e 8b c2
+  or eax, ecx                           ; 0x000020 0b c1
+  and eax, 0xff                         ; 0x000022 25 ff 00 00 00
+  nop                                   ; 0x000027 66 90
+  add rsp, 8                            ; 0x000029 48 83 c4 08
+  ret                                   ; 0x00002d c3
+
+wasm-function[2]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  mov eax, 0xff                         ; 0x000004 b8 ff 00 00 00
+  sub eax, edi                          ; 0x000009 2b c7
+  sar eax, 0x1f                         ; 0x00000b c1 f8 1f
+  or eax, edi                           ; 0x00000e 0b c7
+  sar edi, 0x1f                         ; 0x000010 c1 ff 1f
+  xor edi, 0xffffffff                   ; 0x000013 83 f7 ff
+  and eax, edi                          ; 0x000016 23 c7
+  and eax, 0xff                         ; 0x000018 25 ff 00 00 00
+  nop                                   ; 0x00001d 66 90
+  add rsp, 8                            ; 0x00001f 48 83 c4 08
+  ret                                   ; 0x000023 c3
+
+wasm-function[3]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  nop                                   ; 0x000004 66 90
+  add rsp, 8                            ; 0x000006 48 83 c4 08
+  ret                                   ; 0x00000a c3
+
