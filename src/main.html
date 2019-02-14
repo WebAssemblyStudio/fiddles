@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Example of WebAssembly | Radarez.com</title>
+  <style>
+    body {
+      background-color: #091b39;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <span id="container"></span>
+  <img src="https://www.radarez.com/assets/images/logos/desarrollo-de-software-radarez.png">
+  
+  <form id="arithmetic" name="arithmetic">
+    <input type="number" name="input_a" id="input_a" value="10">
+    <input type="number" name="input_b" id="input_b" value="20">
+    <input type="number" name="result" id="result">
+    <button type="button" onclick="runApp()">Run</button>
+  </form>
+  
+  <script src="../out/main.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
