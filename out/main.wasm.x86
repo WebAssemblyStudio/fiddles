@@ -1,0 +1,96 @@
+wasm-function[0]:
+ 0x000000:                              ; 0x000000 from: [0x000009, 0x000012, 0x00001b, 0x000021, 0x000032, 0x000052, 0x000081]
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  and edi, 3                            ; 0x000004 83 e7 03
+  test edi, edi                         ; 0x000007 85 ff
+  je 0x26                               ; 0x000009 0f 84 17 00 00 00
+ 0x00000f:                              
+  cmp edi, 1                            ; 0x00000f 83 ff 01
+  je 0x37                               ; 0x000012 0f 84 1f 00 00 00
+ 0x000018:                              
+  cmp edi, 2                            ; 0x000018 83 ff 02
+  jne 0x86                              ; 0x00001b 0f 85 65 00 00 00
+ 0x000021:                              
+  jmp 0x57                              ; 0x000021 e9 31 00 00 00
+ 0x000026:                              
+  movss dword ptr [r14 + 0x40], xmm0    ; 0x000026 f3 41 0f 11 46 40
+  movss dword ptr [r14 + 0x44], xmm1    ; 0x00002c f3 41 0f 11 4e 44
+  jmp 0xa1                              ; 0x000032 e9 6a 00 00 00
+ 0x000037:                              
+  movss dword ptr [r14 + 0x40], xmm1    ; 0x000037 f3 41 0f 11 4e 40
+  pcmpeqw xmm15, xmm15                  ; 0x00003d 66 45 0f 75 ff
+  psllq xmm15, 0x1f                     ; 0x000042 66 41 0f 73 f7 1f
+  xorps xmm0, xmm15                     ; 0x000048 41 0f 57 c7
+  movss dword ptr [r14 + 0x44], xmm0    ; 0x00004c f3 41 0f 11 46 44
+  jmp 0xa1                              ; 0x000052 e9 4a 00 00 00
+ 0x000057:                              
+  pcmpeqw xmm15, xmm15                  ; 0x000057 66 45 0f 75 ff
+  psllq xmm15, 0x1f                     ; 0x00005c 66 41 0f 73 f7 1f
+  xorps xmm0, xmm15                     ; 0x000062 41 0f 57 c7
+  movss dword ptr [r14 + 0x40], xmm0    ; 0x000066 f3 41 0f 11 46 40
+  pcmpeqw xmm15, xmm15                  ; 0x00006c 66 45 0f 75 ff
+  psllq xmm15, 0x1f                     ; 0x000071 66 41 0f 73 f7 1f
+  xorps xmm1, xmm15                     ; 0x000077 41 0f 57 cf
+  movss dword ptr [r14 + 0x44], xmm1    ; 0x00007b f3 41 0f 11 4e 44
+  jmp 0xa1                              ; 0x000081 e9 1b 00 00 00
+ 0x000086:                              
+  pcmpeqw xmm15, xmm15                  ; 0x000086 66 45 0f 75 ff
+  psllq xmm15, 0x1f                     ; 0x00008b 66 41 0f 73 f7 1f
+  xorps xmm1, xmm15                     ; 0x000091 41 0f 57 cf
+  movss dword ptr [r14 + 0x40], xmm1    ; 0x000095 f3 41 0f 11 4e 40
+  movss dword ptr [r14 + 0x44], xmm0    ; 0x00009b f3 41 0f 11 46 44
+  nop                                   ; 0x0000a1 66 90
+  add rsp, 8                            ; 0x0000a3 48 83 c4 08
+  ret                                   ; 0x0000a7 c3
+
+wasm-function[1]:
+ 0x000000:                              ; 0x000000 from: [0x000009, 0x000012, 0x00001b, 0x000021, 0x000032, 0x000052, 0x000081]
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  and edi, 3                            ; 0x000004 83 e7 03
+  test edi, edi                         ; 0x000007 85 ff
+  je 0x26                               ; 0x000009 0f 84 17 00 00 00
+ 0x00000f:                              
+  cmp edi, 1                            ; 0x00000f 83 ff 01
+  je 0x37                               ; 0x000012 0f 84 1f 00 00 00
+ 0x000018:                              
+  cmp edi, 2                            ; 0x000018 83 ff 02
+  jne 0x86                              ; 0x00001b 0f 85 65 00 00 00
+ 0x000021:                              
+  jmp 0x57                              ; 0x000021 e9 31 00 00 00
+ 0x000026:                              
+  movss dword ptr [r14 + 0x40], xmm0    ; 0x000026 f3 41 0f 11 46 40
+  movss dword ptr [r14 + 0x44], xmm1    ; 0x00002c f3 41 0f 11 4e 44
+  jmp 0xa1                              ; 0x000032 e9 6a 00 00 00
+ 0x000037:                              
+  movss dword ptr [r14 + 0x40], xmm1    ; 0x000037 f3 41 0f 11 4e 40
+  pcmpeqw xmm15, xmm15                  ; 0x00003d 66 45 0f 75 ff
+  psllq xmm15, 0x1f                     ; 0x000042 66 41 0f 73 f7 1f
+  xorps xmm0, xmm15                     ; 0x000048 41 0f 57 c7
+  movss dword ptr [r14 + 0x44], xmm0    ; 0x00004c f3 41 0f 11 46 44
+  jmp 0xa1                              ; 0x000052 e9 4a 00 00 00
+ 0x000057:                              
+  pcmpeqw xmm15, xmm15                  ; 0x000057 66 45 0f 75 ff
+  psllq xmm15, 0x1f                     ; 0x00005c 66 41 0f 73 f7 1f
+  xorps xmm0, xmm15                     ; 0x000062 41 0f 57 c7
+  movss dword ptr [r14 + 0x40], xmm0    ; 0x000066 f3 41 0f 11 46 40
+  pcmpeqw xmm15, xmm15                  ; 0x00006c 66 45 0f 75 ff
+  psllq xmm15, 0x1f                     ; 0x000071 66 41 0f 73 f7 1f
+  xorps xmm1, xmm15                     ; 0x000077 41 0f 57 cf
+  movss dword ptr [r14 + 0x44], xmm1    ; 0x00007b f3 41 0f 11 4e 44
+  jmp 0xa1                              ; 0x000081 e9 1b 00 00 00
+ 0x000086:                              
+  pcmpeqw xmm15, xmm15                  ; 0x000086 66 45 0f 75 ff
+  psllq xmm15, 0x1f                     ; 0x00008b 66 41 0f 73 f7 1f
+  xorps xmm1, xmm15                     ; 0x000091 41 0f 57 cf
+  movss dword ptr [r14 + 0x40], xmm1    ; 0x000095 f3 41 0f 11 4e 40
+  movss dword ptr [r14 + 0x44], xmm0    ; 0x00009b f3 41 0f 11 46 44
+  nop                                   ; 0x0000a1 66 90
+  add rsp, 8                            ; 0x0000a3 48 83 c4 08
+  ret                                   ; 0x0000a7 c3
+
+wasm-function[2]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  nop                                   ; 0x000004 66 90
+  add rsp, 8                            ; 0x000006 48 83 c4 08
+  ret                                   ; 0x00000a c3
+
