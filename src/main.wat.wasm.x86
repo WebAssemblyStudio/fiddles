@@ -1,0 +1,15 @@
+wasm-function[0]:
+ 0x000000:                              ; 0x000000 from: [0x000008, 0x00000e]
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  mov ecx, esi                          ; 0x000004 8b ce
+  test edi, edi                         ; 0x000006 85 ff
+  jne 0x13                              ; 0x000008 0f 85 05 00 00 00
+ 0x00000e:                              
+  jmp 0x3f                              ; 0x00000e e9 2c 00 00 00
+ 0x000013:                              
+  mov eax, ecx                          ; 0x000013 8b c1
+  add eax, edi                          ; 0x000015 03 c7
+  nop                                   ; 0x000017 66 90
+  add rsp, 8                            ; 0x000019 48 83 c4 08
+  ret                                   ; 0x00001d c3
+
