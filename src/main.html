@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='utf-8'>
+	<style>
+		html,
+		body {
+			height: 100%;
+			padding: 0;
+			margin: 0;
+		}
+
+		body {
+			background-color: #08141e;
+			height: 100%;
+			width: 100%;
+			padding: 0;
+			margin: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		#display {
+      image-rendering: -moz-crisp-edges;
+			image-rendering: pixelated;
+			max-width: 512px;
+			max-height: 512px;
+			height: 100%;
+			width: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<canvas id="display"></canvas>
+	<script src="./main.js"></script>
+</body>
+
+</html>
