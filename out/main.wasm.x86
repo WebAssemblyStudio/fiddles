@@ -1,0 +1,34 @@
+wasm-function[0]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  nop                                   ; 0x000004 66 90
+  add rsp, 8                            ; 0x000006 48 83 c4 08
+  ret                                   ; 0x00000a c3
+
+wasm-function[1]:
+ 0x000000:                              ; 0x000000 from: [0x000008, 0x000019, 0x00001f]
+  sub rsp, 0x18                         ; 0x000000 48 83 ec 18
+  cmp qword ptr [r14 + 0x28], rsp       ; 0x000004 49 39 66 28
+  jae 0x71                              ; 0x000008 0f 83 63 00 00 00
+ 0x00000e:                              
+  mov dword ptr [rsp + 0xc], edi        ; 0x00000e 89 7c 24 0c
+  mov eax, dword ptr [rsp + 0xc]        ; 0x000012 8b 44 24 0c
+  cmp eax, 2                            ; 0x000016 83 f8 02
+  jge 0x24                              ; 0x000019 0f 8d 05 00 00 00
+ 0x00001f:                              
+  jmp 0x4a                              ; 0x00001f e9 26 00 00 00
+ 0x000024:                              
+  mov edi, dword ptr [rsp + 0xc]        ; 0x000024 8b 7c 24 0c
+  add edi, -1                           ; 0x000028 83 c7 ff
+  call 0                                ; 0x00002b e8 d0 ff ff ff
+  mov dword ptr [rsp + 8], eax          ; 0x000030 89 44 24 08
+  mov eax, dword ptr [rsp + 0xc]        ; 0x000034 8b 44 24 0c
+  add eax, -2                           ; 0x000038 83 c0 fe
+  mov edi, eax                          ; 0x00003b 8b f8
+  call 0                                ; 0x00003d e8 be ff ff ff
+  mov ecx, eax                          ; 0x000042 8b c8
+  mov eax, dword ptr [rsp + 8]          ; 0x000044 8b 44 24 08
+  add eax, ecx                          ; 0x000048 03 c1
+  nop                                   ; 0x00004a 66 90
+  add rsp, 0x18                         ; 0x00004c 48 83 c4 18
+  ret                                   ; 0x000050 c3
+
