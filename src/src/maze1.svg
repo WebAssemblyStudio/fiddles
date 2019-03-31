@@ -1,0 +1,27 @@
+<svg width="150" height="210" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(30,180) scale(1,-1)">
+<rect x="-30" y="-30" width="150" height="210" fill="white"/>
+<line x1="0.000000" x2="30.000000" y1="0.000000" y2="0.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="90.000000" x2="90.000000" y1="0.000000" y2="30.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="30.000000" x2="60.000000" y1="0.000000" y2="0.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="60.000000" x2="90.000000" y1="0.000000" y2="0.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="0.000000" x2="0.000000" y1="30.000000" y2="60.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="90.000000" x2="90.000000" y1="30.000000" y2="60.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="30.000000" x2="30.000000" y1="30.000000" y2="60.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="30.000000" x2="60.000000" y1="30.000000" y2="30.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="0.000000" x2="0.000000" y1="60.000000" y2="90.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="90.000000" x2="90.000000" y1="60.000000" y2="90.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="0.000000" x2="30.000000" y1="60.000000" y2="60.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="60.000000" x2="90.000000" y1="60.000000" y2="60.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="0.000000" x2="0.000000" y1="90.000000" y2="120.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="90.000000" x2="90.000000" y1="90.000000" y2="120.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="0.000000" x2="30.000000" y1="90.000000" y2="90.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="60.000000" x2="90.000000" y1="90.000000" y2="90.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="0.000000" x2="30.000000" y1="150.000000" y2="150.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="0.000000" x2="0.000000" y1="120.000000" y2="150.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="30.000000" x2="60.000000" y1="150.000000" y2="150.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="30.000000" x2="60.000000" y1="120.000000" y2="120.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="60.000000" x2="90.000000" y1="150.000000" y2="150.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+<line x1="60.000000" x2="60.000000" y1="120.000000" y2="150.000000" stroke="black" stroke-linecap="round" stroke-width="3"/>
+</g>
+</svg>
