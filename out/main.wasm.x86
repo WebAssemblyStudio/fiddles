@@ -1,0 +1,9 @@
+wasm-function[0]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+ 0x000004:                              ; 0x000004 from: [0x000004]
+  jmp 4                                 ; 0x000004 eb fe
+ 0x000006:                              
+  nop                                   ; 0x000006 66 90
+  add rsp, 8                            ; 0x000008 48 83 c4 08
+  ret                                   ; 0x00000c c3
+
