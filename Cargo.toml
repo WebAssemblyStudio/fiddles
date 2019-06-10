@@ -1,0 +1,6 @@
+[package]
+name = "something"
+version = "0.1.0"
+
+[dependencies]
+seed = "0.3.6"
