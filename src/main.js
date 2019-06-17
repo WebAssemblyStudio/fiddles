@@ -1,0 +1,16 @@
+WebAssembly.instantiateStreaming(fetch("../out/main.wasm"), {
+  Math,
+  main: {
+    sayHello() {
+      console.log("Hello from WebAssembly!");
+    }
+  },
+  env: {
+    abort(_msg, _file, line, column) {
+      console.error("abort called at main.ts:" + line + ":" + column);
+    }
+  },
+}).then(result => {
+  const exports = result.instance.exports;
+  document.getElementById("container").textContent = "sigmoid (2.0): " + exports.sigmoid(2.0);
+}).catch(console.error);
