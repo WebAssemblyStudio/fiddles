@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+  <form id="temp-form">
+    <p>Select base temperature scale:</p>
+    <div>
+      <input type="radio" id="fahrenheit-radio" name="temp" value="fahrenheit" checked>
+      <label for="fahrenheit">Fahrenheit</label>
+    </div>
+    <div>
+      <input type="radio" id="celsius-radio" name="temp" value="celsius">
+      <label for="celsius">Celsius</label>
+    </div>
+    <div>
+  </form>
+  <input id="temp-input" type="text" autocomplete="off">
+  <p id="container"></p>
+  <script src="./main.js"></script>
+</body>
+</html>
