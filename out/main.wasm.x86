@@ -1,0 +1,14 @@
+wasm-function[0]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  movsxd rax, esi                       ; 0x000004 48 63 c6
+  add rax, rdi                          ; 0x000007 48 03 c7
+  nop                                   ; 0x00000a 66 90
+  add rsp, 8                            ; 0x00000c 48 83 c4 08
+  ret                                   ; 0x000010 c3
+
+wasm-function[1]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  nop                                   ; 0x000004 66 90
+  add rsp, 8                            ; 0x000006 48 83 c4 08
+  ret                                   ; 0x00000a c3
+
