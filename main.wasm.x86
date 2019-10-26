@@ -1,0 +1,41 @@
+wasm-function[0]:
+ 0x000000:                              ; 0x000000 from: [0x000016, 0x00001c, 0x000026]
+  sub rsp, 0x18                         ; 0x000000 48 83 ec 18
+  mov qword ptr [rsp + 8], r14          ; 0x000004 4c 89 74 24 08
+  mov rax, rsp                          ; 0x000009 48 8b c4
+  add rax, 0                            ; 0x00000c 48 05 00 00 00 00
+  cmp qword ptr [r14 + 0x28], rax       ; 0x000012 49 39 46 28
+  jae 0x22                              ; 0x000016 0f 83 06 00 00 00
+ 0x00001c:                              
+  jmp 0x2b                              ; 0x00001c e9 0a 00 00 00
+ 0x000021:                              
+  int3                                  ; 0x000021 cc
+  add rsp, 0x10                         ; 0x000022 48 83 c4 10
+  jmp 0x5c                              ; 0x000026 e9 31 00 00 00
+ 0x00002b:                              
+  mov r14, qword ptr [rsp + 8]          ; 0x00002b 4c 8b 74 24 08
+  nop                                   ; 0x000030 66 90
+  add rsp, 0x18                         ; 0x000032 48 83 c4 18
+  ret                                   ; 0x000036 c3
+
+wasm-function[1]:
+ 0x000000:                              ; 0x000000 from: [0x000016, 0x000021, 0x00002b]
+  sub rsp, 0x18                         ; 0x000000 48 83 ec 18
+  mov qword ptr [rsp + 8], r14          ; 0x000004 4c 89 74 24 08
+  mov rax, rsp                          ; 0x000009 48 8b c4
+  add rax, 0                            ; 0x00000c 48 05 00 00 00 00
+  cmp qword ptr [r14 + 0x28], rax       ; 0x000012 49 39 46 28
+  jae 0x27                              ; 0x000016 0f 83 0b 00 00 00
+ 0x00001c:                              
+  mov eax, 0x7829b80                    ; 0x00001c b8 80 9b 82 07
+  jmp 0x30                              ; 0x000021 e9 0a 00 00 00
+ 0x000026:                              
+  int3                                  ; 0x000026 cc
+  add rsp, 0x10                         ; 0x000027 48 83 c4 10
+  jmp 0x61                              ; 0x00002b e9 31 00 00 00
+ 0x000030:                              
+  mov r14, qword ptr [rsp + 8]          ; 0x000030 4c 8b 74 24 08
+  nop                                   ; 0x000035 66 90
+  add rsp, 0x18                         ; 0x000037 48 83 c4 18
+  ret                                   ; 0x00003b c3
+
