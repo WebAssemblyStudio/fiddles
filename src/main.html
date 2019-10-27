@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: rgb(255, 255, 255);
+    }
+  </style>
+</head>
+<body>
+  
+  <h4>Simple Calculator in C compiled to WASM</h4>
+  <div>
+    <label for="x">X</label>
+    <input id="x" type="number" value="12">
+  </div>
+  <div>
+    <label for="y">Y</label>
+    <input id="y" type="number" value="4">
+  </div>
+  <br>
+  <div>
+    <button onclick="add()">Add</button>
+    <button onclick="sub()">Sub</button>
+    <button onclick="mul()">Mul</button>
+    <button onclick="div()">div</button>
+  </div>
+  <br>
+  <div>
+    <label for="result">Result</label>
+    <input id="result" type="text" value="">
+  </div>
+  
+
+  <script src="./main.js"></script>
+</body>
+</html>
