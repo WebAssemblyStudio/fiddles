@@ -1,0 +1,20 @@
+digraph call {
+  rankdir = LR;
+  subgraph cluster_key {
+    node [shape=box, fontname=courier, fontsize=10];
+    edge [fontname=courier, fontsize=10];
+    label = "Key";
+    "Import" [style="filled", fillcolor="turquoise"];
+    "Export" [style="filled", fillcolor="gray"];
+    "Indirect Target" [style="filled, rounded", fillcolor="white"];
+    "A" -> "B" [style="filled, rounded", label = "Direct Call"];
+  }
+
+  node [shape=box, fontname=courier, fontsize=10];
+  "$add_one" [style="filled", fillcolor="white"];
+  "$mod_fortytwo" [style="filled", fillcolor="white"];
+  "$wiggle" [style="filled", fillcolor="white"];
+  "$add_one" [style="filled", fillcolor="gray"];
+  "$mod_fortytwo" [style="filled", fillcolor="gray"];
+  "$wiggle" [style="filled", fillcolor="gray"];
+}

@@ -1,0 +1,41 @@
+wasm-function[0]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  mov ecx, edi                          ; 0x000004 8b cf
+  mov eax, ecx                          ; 0x000006 8b c1
+  add eax, 1                            ; 0x000008 83 c0 01
+  nop                                   ; 0x00000b 66 90
+  add rsp, 8                            ; 0x00000d 48 83 c4 08
+  ret                                   ; 0x000011 c3
+
+wasm-function[1]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  mov eax, 0x30c30c31                   ; 0x000004 b8 31 0c c3 30
+  imul edi                              ; 0x000009 f7 ef
+  sar edx, 3                            ; 0x00000b c1 fa 03
+  mov eax, edi                          ; 0x00000e 8b c7
+  sar eax, 0x1f                         ; 0x000010 c1 f8 1f
+  sub edx, eax                          ; 0x000013 2b d0
+  imul eax, edx, -0x2a                  ; 0x000015 6b c2 d6
+  add eax, edi                          ; 0x000018 03 c7
+  nop                                   ; 0x00001a 66 90
+  add rsp, 8                            ; 0x00001c 48 83 c4 08
+  ret                                   ; 0x000020 c3
+
+wasm-function[2]:
+ 0x000000:                              ; 0x000000 from: [0x000017, 0x000020]
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  mov eax, edi                          ; 0x000004 8b c7
+  xor eax, 0x50abc4                     ; 0x000006 35 c4 ab 50 00
+  mov ecx, 0x63                         ; 0x00000b b9 63 00 00 00
+  xor eax, edi                          ; 0x000010 33 c7
+  add ecx, -1                           ; 0x000012 83 c1 ff
+  test ecx, ecx                         ; 0x000015 85 c9
+  je 0x22                               ; 0x000017 0f 84 05 00 00 00
+ 0x00001d:                              
+  xchg rdi, rax                         ; 0x00001d 48 87 c7
+  jmp 0x10                              ; 0x000020 eb ee
+ 0x000022:                              
+  nop                                   ; 0x000022 66 90
+  add rsp, 8                            ; 0x000024 48 83 c4 08
+  ret                                   ; 0x000028 c3
+
