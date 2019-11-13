@@ -1,0 +1,48 @@
+wasm-function[0]:
+ 0x000000:                              ; 0x000000 from: [0x000007, 0x000010, 0x000016, 0x000020, 0x00002a]
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  cmp edi, 2                            ; 0x000004 83 ff 02
+  je 0x1b                               ; 0x000007 0f 84 0e 00 00 00
+ 0x00000d:                              
+  cmp edi, 3                            ; 0x00000d 83 ff 03
+  jne 0x2f                              ; 0x000010 0f 85 19 00 00 00
+ 0x000016:                              
+  jmp 0x25                              ; 0x000016 e9 0a 00 00 00
+ 0x00001b:                              
+  mov eax, 1                            ; 0x00001b b8 01 00 00 00
+  jmp 0x31                              ; 0x000020 e9 0c 00 00 00
+ 0x000025:                              
+  mov eax, 5                            ; 0x000025 b8 05 00 00 00
+  jmp 0x31                              ; 0x00002a e9 02 00 00 00
+ 0x00002f:                              
+  xor eax, eax                          ; 0x00002f 33 c0
+  nop                                   ; 0x000031 66 90
+  add rsp, 8                            ; 0x000033 48 83 c4 08
+  ret                                   ; 0x000037 c3
+
+wasm-function[1]:
+ 0x000000:                              ; 0x000000 from: [0x000007, 0x000012]
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  cmp edi, 2                            ; 0x000004 83 ff 02
+  jne 0x17                              ; 0x000007 0f 85 0a 00 00 00
+ 0x00000d:                              
+  mov eax, 1                            ; 0x00000d b8 01 00 00 00
+  jmp 0x2c                              ; 0x000012 e9 15 00 00 00
+ 0x000017:                              
+  cmp edi, 3                            ; 0x000017 83 ff 03
+  sete cl                               ; 0x00001a 0f 94 c1
+  movzx ecx, cl                         ; 0x00001d 0f b6 c9
+  mov eax, 5                            ; 0x000020 b8 05 00 00 00
+  xor edx, edx                          ; 0x000025 33 d2
+  test ecx, ecx                         ; 0x000027 85 c9
+  cmove eax, edx                        ; 0x000029 0f 44 c2
+  nop                                   ; 0x00002c 66 90
+  add rsp, 8                            ; 0x00002e 48 83 c4 08
+  ret                                   ; 0x000032 c3
+
+wasm-function[2]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  nop                                   ; 0x000004 66 90
+  add rsp, 8                            ; 0x000006 48 83 c4 08
+  ret                                   ; 0x00000a c3
+
