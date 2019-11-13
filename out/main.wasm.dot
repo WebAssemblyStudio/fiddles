@@ -1,0 +1,61 @@
+digraph call {
+  rankdir = LR;
+  subgraph cluster_key {
+    node [shape=box, fontname=courier, fontsize=10];
+    edge [fontname=courier, fontsize=10];
+    label = "Key";
+    "Import" [style="filled", fillcolor="turquoise"];
+    "Export" [style="filled", fillcolor="gray"];
+    "Indirect Target" [style="filled, rounded", fillcolor="white"];
+    "A" -> "B" [style="filled, rounded", label = "Direct Call"];
+  }
+
+  node [shape=box, fontname=courier, fontsize=10];
+  "$0" [style="filled", fillcolor="white"];
+  "$1" [style="filled", fillcolor="white"];
+  "$2" [style="filled", fillcolor="white"];
+  "$3" [style="filled", fillcolor="white"];
+  "$4" [style="filled", fillcolor="white"];
+  "$5" [style="filled", fillcolor="white"];
+  "$6" [style="filled", fillcolor="white"];
+  "$7" [style="filled", fillcolor="white"];
+  "$8" [style="filled", fillcolor="white"];
+  "$9" [style="filled", fillcolor="white"];
+  "$10" [style="filled", fillcolor="white"];
+  "$11" [style="filled", fillcolor="white"];
+  "$12" [style="filled", fillcolor="white"];
+  "$13" [style="filled", fillcolor="white"];
+  "$14" [style="filled", fillcolor="white"];
+  "$fimport$0" [style="filled", fillcolor="turquoise"];
+  "$fimport$1" [style="filled", fillcolor="turquoise"];
+  "$fimport$2" [style="filled", fillcolor="turquoise"];
+  "$fimport$3" [style="filled", fillcolor="turquoise"];
+  "$0" [style="filled", fillcolor="gray"];
+  "$1" [style="filled", fillcolor="gray"];
+  "$0" -> "$7"; // call
+  "$1" -> "$fimport$0"; // callImport
+  "$2" -> "$fimport$1"; // callImport
+  "$3" -> "$fimport$1"; // callImport
+  "$5" -> "$2"; // call
+  "$5" -> "$4"; // call
+  "$5" -> "$13"; // call
+  "$5" -> "$3"; // call
+  "$6" -> "$4"; // call
+  "$7" -> "$2"; // call
+  "$7" -> "$14"; // call
+  "$7" -> "$5"; // call
+  "$7" -> "$6"; // call
+  "$7" -> "$3"; // call
+  "$9" -> "$fimport$2"; // callImport
+  "$9" -> "$8"; // call
+  "$10" -> "$fimport$1"; // callImport
+  "$10" -> "$8"; // call
+  "$11" -> "$fimport$1"; // callImport
+  "$11" -> "$10"; // call
+  "$12" -> "$fimport$3"; // callImport
+  "$12" -> "$8"; // call
+  "$10" [style="filled, rounded"];
+  "$9" [style="filled, rounded"];
+  "$11" [style="filled, rounded"];
+  "$12" [style="filled, rounded"];
+}
