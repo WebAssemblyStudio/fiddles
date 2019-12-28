@@ -1,0 +1,11 @@
+let arr1 = [1, 2, 3]                   // -> arr1: i32[]
+let arr2 = [1.0, 0, 2]                 // -> arr2: f64[]
+let arr3 = [0x7FFFFFFF_FFFFFFFF, 0, 1] // -> arr3: i64[]
+let arr4 = [2.0 as f32, 0, 2]          // -> arr4: f32[]
+let arr5 = [NaN]                       // or Infinity -> arr5: f64[]
+let arr6 = ["abc", null]               // -> arr6: (string | null)[]
+let arr7 = [null, "abc"]               // -> arr7: (string | null)[]
+// let arr8 = []                          // compile error!
+// let arr9 = [null]                      // compile error!
+// let arr10 = [1, null]                  // compile error currently. But may possible in the future
+// let arr11 = [1, NaN]                   // compile error!
