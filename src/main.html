@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: rgb(255, 255, 255);
+    }
+  </style>
+  <script>
+    let init = () => {
+      let jsArray = [1,2,3,4,5];
+      let ret = instance.exports.init(jsArray,5);
+      alert(ret);
+    }
+    let proc = () => {
+      let a = new Uint32Array(instance.exports.memory.buffer);
+      let out = "";
+      for (let i = 0; i < a.length; i++) if (a[i] > 0) out += i + " : " + a[i] + "<br/>";
+      pena.innerHTML = out;
+      let ret =instance.exports.processData(5);
+      alert(ret);
+    }
+  </script>
+</head>
+<body>
+  <button onclick="init()">init</button>
+  <button onclick="proc()">process</button>
+  <span id="pena"></span>
+  <span id="container"></span>
+  <script src="./main.js"></script>
+</body>
+</html>
