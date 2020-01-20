@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <style>
+    body {
+        background-color: white;
+    }
+  </style>
+</head>
+<body>
+<input type="file" id="fileinput" />
+<h3>file Content:</h3>
+<pre id="filecontent"></pre>
+
+  <script>
+    function readSingleFile(e) {
+      let file = e.target.files[0];
+      if (!file) {
+        return;
+      }
+      let reader = new FileReader();
+      reader.onload = function(e) {
+        let contents = e.target.result;
+        displayContents(contents);
+      };
+      reader.readAsText(file);
+    }
+ 
+    function displayContents(contents) {
+      let element = document.getElementById('filecontent');
+      element.innerHTML = contents;
+    }
+ 
+    document.getElementById('fileinput')
+    .addEventListener('change', readSingleFile, false);
+</script>
+
+  <div id="container"></div>
+  <script src="./main.js"></script>
+</body>
+</html>
