@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #008080;
+      color: #f9da4f;
+      font-family: 'Nunito', sans-serif;
+    }
+    h1 {
+      color: #E0FFFF;
+    }
+    a {
+      color: white;
+      font-size:0.9rem;
+    }
+    input{
+      font-size: 1em;
+    }
+    .footer{
+      font-size:0.9rem;
+      margin:30px 0px;
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    Sumatory - Rust & WebAssembly(wasm)
+  </h1>
+  <div>
+    <forn id="sumatory" name="sumatory">
+      <div>
+        <input type="number" name="numA" id="numA" value="0">
+        <span>+</span>
+        <input type="number" name="numB" id="numB" value="0">
+        <span>=</span>
+        <input type="number" name="result" id="result" disabled>
+        <input type="number" name="result2" id="result2" disabled>
+        <button type="button" onclick="runApp()">Run</button>
+      </div>
+    </form>
+  </div>
+  <span id="container"></span>
+  <script src="../out/main.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
