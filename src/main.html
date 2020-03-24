@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: rgb(255, 255, 255);
+    }
+  </style>
+</head>
+<body>
+  <label for="factorialInput">
+    Calculate factorial for: <input type="text" id="factorialInput" />
+  </label>
+  <label for="amountInput">
+    Number of calculations: <input type="text" id="amountInput" />
+  </label>
+  <input type="button" id="factorialSubmit" onclick="startFactorial();" value="Start!" />
+  <p id="jsContainer"></p>
+  <p id="wasmContainer"></p>
+  <script src="./main.js"></script>
+</body>
+</html>
