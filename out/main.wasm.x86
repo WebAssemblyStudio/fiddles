@@ -1,0 +1,13 @@
+wasm-function[0]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  mov edx, edi                          ; 0x000004 8b d7
+  mov eax, edx                          ; 0x000006 8b c2
+  test eax, eax                         ; 0x000008 85 c0
+  setl cl                               ; 0x00000a 0f 9c c1
+  movzx ecx, cl                         ; 0x00000d 0f b6 c9
+  mov eax, edx                          ; 0x000010 8b c2
+  shl eax, cl                           ; 0x000012 d3 e0
+  nop                                   ; 0x000014 66 90
+  add rsp, 8                            ; 0x000016 48 83 c4 08
+  ret                                   ; 0x00001a c3
+
