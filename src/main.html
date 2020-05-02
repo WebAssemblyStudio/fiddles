@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: rgb(256, 256, 256);
+    }
+    #editorbg {
+      background-color: rgb(5, 20, 20);
+      
+    }
+    #editor {
+      color: white;
+      font-family: monospace;
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+      margin-left: 1vw;
+    }
+  </style>
+</head>
+<body>
+  <span id="container"></span>
+  <div id="editorbg">
+  <pre contenteditable="true" id="editor">
+// Type text here //
+add 5 6 ;
+</pre>
+</div>
+  <script src="./main.js"></script>
+
+
+
+  <script>
+    // SYNTAX HIGHLIGHTING
+var contents = document.getElementById("editor").innerHTML;
+contents = contents.replace("\n", " ");
+var words = contents.split(" ");
+
+for(var i = 0; i <= words.length-1; i++) {
+  console.log(words[i]);
+  /*if(words[i] == "add") {
+    console.log("Word is add")
+    words.splice(words,0, "<span style='color:red'>");
+    words.join("");
+    console.log(words);
+  }*/
+
+  if(words[i] == "add") {
+    console.log("theres the add");
+  }
+
+
+}
+
+  </script>
+</body>
+</html>
