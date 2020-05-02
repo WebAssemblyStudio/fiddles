@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: rgb(256, 256, 256);
+    }
+    #editorbg {
+      background-color: rgb(5, 20, 20);
+      
+    }
+    #editor {
+      color: white;
+      font-family: monospace;
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+      margin-left: 1vw;
+    }
+  </style>
+</head>
+<body>
+  <span id="container"></span>
+  <div id="editorbg">
+  <pre contenteditable="true" id="editor">
+// Type text here //
+add 5 6 ;
+add 10 11 ;
+</pre>
+</div>
+  <script src="./main.js"></script>
+
+
+
+  <script>
+    // SYNTAX HIGHLIGHTING
+var contents = document.getElementById("editor").innerHTML;
+contents = contents.split(" ").join(" space ");
+contents = contents.split("\n").join(" newline ");
+
+var words = contents.split(" ");
+console.log(words);
+
+var final = words;
+for(var i = 0; i <= words.length-1; i++) {
+  if(words[i] == "add") {
+    console.log("Word is add")
+    final.splice(i,0, "<span style='color:red'>");
+    final.splice(i+2,0, "</span>");
+    updateAll();
+  }
+}
+
+function updateAll() {
+    for(var i = 0; i <= final.length-1; i++) {
+      if(final[i] == "newline") {
+        final[i] = "\n";
+      }
+      if(final[i] == "space") {
+        final[i] = " ";
+      }
+    }
+    final = final.join("");
+    document.getElementById("editor").innerHTML = final;
+  }
+
+  </script>
+</body>
+</html>
