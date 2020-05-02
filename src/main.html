@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: rgb(256, 256, 256);
+    }
+    #editorbg {
+      background-color: rgb(5, 20, 20);
+      
+    }
+    #editor {
+      color: white;
+      font-family: monospace;
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+      margin-left: 1vw;
+    }
+  </style>
+</head>
+<body>
+  <span id="container"></span>
+  <div id="editorbg">
+  <pre contenteditable="true" id="editor">
+// Type text here //
+add 5 6 ;
+add 10 11 ;
+subtract 100 10 ;
+</pre>
+</div>
+  <script src="./main.js"></script>
+
+
+
+  <script>
+    // SYNTAX HIGHLIGHTING
+document.getElementById("editor").onkeydown = function () {
+  update();
+}
+update();
+var contents = document.getElementById("editor").innerHTML;
+var words = contents.split(" ");
+function update() {
+contents = document.getElementById("editor").innerHTML;
+contents = contents.split(" ").join(" space ");
+contents = contents.split("\n").join(" newline ");
+
+words = contents.split(" ");
+console.log(words);
+
+for(var i = 0; i <= words.length-1; i++) {
+   // keywords
+  if(words[i] == "add") {
+    updateAll(i, "red");
+  }
+  if(words[i] == "subtract") {
+    updateAll(i, "orange");
+  }
+
+  // various
+  if(words[i] == "//") { 
+    updateAll(i, "green");
+  }
+  
+}
+
+
+
+
+function updateAll(pos, color) {
+    words.splice(pos,0, "<span style='color: " + color + "'>");
+    words.splice(pos+2,0, "</span>");
+    for(var i = 0; i <= words.length-1; i++) {
+      if(words[i] == "newline") {
+        words[i] = "\n";
+      }
+      if(words[i] == "space") {
+        words[i] = " ";
+      }
+    }
+    words = words.join("");
+    document.getElementById("editor").innerHTML = words;
+    contents = document.getElementById("editor").innerHTML;
+    contents = contents.split(" ").join(" space ");
+    contents = contents.split("\n").join(" newline ");
+
+    words = contents.split(" ");
+    console.log(words);
+  }
+}
+  </script>
+</body>
+</html>
