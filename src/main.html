@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: rgb(0, 0, 0);
+    }
+    #editorbg {
+      background-color: rgb(5, 20, 20);
+      height: 110%;
+    }
+
+    .text {
+      color: white;
+      font-family: monospace;
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+      margin-left: 1vw;
+      display: block;
+      font-size: 1em;
+    }
+
+    .pretext {
+      color: white;
+      font-family: monospace;
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+      margin-left: 1vw;
+      width:90%;
+      display: inline-block;
+      transition: all 0.2s;
+      
+    }
+    .pretext:hover {
+      background-color: rgb(10, 25, 25);
+    }
+
+    #check {
+      display: inline-block;
+    }
+    #run {
+      display: inline-block;
+    }
+    #clear-console {
+      display: none;
+    }
+    #save {
+      display: inline-block;
+    }
+    #load {
+      display: inline-block;
+    }
+    #output {
+      display: none;
+      /*display: inline-block;*/
+      background-color: rgb(5, 20, 20);
+      border: 2px solid black;
+      width:94vw;
+      height: 40vh;
+      padding-top:20px;
+      transition: all 0.2s;
+      overflow: auto;
+      color: white;
+      position: relative;
+      top:17px;
+    }
+
+    #output:hover {
+      border: 2px solid rgb(50, 50, 50);
+      background-color: rgb(15, 30, 30);
+    }
+
+    button {
+      background-color: rgb(10, 170, 50);
+      border: 2px solid rgb(5, 20, 20);
+      color: white;
+      padding: 10px 15px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 0.7em;
+      margin: 4px 2px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    button:hover {
+      background-color:red;
+      border: 2px solid white;
+    }
+    button:active {
+      background-color:white;
+      border: 2px solid black;
+      color:black;
+    }
+
+    #sizebg {
+      position: absolute;
+      right: 4vw;
+      height: 40vh;
+      width: 3vw;
+      background-color: rgba(130, 130, 130,0.5);
+      transition: all 0.2s;
+    }
+    #size-slider {
+      position: absolute;
+      right: 0.03vw;
+      height: 20vh;
+      width: 3vw;
+      background-color: rgba(200, 80, 80,0.5);
+      transition: all 0.2s;
+    }
+    #minus {
+      position: absolute;
+      right: 0.03vw;
+      top: 3vh;
+      color:white;
+      font-size: 1.5em;
+      transition: all 0.2s;
+      width:2.1vw;
+      height:9vh;
+      z-index: 4;
+    }
+
+    #plus {
+      position: absolute;
+      right: 0.09vw;
+      top: 30vh;
+      color:white;
+      font-size: 1em;
+      transition: all 0.2s;
+      width:2.1vw;
+      height:6vh;
+      z-index: 4;
+    }
+
+    .log {
+      color: white;
+      margin: -10px 10px;
+    }
+    .warn {
+      color: orange;
+      margin: 10px 10px;
+    }
+    .error {
+      color: rgb(255, 50, 50);
+      margin: 10px 10px;
+    }
+
+#size:hover {
+  opacity: 1;
+}
+
+  </style>
+
+<!--<script src="https://cdn.jsdelivr.net/npm/binaryen@93.0.0/index.min.js"></script>!-->
+
+</head>
+<body>
+  <span id="container"></span>
+  <p class="big-text text">B&sup2; Editor and Compiler   <a href="https://webassembly.github.io/wabt/demo/wat2wasm/">Convert .wat file to .wasm file here.</a></p>
+  <div id="editorbg">
+
+    <div id="sizebg">
+      <div id="plus">+</div>
+      <div id="minus">-</div>
+      <div id="size-slider"></div>
+    </div>
+
+    <p class="text">B&sup2; Code:</p>
+  <pre contenteditable="true" id="editor" class="pretext">
+// Type text here /;
+number x = input ;
+output add x 6 ;
+</pre>
+<br>
+<button id="check">Highlight</button>
+<button id="run">Compile</button>
+<button id="clear-console">Clear Console</button>
+<button id="save">Save</button>
+<button id="load">Load</button>
+
+<p class="text">.wat Compiled File:</p>
+<pre id="compiled" class="pretext">
+(; Output goes here ;)
+</pre>
+<br>
+<input id="compatibility" type="checkbox" style="display: inline-block;" checked>
+<a style="display: inline; color:white; font-family: monospace; font-size: 0.2em;">Old WASM compatibility (for webassembly.studio)</a> <a href="https://github.com/wasdk/WebAssemblyStudio/issues/434" style="display: inline; font-family: monospace; font-size: 0.2em;">ref</a>
+<input id="wasmconv" type="checkbox" style="display: inline-block;">
+<label style="display: inline; color:white; font-family: monospace; font-size: 0.2em;">Open tester</label>
+</div>
+<div id="output"></div>
+  <script src="./main.js"></script>
+
+
+
+  <script>
+    // WAT2WASM AND RUNNING
+    var wasmconv = document.getElementById("wasmconv");
+    wasmconv.onclick = ()=>{
+      if(wasmconv.checked) {
+        window.open("https://webassembly.github.io/wabt/demo/wat2wasm/index.html", "_blank");
+        wasmconv.checked = "";
+      }
+    }
+    // COMPILER CONSOLE
+
+    var today = new Date(); // shows date of compilation
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+    document.getElementById("run").onclick = ()=>{
+      document.getElementById("output").style.display = "inline-block";
+      document.getElementById("clear-console").style.display = "inline-block";
+      console.log("Compiling...");
+      compile();
+      today = new Date(); // shows date of compilation
+      time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      console.log("Compile finished at "+time);
+    };
+
+    document.getElementById("clear-console").onclick = ()=>{
+      document.getElementById("clear-console").style.display = "none";
+      document.getElementById("output").innerHTML = "";
+    };
+    document.getElementById("save").onclick = ()=>{
+      document.getElementById("clear-console").style.display = "inline-block";
+      document.getElementById("output").style.display = "inline-block";
+      localStorage.setItem("code", document.getElementById("editor").innerText);
+      today = new Date(); // shows date of save
+      time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      console.log("Saved at " + time +".");
+    };
+    document.getElementById("load").onclick = ()=>{
+      document.getElementById("clear-console").style.display = "inline-block";
+      document.getElementById("output").style.display = "inline-block";
+      if(localStorage.getItem("code")) {
+        document.getElementById("editor").innerHTML = localStorage.getItem("code");
+        today = new Date(); // shows date of load
+        time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        console.log("Loaded at " + time +".");
+        update(); // Highlights automatically
+      } else {
+        console.log("You do not have a save to load from!");
+      }
+     
+    };
+
+    
+
+
+
+    // FONT SIZE SLIDER
+    var fontSize = 1;
+    document.getElementById("plus").onclick = ()=>{
+      fontSize += 0.1;
+      updateSize();
+    };
+
+    document.getElementById("minus").onclick = ()=>{
+      fontSize -= 0.1;
+      updateSize();
+    };
+
+    function updateSize() {
+      document.getElementById("editor").style.fontSize = fontSize+"em";
+      document.getElementById("compiled").style.fontSize = fontSize+"em";
+      document.getElementById("size-slider").style.height = fontSize*20+"vh";
+    }
+
+    // SYNTAX HIGHLIGHTING
+
+document.getElementById("check").onclick = function () {
+  update();
+}
+
+/*
+*  This code's purpose is to update at the right time. It is taken from https://schier.co/blog/wait-for-user-to-stop-typing-using-javascript.
+*/
+
+let timeout = null;
+
+document.getElementById('editor').addEventListener('keyup', function (e) {
+    clearTimeout(timeout);
+    timeout = setTimeout(function () {
+        update();
+        document.getElementById("editor").blur();
+    }, 8000);
+});
+
+// end
+
+var variables = [];
+
+var contents = document.getElementById("editor").innerHTML;
+var words = contents.split(" ");
+window.onload = function () {
+update();
+}
+
+
+
+function update() {
+contents = document.getElementById("editor").innerText;
+contents = contents.split(" ").join(" space ");
+contents = contents.split("\n").join(" newline ");
+
+words = contents.split(" ");
+
+
+for(var i = 0; i <= words.length-1; i++) {
+  // control flow
+  if(words[i] == "if") {
+    updateAll(i, "#05f0d8");
+  }
+  if(words[i] == "else") {
+    updateAll(i, "#05f0d8");
+  }
+  if(words[i] == "elif") {
+    updateAll(i, "red"); // NOT IMPLEMENTED
+  }
+  if(words[i] == ">"||words[i] == "&gt;"|| words[i] == "<"||words[i] == "&lt;"|| words[i] == ">="||words[i] == "&gt;="||words[i] == "<="||words[i] == "&lt;="||words[i] == "=="||words[i] == "!="||words[i] == "&amp;&amp;"||words[i] == "!"||words[i] == "||"||words[i] == "!|") {
+    updateAll(i, "orange");
+  }
+
+  if(words[i] == "{"||words[i] == "}") {
+    updateAll(i, "#02c9e8");
+  }
+  if(words[i] == "("||words[i] == ")") {
+    updateAll(i, "blue");
+  }
+  // variables
+  if(words[i] == "number") { 
+    updateAll(i, "orange");
+  }
+  if(words[i] == "decimal") { 
+    updateAll(i, "orange");
+  }
+  if(variables.includes(words[i])) { // actual variable
+    updateAll(i, "yellow");
+  }
+   // keywords
+  if(words[i] == "add") {
+    updateAll(i, "red");
+  }
+  if(words[i] == "subtract") {
+    updateAll(i, "orange");
+  }
+
+  // various
+  if(words[i] == "//" || words[i] == "/;") { 
+    updateAll(i, "green");
+  }
+  if(words[i] == "input") {
+    updateAll(i, "red");
+  }
+  if(words[i] == "output") {
+    updateAll(i, "red");
+  }
+
+  
+  
+}
+
+function updateAll(pos, color) {
+    words.splice(pos,0, "<span style='color: " + color + "'>");
+    words.splice(pos+2,0, "</span>");
+    for(var i = 0; i <= words.length-1; i++) {
+      if(words[i] == "newline") {
+        words[i] = "\n";
+      }
+      if(words[i] == "space") {
+        words[i] = " ";
+      }
+    }
+    words = words.join("");
+    document.getElementById("editor").innerHTML = words;
+    contents = document.getElementById("editor").innerHTML;
+    contents = contents.split(" ").join(" space ");
+    contents = contents.split("\n").join(" newline ");
+
+    words = contents.split(" ");
+    
+  }
+}
+  </script>
+</body>
+</html>
