@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="./main.js" type="module"></script>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: rgb(255, 255, 255);
+    }
+    canvas { 
+      /* juste pour bien le voir pour déboguer */
+      border: thin solid red;
+    }
+  </style>
+</head>
+<body>
+  <p>Nombre d'étape(s) : <span id="nb"> 0 </span></p>
+  <button onclick="continuer()">Continuer</button>
+  <button onclick="arreter()">Arrêt</button>
+  <canvas width=16 height=16></canvas>
+</body>
+
+<script>
+  window.marche = "marche";
+  window.arret = "arret";
+  window.etatDeLaSimulation = marche;
+
+  function continuer() {
+    window.etatDeLaSimulation = marche;
+  }
+
+  function arreter() {
+    window.etatDeLaSimulation = arret;
+  }
+</script>
+</html>
