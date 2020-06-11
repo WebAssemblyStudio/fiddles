@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="./main.js" type="module"></script>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: rgb(255, 255, 255);
+      display: flex;
+      justify-content: center;
+    }
+    .menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    canvas { 
+      /* juste pour bien le voir pour déboguer */
+      border: thin solid black;
+    }
+    #myBtn {
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu"> 
+    <button id="myBtn">stop</button>
+    <p id="score"> 0 </p>
+  </div>
+  <canvas width=16 height=16></canvas>
+</body>
+</html>
