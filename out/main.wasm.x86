@@ -1,0 +1,58 @@
+wasm-function[0]:
+ 0x000000:                              ; 0x000000 from: [0x00000d, 0x000016, 0x000021, 0x00002a]
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  movaps xmm3, xmm1                     ; 0x000004 0f 28 d9
+  movaps xmm1, xmm2                     ; 0x000007 0f 28 ca
+  ucomiss xmm0, xmm1                    ; 0x00000a 0f 2e c1
+  jb 0x1b                               ; 0x00000d 0f 82 08 00 00 00
+ 0x000013:                              
+  movaps xmm0, xmm2                     ; 0x000013 0f 28 c2
+  jmp 0x2f                              ; 0x000016 e9 14 00 00 00
+ 0x00001b:                              
+  movaps xmm1, xmm3                     ; 0x00001b 0f 28 cb
+  ucomiss xmm1, xmm0                    ; 0x00001e 0f 2e c8
+  jb 0x2f                               ; 0x000021 0f 82 08 00 00 00
+ 0x000027:                              
+  movaps xmm0, xmm3                     ; 0x000027 0f 28 c3
+  jmp 0x2f                              ; 0x00002a e9 00 00 00 00
+ 0x00002f:                              
+  nop                                   ; 0x00002f 66 90
+  add rsp, 8                            ; 0x000031 48 83 c4 08
+  ret                                   ; 0x000035 c3
+
+wasm-function[1]:
+ 0x000000:                              ; 0x000000 from: [0x000012, 0x000018, 0x000021, 0x000029, 0x00003e, 0x000044, 0x00004d, 0x000055]
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  xorps xmm3, xmm3                      ; 0x000004 0f 57 db
+  subss xmm0, xmm3                      ; 0x000007 f3 0f 5c c3
+  subss xmm1, xmm3                      ; 0x00000b f3 0f 5c cb
+  ucomiss xmm0, xmm1                    ; 0x00000f 0f 2e c1
+  jne 0x2f                              ; 0x000012 0f 85 17 00 00 00
+ 0x000018:                              
+  jp 0x26                               ; 0x000018 0f 8a 08 00 00 00
+ 0x00001e:                              
+  andps xmm0, xmm1                      ; 0x00001e 0f 54 c1
+  jmp 0x33                              ; 0x000021 e9 0d 00 00 00
+ 0x000026:                              
+  ucomiss xmm0, xmm0                    ; 0x000026 0f 2e c0
+  jp 0x33                               ; 0x000029 0f 8a 04 00 00 00
+ 0x00002f:                              
+  maxss xmm0, xmm1                      ; 0x00002f f3 0f 5f c1
+  subss xmm0, xmm3                      ; 0x000033 f3 0f 5c c3
+  subss xmm2, xmm3                      ; 0x000037 f3 0f 5c d3
+  ucomiss xmm0, xmm2                    ; 0x00003b 0f 2e c2
+  jne 0x5b                              ; 0x00003e 0f 85 17 00 00 00
+ 0x000044:                              
+  jp 0x52                               ; 0x000044 0f 8a 08 00 00 00
+ 0x00004a:                              
+  orps xmm0, xmm2                       ; 0x00004a 0f 56 c2
+  jmp 0x5f                              ; 0x00004d e9 0d 00 00 00
+ 0x000052:                              
+  ucomiss xmm0, xmm0                    ; 0x000052 0f 2e c0
+  jp 0x5f                               ; 0x000055 0f 8a 04 00 00 00
+ 0x00005b:                              
+  minss xmm0, xmm2                      ; 0x00005b f3 0f 5d c2
+  nop                                   ; 0x00005f 66 90
+  add rsp, 8                            ; 0x000061 48 83 c4 08
+  ret                                   ; 0x000065 c3
+
