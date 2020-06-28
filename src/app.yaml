@@ -1,0 +1,8 @@
+schema: nano_app:v0.1.0
+name: nanolabs/examples/hello/cpp:v0.1.0
+implements: @nanolabs/examples/hello:v0.1.0
+requires:
+    - interface: @nanolabs/http:v0.1.0
+      default_app: nanolabs/system/http:v0.1.0
+    - interface: @nanolabs/yaml:v0.1.0
+    - interface: @nanolabs/examples/notifier:v0.1.0
