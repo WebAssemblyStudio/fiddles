@@ -1,0 +1,42 @@
+body {
+  background-image: url("Phone.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top,center; 
+  background-size: auto;
+  font-family: arial;
+  margin: 0;
+  padding: none;
+}
+
+.outer_window {
+  background-color: #9dff00;
+  border-radius: 5px;
+  margin: 0 auto;
+  -moz-box-shadow: inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow: inset 0 0 20px #246417;
+  margin-top: 30px;
+  width: 640px;
+  /* center a div insie another div*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen_window {
+  width: 90%;
+  height: 512px;
+  margin: 3%;
+  border: solid;
+  color: #246417;
+}
+
+.pixel{
+  width: 16px;
+  height: 16px;
+  background-color: #246417;
+}
+
