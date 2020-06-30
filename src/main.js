@@ -1,0 +1,31 @@
+async function load_and_run_wasm(wasmURL) {
+  let context = {
+    functions:[],
+    utf8dec: new TextDecoder("utf-8"),
+    utf8enc: new TextEncoder("utf-8"),
+    getUtf8FromMemory: function(start,len){
+        let memory = new Uint8Array(this.module.instance.exports.memory.buffer);
+        let text = this.utf8dec.decode(memory.subarray(start,start+len));
+        return text;
+    }
+  };
+  let response = await fetch(wasmURL);
+  let bytes = await response.arrayBuffer();
+  let module = await WebAssembly.instantiate(bytes, {
+    env: {
+      js_register_function(start,len) {
+        let functionBody = context.getUtf8FromMemory(start,len);
+        let id = context.functions.length;
+        context.functions.push(eval("(" + functionBody + ")"));
+        return id;
+      },
+      js_invoke_function(funcHandle,a,b,c,d,e,f,g,h,i,j){
+        return context.functions[funcHandle](context,a,b,c,d,e,f,g,h,i,j);
+      }
+    }
+  });
+  context.module = module;
+  let num = module.instance.exports.main();
+}
+
+load_and_run_wasm('../out/main.wasm');
