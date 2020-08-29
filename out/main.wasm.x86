@@ -1,0 +1,26 @@
+wasm-function[0]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  mov edx, edi                          ; 0x000004 8b d7
+  xor ecx, ecx                          ; 0x000006 33 c9
+  mov eax, 8                            ; 0x000008 b8 08 00 00 00
+  test esi, esi                         ; 0x00000d 85 f6
+  cmove ecx, eax                        ; 0x00000f 0f 44 c8
+  mov eax, edx                          ; 0x000012 8b c2
+  shl eax, cl                           ; 0x000014 d3 e0
+  nop                                   ; 0x000016 66 90
+  add rsp, 8                            ; 0x000018 48 83 c4 08
+  ret                                   ; 0x00001c c3
+
+wasm-function[1]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  mov edx, edi                          ; 0x000004 8b d7
+  test esi, esi                         ; 0x000006 85 f6
+  sete cl                               ; 0x000008 0f 94 c1
+  movzx ecx, cl                         ; 0x00000b 0f b6 c9
+  shl ecx, 3                            ; 0x00000e c1 e1 03
+  mov eax, edx                          ; 0x000011 8b c2
+  shl eax, cl                           ; 0x000013 d3 e0
+  nop                                   ; 0x000015 66 90
+  add rsp, 8                            ; 0x000017 48 83 c4 08
+  ret                                   ; 0x00001b c3
+
