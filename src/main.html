@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: rgb(255, 255, 255);
+    }
+  </style>
+</head>
+<body>
+  <span id="container"></span>
+  <script src="./main.js"></script><br>
+  <p>
+    Native implemented: 
+  </p>
+  <span id="native"></span>
+  
+  <script>
+    function native(x, y){
+      let a = x + 15;
+      let b = y + 69;
+      return a + b
+    }
+    function add2(left, middle, right){
+      const x = 4 + left;
+      const y = 94 + middle;
+      const z = 741 + right;
+      const a = x + y + z;
+      return a;
+    }
+  document.getElementById("native").textContent = add2(9, 612, 172)
+    </script>
+</body>
+</html>
