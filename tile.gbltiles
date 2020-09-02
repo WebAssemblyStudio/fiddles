@@ -1,0 +1,10 @@
+strict graph { 
+  a -- b
+  a -- b
+  b -- a [color=blue]
+  a -- c
+  a -- d
+  d -- c
+  c -- b
+  x -- t
+} 
