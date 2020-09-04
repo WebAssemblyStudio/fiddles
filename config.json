@@ -1,0 +1,13 @@
+{
+  "name": "Sample game",
+  "description": "",
+  "version": "1.0.0",
+  "type": "squirrel-lang",
+  "scripts": [
+    "main.nut"
+  ],
+  "tiles": [
+    "tile.gbltiles",
+    "tile2.gbltiles"
+  ]
+}
