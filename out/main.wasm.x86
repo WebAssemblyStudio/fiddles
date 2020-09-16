@@ -1,0 +1,28 @@
+wasm-function[0]:
+ 0x000000:                              ; 0x000000 from: [0x000014]
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  roundsd xmm1, xmm0, 3                 ; 0x000004 66 0f 3a 0b c8 03
+  ucomisd xmm1, xmm0                    ; 0x00000a 66 0f 2e c8
+  sete al                               ; 0x00000e 0f 94 c0
+  movzx eax, al                         ; 0x000011 0f b6 c0
+  jnp 0x1c                              ; 0x000014 0f 8b 02 00 00 00
+ 0x00001a:                              
+  xor eax, eax                          ; 0x00001a 33 c0
+  nop                                   ; 0x00001c 66 90
+  add rsp, 8                            ; 0x00001e 48 83 c4 08
+  ret                                   ; 0x000022 c3
+
+wasm-function[1]:
+ 0x000000:                              ; 0x000000 from: [0x000014]
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  roundsd xmm1, xmm0, 3                 ; 0x000004 66 0f 3a 0b c8 03
+  ucomisd xmm0, xmm1                    ; 0x00000a 66 0f 2e c1
+  sete al                               ; 0x00000e 0f 94 c0
+  movzx eax, al                         ; 0x000011 0f b6 c0
+  jnp 0x1c                              ; 0x000014 0f 8b 02 00 00 00
+ 0x00001a:                              
+  xor eax, eax                          ; 0x00001a 33 c0
+  nop                                   ; 0x00001c 66 90
+  add rsp, 8                            ; 0x00001e 48 83 c4 08
+  ret                                   ; 0x000022 c3
+
