@@ -1,0 +1,42 @@
+wasm-function[0]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  cmp edi, edx                          ; 0x000004 3b fa
+  setl bl                               ; 0x000006 0f 9c c3
+  movzx ebx, bl                         ; 0x000009 0f b6 db
+  cmp edi, esi                          ; 0x00000c 3b fe
+  setl cl                               ; 0x00000e 0f 9c c1
+  movzx ecx, cl                         ; 0x000011 0f b6 c9
+  mov eax, 1                            ; 0x000014 b8 01 00 00 00
+  test ecx, ecx                         ; 0x000019 85 c9
+  cmove eax, ebx                        ; 0x00001b 0f 44 c3
+  nop                                   ; 0x00001e 66 90
+  add rsp, 8                            ; 0x000020 48 83 c4 08
+  ret                                   ; 0x000024 c3
+
+wasm-function[1]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  cmp edi, esi                          ; 0x000004 3b fe
+  setl al                               ; 0x000006 0f 9c c0
+  movzx eax, al                         ; 0x000009 0f b6 c0
+  cmp edi, edx                          ; 0x00000c 3b fa
+  setl cl                               ; 0x00000e 0f 9c c1
+  movzx ecx, cl                         ; 0x000011 0f b6 c9
+  or eax, ecx                           ; 0x000014 0b c1
+  nop                                   ; 0x000016 66 90
+  add rsp, 8                            ; 0x000018 48 83 c4 08
+  ret                                   ; 0x00001c c3
+
+wasm-function[2]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  cmp esi, edx                          ; 0x000004 3b f2
+  setl al                               ; 0x000006 0f 9c c0
+  movzx eax, al                         ; 0x000009 0f b6 c0
+  test eax, eax                         ; 0x00000c 85 c0
+  cmove esi, edx                        ; 0x00000e 0f 44 f2
+  cmp edi, esi                          ; 0x000011 3b fe
+  setl al                               ; 0x000013 0f 9c c0
+  movzx eax, al                         ; 0x000016 0f b6 c0
+  nop                                   ; 0x000019 66 90
+  add rsp, 8                            ; 0x00001b 48 83 c4 08
+  ret                                   ; 0x00001f c3
+
