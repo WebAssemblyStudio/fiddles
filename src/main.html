@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: rgb(255, 255, 255);
+    }
+  </style>
+</head>
+<body>
+  <script src="./main.js"></script>
+  <h2>Baskhara em Webassembly!</h2>
+  <p></p>
+  <h4>Para saber as raízes de uma função ax²+bx+c, digite:</h4>
+
+  <form method="GET">
+    Valor de a
+    <input type="string" id="va"/>
+    <p></p>
+    Valor de b
+    <input type="string" id="vb"/>
+    <p></p>
+    Valor de c
+    <input type="string" id="vc"/>
+  </form>
+  <p></p>
+  <button id="btn" onclick="calcula();">Calcular raízes</button>
+  <p></p>
+
+  X' =
+  <span id="container"></span>
+  <p></p>
+
+  X'' =
+  <span id="container2"></span>
+  <h5>Obs.: Se delta for negativo vai aparecer NaN, raizes complexas serão adicionadas em breve.</h5>
+</body>
+</html>
