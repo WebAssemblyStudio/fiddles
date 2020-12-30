@@ -1,0 +1,15 @@
+(module
+ (func $console::log (import "env" "print")
+  (param $message.length i32)
+  (param $message.bytes i32)
+ )
+ (func $main (export "main")
+  (call $console::log
+   (i32.const 13)
+   (i32.const 0)
+  )
+ )
+ (memory 1)
+ (data (i32.const 0) "Hello, world!")
+ (export "memory" (memory 0))
+)
