@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: rgb(255, 255, 255);
+    }
+  </style>
+</head>
+<body>
+  	Welcome! 
+  	Please set the configuration of the board before starting the simulation.
+  	<form id="input_form" name="input_form">
+			<input type="number" id="inmune" name="inmune" min="0" max="98" value="0" size="2">
+			<label for="inmune"><b>Vaccinated</b> individuals (between 0 and 98)</label><br>
+			<input type="checkbox" id="concert_hall" name="concert_hall" checked>
+			<label for="concert_hall"><b>Concert Hall</b> (5x4)</label><br>
+			<input type="checkbox" id="bakery" name="bakery" checked>
+			<label for="bakery"><b>Bakery</b> (2x2)</label><br>
+			<input type="checkbox" id="school" name="school" checked>
+			<label for="school"><b>School</b> (4x4)</label><br>
+			<input type="checkbox" id="pharmacy" name="pharmacy" checked>
+			<label for="pharmacy"><b>Pharmacy</b> (2x2)</label><br>
+			<input type="checkbox" id="restaurant" name="restaurant" checked>
+			<label for="restaurant"><b>Restaurant</b> (4x3)</label><br>
+			<input type="checkbox" id="gym" name="gym" checked>
+			<label for="gym"><b>Gym</b> (4x2)</label><br>
+			<input type="checkbox" id="supermarket" name="supermarket" checked>
+			<label for="supermarket"><b>Supermarket</b> (2x2)</label><br>
+			<input type="checkbox" id="shopping_center" name="shopping_center" checked>
+			<label for="shopping_center"><b>Shopping center</b> (4x2)</label><br>
+		</form>
+
+		<button type="submit" id="simulation" name="simulation" onclick="simulation()">
+			Simulate!
+		</button>
+		<button type="submit" id="simulations_1000" name="simulations_1000" onclick="simulations_1000()">
+			Make 1000 simulations!
+		</button>
+		<button type="submit" id="getInputs" name="getInputs" onclick="getInputs()">
+			Print inputs!
+		</button>
+
+		<div>
+			<output id="simulation_result" name="simulation_result" for="simulation" form="input_form"></output>
+			<br>
+			<output id="simulations_1000_result" name="simulations_1000_result" for="simulations_1000" form="input_form"></output>
+		</div>
+
+  <span id="container"></span>
+  <script src="../out/main.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
