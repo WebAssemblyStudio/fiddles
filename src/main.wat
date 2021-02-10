@@ -1,0 +1,13 @@
+(module
+  (func $add_f32 (result f32)
+    f32.const 0.1
+    f32.const 0.2
+    f32.add)
+  (export "add_f32" (func $add_f32))
+
+  (func $add_f64 (result f64)
+    f64.const 0.1
+    f64.const 0.2
+    f64.add)
+  (export "add_f64" (func $add_f64))
+)
