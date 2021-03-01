@@ -1,0 +1,7 @@
+wasm-function[0]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  mov eax, 0x2a                         ; 0x000004 b8 2a 00 00 00
+  nop                                   ; 0x000009 66 90
+  add rsp, 8                            ; 0x00000b 48 83 c4 08
+  ret                                   ; 0x00000f c3
+
