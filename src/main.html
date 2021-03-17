@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <style>
+    body {
+        background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <span id="container">
+    <img id = "srcImg" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg" alt="IMG">
+  </span>
+  <script src="./main.js">
+  
+  const srcImg =  document.getElementById('srcImg');
+srcImg.onload = () => {
+  // onload时将图片画到canvas上，以获得像素数据
+  const { clientWidth = 0, clientHeight = 0 } = srcImg;
+
+  var canvas = document.getElementById("drawerCanvas");
+  canvas.width = clientWidth;
+  canvas.height = clientHeight;
+  var ctx = canvas.getContext("2d");
+  ctx.drawImage(srcImg, 0, 0, clientWidth, clientHeight);
+
+  // 获得像素数据
+  const imageData = ctx.getImageData(0, 0, clientWidth, clientHeight);
+
+  // 处理数据
+  const resImageData = wasmProcess(imageData, clientWidth, clientHeight);
+
+  // 将处理后的图片数据画到canvas上
+  ctx.putImageData(resImageData, 0, 0);
+}
+// 将js的typedarray复制到wasm的内存
+function copyToHeap(typedArray) {
+  const numBytes = typedArray.byteLength;
+  const ptr = Module._malloc(numBytes);
+  const heapBytes = new Uint8Array(Module.HEAPU8.buffer, ptr, numBytes);
+  heapBytes.set(new Uint8Array(typedArray.buffer));
+  return heapBytes;
+}
+// 释放一块wasm内存
+function freeHeap(heapBytes) {
+  Module._free(heapBytes.byteOffset);
+}
+// 图片处理的函数
+function wasmProcess(imgData, width, height) {
+  const heapBytes = copyToHeap(imgData.data);
+  // 调用c++暴露的方法。其中heapBytes.byteoffset传递的是wasm内存中数组的指针
+  Module.ccall(
+    'easyBlur',
+    'number',
+    ['number', 'number', 'number', 'number', 'number'],
+    [heapBytes.byteOffset, width, height, 3, 3]
+  );
+  // 从wasm内存读取出处理后的数据
+  const newData = new Uint8ClampedArray(heapBytes);
+  // 释放wasm内存
+  freeHeap(heapBytes);
+  const newImageData = new ImageData(newData, width, height);
+  return newImageData;
+}
+
+  </script>
+</body>
+</html>
