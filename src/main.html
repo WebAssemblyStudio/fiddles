@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <style>
+    body {
+        background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <span id="container"></span>
+  <script src="./main.js"></script>
+
+  <div class="upload_box">
+    <b>Image Processing Test</b>
+    <button name="file" id="file" accept="image/*" οnchange="imgChange(this);"/> 
+    <div id="preview">
+        <img id="imghead" src=""/> 
+    </div>
+</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    function imgChange(obj) {
+        var xhr = new XMLHttpRequest();
+        xhr.open( "GET", "http://www.windsim.com/images/sky/sky_103.bmp", true );
+
+        // Ask for the result as an ArrayBuffer.
+        xhr.responseType = "arraybuffer";
+        xhr.onload = function( e ) {
+            // Obtain a blob: URL for the image data.
+            var arrayBufferView = new Uint8Array( this.response );
+            var blob = new Blob( [ arrayBufferView ], { type: "image/jpeg" } );
+            var urlCreator = window.URL || window.webkitURL;
+            var imageUrl = urlCreator.createObjectURL( blob );
+            var img = document.querySelector( "#photo" );
+            img.src = imageUrl;
+        };
+
+        xhr.send();
+    };
+</script>
