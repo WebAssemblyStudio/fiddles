@@ -1,0 +1,36 @@
+digraph call {
+  rankdir = LR;
+  subgraph cluster_key {
+    node [shape=box, fontname=courier, fontsize=10];
+    edge [fontname=courier, fontsize=10];
+    label = "Key";
+    "Import" [style="filled", fillcolor="turquoise"];
+    "Export" [style="filled", fillcolor="gray"];
+    "Indirect Target" [style="filled, rounded", fillcolor="white"];
+    "A" -> "B" [style="filled, rounded", label = "Direct Call"];
+  }
+
+  node [shape=box, fontname=courier, fontsize=10];
+  "$0" [style="filled", fillcolor="white"];
+  "$1" [style="filled", fillcolor="white"];
+  "$2" [style="filled", fillcolor="white"];
+  "$3" [style="filled", fillcolor="white"];
+  "$4" [style="filled", fillcolor="white"];
+  "$5" [style="filled", fillcolor="white"];
+  "$6" [style="filled", fillcolor="white"];
+  "$7" [style="filled", fillcolor="white"];
+  "$8" [style="filled", fillcolor="white"];
+  "$9" [style="filled", fillcolor="white"];
+  "$fimport$0" [style="filled", fillcolor="turquoise"];
+  "$8" [style="filled", fillcolor="gray"];
+  "$9" [style="filled", fillcolor="gray"];
+  "$8" -> "$7"; // call
+  "$9" -> "$fimport$0"; // callImport
+  "$0" [style="filled, rounded"];
+  "$1" [style="filled, rounded"];
+  "$2" [style="filled, rounded"];
+  "$3" [style="filled, rounded"];
+  "$4" [style="filled, rounded"];
+  "$5" [style="filled, rounded"];
+  "$6" [style="filled, rounded"];
+}
