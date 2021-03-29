@@ -1,0 +1,6 @@
+{
+ "fileName": "main",
+ "exportFunctions": "transfer,mint,burn,get_total_supply,get_balance",
+ "runCommand": "mint LBN53LF3KCKA4JIBYW6SU3VG4JTFAZBNKCJ4PLPNBWHNFDVB4WTCFBIZ 10000000",
+ "caller": "LBN53LF3KCKA4JIBYW6SU3VG4JTFAZBNKCJ4PLPNBWHNFDVB4WTCFBIZ"
+}
