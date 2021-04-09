@@ -1,0 +1,22 @@
+{
+  "name": "empty-sample",
+  "description": "Simple storage",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "gulp --gulpfile ./build.ts",
+    "deploy": "gulp deploy --gulpfile ./build.ts"
+  },
+  "devDependencies": {
+    "@wasm/studio-utils": "*",
+    "gulp": "~3.9.1",
+    "ts-node": "~5.0.0",
+    "typescript": "~2.7.2",
+    "@glitchdefi/sunseed": "0.0.1",
+    "@glitchdefi/web3": "~0.0.1"
+  },
+  "wasmStudio": {
+    "name": "Empty JavaScript Smart Contract",
+    "description": "# Empty JavaScript Smart Contract\n\nThis is an empty JavaScript smart contract for [PolkaFoundry platform](https://icetea.io).",
+    "icon": "javascript-lang-file-icon"
+  }
+}
