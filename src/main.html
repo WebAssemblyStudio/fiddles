@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="background: lightgrey">
+  <script src="./main.js"></script>
+  <h1 style = "text-align: center;">JS vs WASM</h1>
+  <div style = "padding: 10px"></div>
+    <div class="card" style="width: 100%; padding: 10px">
+      <h5 style = "text-align: center;">Fibonacci</h5>
+      <form id='formFibonacci'>
+        <div class="form-group">
+          <input type="number" class="form-control" id="fieldFibonacci" placeholder = "Ingresar numero">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <br>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Javascript</th>
+            <th scope="col">WebAssembly</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Tiempo</th>
+            <td id="fibJStime">-</td>
+            <td id="fibWASMtime">-</td>
+          </tr>
+          <tr>
+            <th scope="row">Resultado</th>
+            <td id="fibJSres">-</td>
+            <td id="fibWASMres">-</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <div class="card" style="width: 100%; padding: 10px">
+    <h5 style = "text-align: center;">Numeros Primos</h5>
+    <form id='formPrimes'>
+      <div class="form-group">
+        <input type="number" class="form-control" id="fieldPrimes" placeholder = "Ingresar numero">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Javascript</th>
+          <th scope="col">WebAssembly</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Tiempo</th>
+          <td id="primeJStime">-</td>
+          <td id="primeWASMtime">-</td>
+        </tr>
+        <tr>
+        <tr>
+          <th scope="row">Resultado</th>
+          <td id="primeJS">-</td>
+          <td id="primeWASM">-</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
