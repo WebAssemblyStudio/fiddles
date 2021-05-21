@@ -1,0 +1,3 @@
+(module
+  (import "test" "exampleFunc")
+)
