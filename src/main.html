@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+</head>
+<body bgcolor="white">
+  
+  <form>
+    <label>enter username</label>
+    <input type="text" id="uname">
+    <br>
+    <label>enter password</label>
+    <input type="text" id="pass">
+    <br>
+        <input type="submit" value="Submit" onsubmit="checkStatus()">
+
+    <br>
+    <div id="result"></div>
+        <div id="result1"></div>
+
+  
+
+  <script src="./main.js"></script>
+  <script>
+    function checkStatus(){
+    
+  const codePromise=fetch('../out/main.wasm')
+  const { instance }=await WebAssembly.instantiateStreaming(codePromise)
+  const buffer=new Uint8Array(instance.exports.memory.buffer)
+  const pointer=instance.exports.helloWorld()
+  let string =""
+  for(let i=pointer;buffer[i];i++){
+    string+=String.fromCharCode(buffer[i])
+
+  }
+    var u=  document.getElementById("uname").value;
+    var p=  document.getElementById("pass").value;
+
+    var userName=instance.exports.checkUserName(u)
+    var pass=instance.exports.checkPassword(p)
+    windows.alert(userName+pass)
+    if(userName==1 && pass==1)
+    {
+      let string="success";
+      document.getElementById("result1").textContent =string
+
+
+    }
+    else{
+      let string="fail"
+        document.getElementById("result1").textContent =string
+
+    }
+     
+
+
+      }
+
+
+
+
+
+
+    }
+</body>
+</html>
