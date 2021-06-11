@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="./reasoner.js" type="module"></script>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: rgb(255, 255, 255);
+    }
+    .container {
+      border: 1px solid #000000;
+    }
+  </style>
+</head>
+<body>
+  <h1>Reasoner Operations</h1>
+
+  <h2>Add</h2>
+    <p>Facts to add: 
+      <textarea id="addSource"></textarea>
+      <select id="addType">
+        <option selected value="TURTLE">Turtle</option>
+        <option selected value="NTRIPLES">NTriples</option>
+        <option selected value="NQUADS">NQuads</option>
+        <option selected value="TRIG">TriG</option>
+      </select>
+      <button id="addButton">add</button>
+    </p>
+
+  <h2>Delete</h2>
+    <p>Facts to delete: 
+      <textarea id="deleteSource"></textarea>
+      <select id="deleteType">
+        <option selected value="TURTLE">Turtle</option>
+        <option selected value="NTRIPLES">NTriples</option>
+        <option selected value="NQUADS">NQuads</option>
+        <option selected value="TRIG">TriG</option>
+      </select>
+      <button id="deleteButton">delete</button>
+    </p>
+
+  <h2>Has</h2>
+    <p>Fact to compare: 
+      <input id="hasSource">
+      <select id="hasType">
+        <option selected value="TURTLE">Turtle</option>
+        <option selected value="NTRIPLES">NTriples</option>
+        <option selected value="NQUADS">NQuads</option>
+        <option selected value="TRIG">TriG</option>
+      </select>
+      <button id="hasButton">add</button>
+    </p>
+
+  <h2>Match</h2>
+    <p>Facts to match: 
+      <input id="matchSource">
+      <select id="matchType">
+        <option selected value="TURTLE">Turtle</option>
+        <option selected value="NTRIPLES">NTriples</option>
+        <option selected value="NQUADS">NQuads</option>
+        <option selected value="TRIG">TriG</option>
+      </select>
+      <button id="matchButton">add</button>
+    </p>
+
+  <hr>
+  <p><strong>Result:</strong></p>
+  <div class="container" id="container"></div>
+</body>
+</html>
