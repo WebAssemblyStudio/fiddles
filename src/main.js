@@ -1,0 +1,36 @@
+fetch('../out/main.wasm').then(response =>
+  response.arrayBuffer()
+).then(bytes => WebAssembly.instantiate(bytes)).then(results => {
+  instance = results.instance;
+  
+  let width = instance.exports.getScreenWidth();
+  let height = instance.exports.getScreenHeight();
+
+  let data = new ImageData(
+    new Uint8ClampedArray(
+      instance.exports.memory.buffer,
+      instance.exports.SCREEN_BUFFER.value,
+      4 * width * height
+    ),
+    height
+  );
+
+  let cvs = document.getElementById("cvs");
+  cvs.width = width;
+  cvs.height = height;
+  let ctx = cvs.getContext("2d");
+
+  document.addEventListener("mousemove", e => {
+    instance.exports.onmousemove(e.clientX, e.clientY);
+  });
+
+  (function update(){
+
+    instance.exports.update();
+
+    ctx.putImageData(data, 0, 0);
+
+    requestAnimationFrame(update);
+  })();
+
+}).catch(console.error);
