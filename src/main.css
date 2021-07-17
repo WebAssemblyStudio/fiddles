@@ -1,0 +1,39 @@
+
+:root {
+  --fit-content: fit-content;
+}
+
+@supports (width: -moz-fit-content) {
+  :root {
+    --fit-content: -moz-fit-content;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  color: #fff;
+}
+
+a {
+  color: #06f;
+}
+
+html, body {
+  background: #111;
+  margin: 0;
+  padding: 0;
+
+  min-width: 100%;
+  width: var(--fit-content);
+  min-height: 100vh;
+  height: var(--fit-content);
+}
+
+
+#container {
+  color: #0f0;
+}
+
+#result {
+  color: #f2b506;
+}
