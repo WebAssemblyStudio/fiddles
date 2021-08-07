@@ -1,0 +1,136 @@
+<html>
+    <head>
+        <script>
+         // Check for wasm support.
+         if (!('WebAssembly' in window)) {
+             alert('you need a browser with wasm support enabled :(');
+         }
+ 
+         // Loads a WebAssembly dynamic library, returns a promise.
+         // imports is an optional imports object
+ 
+         let memory = null;
+         let global = null;
+         function loadWebAssembly(filename, imports) {
+             // Fetch the file and compile it
+             return fetch(filename)
+         .then(response => response.arrayBuffer())
+         .then(buffer => WebAssembly.compile(buffer))
+         .then(module => {
+             // Create the imports for the module, including the
+             // standard dynamic library imports
+             imports = imports || {};
+             imports.env = imports.env || {};
+             global = new WebAssembly.Global({value:'i32', mutable:true}, 0);
+             imports.env.global = global;
+             imports.env.print = console.log;
+             imports.env.__memory_base = imports.env.__memory_base || 0;
+             imports.env.__table_base = imports.env.__table_base || 0;
+             if (!imports.env.memory) {
+                 imports.env.memory = new WebAssembly.Memory({ initial: 100 });
+             }
+             memory = imports.env.memory;
+             if (!imports.env.table) {
+                 imports.env.table = new WebAssembly.Table({ initial: 0, element: 'anyfunc' });
+             }
+             console.log('XXXXXX imports', imports);
+             // Create the instance.
+             return new WebAssembly.Instance(module, imports);
+         });
+         }
+ 
+         function mandelbrotJS(pixels, w, h, magnify, offsetX, offsetY)
+         {
+             let x,xx,y,cx,cy;
+             let iteration,hx,hy;
+             let itermax = 100;		/* how many iterations to do	*/
+             let hxres = w;		/* horizonal resolution		*/
+             let hyres = h;		/* vertical resolution		*/
+ 
+             for (hy=0;hy<=hyres;hy++)  {
+                 for (hx=0;hx<=hxres;hx++)  {
+                     cx = ((hx*1.0)/(hxres*1.0)-0.5)/magnify*3.0+offsetX;
+                     cy = ((hy*1.0)/(hyres*1.0)-0.5)/magnify*3.0-offsetY;
+                     x = 0.0; y = 0.0;
+                     for (iteration=1;iteration<itermax;iteration++)  {
+                         xx = x*x-y*y+cx;
+                         y = 2.0*x*y+cy;
+                         x = xx;
+                         if (x*x+y*y>100.0)  iteration = 999999;
+                     }
+                     let n = (hy * hxres) + hx;
+                     if (iteration < 10000) {
+                         pixels[n * 4] = 255;
+                         pixels[(n * 4) + 1] = 0xff;
+                         pixels[(n * 4) + 2] = 0;
+                         pixels[(n * 4) + 3] = 0;
+                     } else { 
+                         pixels[n * 4] = 0;
+                         pixels[(n * 4) + 1] = 0;
+                         pixels[(n * 4) + 2] = 0;
+                         pixels[(n * 4) + 3] = 255;
+                     }
+                 }
+             }
+ 
+             return pixels;
+         }
+ 
+ 
+         // Main part of this example, loads the module and uses it.
+         loadWebAssembly('../out/main.wasm')
+         .then(instance => {
+             var exports = instance.exports; // the exports of that instance
+             memory = exports.memory;
+             memory.grow(100);
+             // now we are ready, set up the button so the user can run the code
+             const width = 300;
+             const height = 300;
+             let zoom = 1.0;
+             const heap = new Uint8Array(memory.buffer);
+             let arr = new Uint8ClampedArray(memory.buffer, 0, width * height * 4);
+             const canvas = document.getElementById('canvas');
+             const ctx = canvas.getContext('2d');
+             let imageData = new ImageData(arr, width);
+             var mandelbrot = exports.mandelbrot;
+             var button = document.getElementById('run');
+             button.value = 'Run C';
+             button.addEventListener('click', function() {
+                 setInterval(function () {
+                     console.log('TICK!');
+                     let t = performance.now();
+                     mandelbrot(0, width, height, zoom, -0.7465, 0.105025);
+                     console.info('time', performance.now() - t, zoom);
+                     ctx.putImageData(imageData, 0, 0);
+                     zoom = zoom * 1.1;
+                     if (zoom > 10000) {
+                         zoom = 1.0;
+                     }
+                 }, 0);
+             }, false);
+             var button2 = document.getElementById('run2');
+             button2.value = 'Run JavaScript';
+             button2.addEventListener('click', function() {
+                 setInterval(function () {
+                     console.log('TICK!');
+                     let t = performance.now();
+                     mandelbrotJS(arr, width, height, zoom, -0.7465, 0.105025);
+                     console.info('time', performance.now() - t);
+                     ctx.putImageData(imageData, 0, 0);
+                     zoom = zoom * 1.1;
+                     if (zoom > 10000) {
+                         zoom = 1.0;
+                     }
+                 }, 50);
+             }, false);
+         }
+         );
+        </script>
+    </head>
+    <body>
+        <input type="button" id="run" value="(waiting for WebAssembly)"/>
+        <input type="button" id="run2" value="(waiting for WebAssembly)"/>
+        <br/>
+        <canvas id="canvas" width="600" height="600"></canvas>
+    </body>
+</html>
