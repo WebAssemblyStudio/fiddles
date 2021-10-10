@@ -1,0 +1,20 @@
+wasm-function[0]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  mov eax, 3                            ; 0x000004 b8 03 00 00 00
+  mov ecx, 2                            ; 0x000009 b9 02 00 00 00
+  test edi, edi                         ; 0x00000e 85 ff
+  cmove eax, ecx                        ; 0x000010 0f 44 c1
+  nop                                   ; 0x000013 66 90
+  add rsp, 8                            ; 0x000015 48 83 c4 08
+  ret                                   ; 0x000019 c3
+
+wasm-function[1]:
+  sub rsp, 8                            ; 0x000000 48 83 ec 08
+  test edi, edi                         ; 0x000004 85 ff
+  setne al                              ; 0x000006 0f 95 c0
+  movzx eax, al                         ; 0x000009 0f b6 c0
+  add eax, 2                            ; 0x00000c 83 c0 02
+  nop                                   ; 0x00000f 66 90
+  add rsp, 8                            ; 0x000011 48 83 c4 08
+  ret                                   ; 0x000015 c3
+
