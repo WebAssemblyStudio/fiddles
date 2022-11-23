@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+.img-container {
+        text-align: center;
+      }
+#hero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 30vh;
+    background-image: linear-gradient(
+        0deg,
+        rgba(210, 206, 124, 0.5),
+        rgba(126, 116, 203, 0.5)
+    )
+}
+#hero h1{
+    color: rgb(20, 17, 17);
+}
+
+#david .container{
+    text-align: left;
+    padding: 100px 12px;
+}
+#david{
+    background-color: rgba(255, 255, 255);
+    color: rgb(20, 8, 8);
+    text-align: center;
+}
+#mis-programas{
+    background-color: rgba(97, 93, 123, 0.448);
+    color: rgb(20, 8, 8);
+    text-align: center;
+}
+
+#calendario{
+    background-color: rgba(255, 255, 255);
+    color: rgb(20, 8, 8);
+    text-align: center:
+}
+#mis-programas .container{
+    padding: 150px 12px;
+}
+
+#mis-programas h2{
+    margin-top: 0;
+    font-size: 3.2em;
+}
+#calendario h2{
+    margin-top: 0;
+    font-size: 2.5em;
+}
+#calendario .container{
+    text-align: center;
+    padding: 50px 12px;
+}
+
+#calendario li{
+    margin: 16px 0px;
+    font-weight: bold;
+}
+
+
+@media (min-width: 850px){
+    
+    #hero h1{
+        font-size: 3em;
+    }
+
+    #david .container{
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    #david .texto{
+        width: 50%;
+        max-width: 600px;
+        text-align: initial;
+        padding-left: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #david h2{
+        margin-top: 0px;
+    }
+
+    #mis-programas p{
+        display: block;
+        margin-bottom: 30px;
+    }
+
+    #mis-programas h2{
+        font-size: 2em;
+    }
+
+    #calendario .container{
+        text-align: initial;
+    }
+
+    </style>
+</head>
+<body>
+    <section id="hero">
+        <h1>Comunicaciones Avanzadas <br>WebAssembly</h1>
+        
+    </section>
+
+    <section id="david">
+        <div class="container">
+            <div class="texto">
+                <h2> Video de la Selección de Ecuador. </h2>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/RYHeaqviGUw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p>En el video se puede observar una introducción acerca de la selección de Ecuador y su 
+                    rumbo a Catar 2022, el proceso para conseguir su cupo en el mundial y sus jugadores.
+                </p>
+        </div>
+    </section>
+
+    <section id="mis-programas">
+        <div class="container">
+            <h2> Federación Ecuatoriana de fútbol</h2>
+                <div class="img-container">
+                <img src="https://n9.cl/1vz0d" width="250" height="250">
+            </div>
+                <p>La Federación Ecuatoriana de Fútbol (FEF), más conocida por su acrónimo Ecuafútbol, es el organismo rector del fútbol 
+                    en el Ecuador. Inició sus acciones el 30 de mayo de 1925 con «Federación Deportiva Nacional del Ecuador», hasta su 
+                    creación el 1967 como «Asociación Ecuatoriana de Fútbol», y finalmente desde 1978 adoptó su nombre actual Federación
+                    Ecuatoriana de Fútbol. Está afiliada a la Federación Internacional de Fútbol Asociación (FIFA) y la Confederación 
+                    Sudamericana de Fútbol (CONMEBOL), máximos organismos del fútbol a nivel mundial y sudamericano respectivamente, y 
+                    al Comité Olímpico Ecuatoriano (COE), en calidad de federación con deporte olímpico.
+
+                    Es la institución responsable de organizar y regular las distintas selecciones nacionales, y los campeonatos 
+                    oficiales masculinos y femeninos en todas las modalidades, incluidas las ramas de futsal y juveniles, del deporte
+                     en ese país.
+                    
+                     El presidente representa legalmente a la Federación Ecuatoriana de Fútbol. Tiene como atribuciones: ejecutar las 
+                     decisiones de la Asamblea y del Comité Ejecutivo, velar por el funcionamiento de los órganos internos, supervisar 
+                     las relaciones con los miembros, la FIFA y la Conmebol, presidir la Asamblea y el Comité Ejecutivo, y hacer acuerdos. Para ser presidente debe ser ecuatoriano, residir en territorio nacional y haber sido presidente de un club. En caso de vacante, lo reemplaza el vicepresidente.
+                    </p>
+                
+        </div>
+    </section>
+
+    <section id="calendario">
+        <div class="container">
+            <div class="img-container">
+                <h2>Alineación</h2>
+            <img src="https://n9.cl/erlc0" width="750" height="750">
+            <ul>
+                <h3>Referencias:</h3>
+                <p> <A HREF="https://n9.cl/0lipe">✔️ Jugadores</A> </p>
+               <p> <A HREF="https://n9.cl/8wcr5">✔️ Tabla de posiciones </A> </p> 
+            </ul>
+        </div>
+        </div>
+        </section>  
+        
+</body>
+</html>
